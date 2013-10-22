@@ -1,0 +1,234 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Archipelago Specification - Feature Requirements and Data Sources</title>
+	
+	<meta name="description" content="This document will detail requirements for all Archipelago features, data requirements, and data sources. It will contain all known documentation for data sources as well.">
+	<meta name="author" content="Alison Conard">
+	<meta name="copyright" content="Alison Conard">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2013-10-22T00:00:00+02:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	<link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" media="screen">
+	<script src="assets/js/google-code-prettify/prettify.js"></script>
+
+	
+	http://envato.com/wp-content/themes/envato/images/favicon.ico
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#EEEEEE;color:#383838;}
+		::-moz-selection{background:#333636;color:#00DFFC;}
+		::selection{background:#333636;color:#00DFFC;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/image_1.png);}
+		a{color:#008C9E;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #008C9E, #006673);
+			  background-image: -ms-linear-gradient(top, #008C9E, #006673);
+			  background-image: -webkit-gradient(linear, 0 0, 0 008C9E%, from(#343838), to(#006673));
+			  background-image: -webkit-linear-gradient(top, #008C9E, #006673);
+			  background-image: -o-linear-gradient(top, #008C9E, #006673);
+			  background-image: linear-gradient(top, #008C9E, #006673);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008C9E', endColorstr='#006673', GradientType=0);
+			  border-color: #006673 #006673 #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #008C9E #008C9E #bfbfbf;
+		  background-color: #006673;
+		}
+		hr{border-top:1px solid #D4D4D4;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#343838;color:#FFFFFF;}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #494F4F;-moz-text-shadow:1px 1px 0px #494F4F;text-shadow:1px 1px 0px #494F4F;}
+		#documenter_sidebar ul{border-top:1px solid #212424;}
+		#documenter_sidebar ul a{border-top:1px solid #494F4F;border-bottom:1px solid #212424;color:#FFFFFF;}
+		#documenter_sidebar ul a:hover{background:#333636;color:#00DFFC;border-top:1px solid #333636;}
+		#documenter_sidebar ul a.current{background:#333636;color:#00DFFC;border-top:1px solid #333636;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-archipelago-specification">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#data_sources" title="Data Sources">Data Sources</a>
+				<ul>
+					<li><a href="#data_sources_entities">Entities</a>
+					<li><a href="#data_sources_audience">Audience</a>
+					<li><a href="#data_sources_demographic_amp_consumer_behavior">Demographic &amp; Consumer Behavior</a>
+					<li><a href="#data_sources_funding">Funding</a>
+				</ul>
+			</li>
+			<li><a href="#features" title="Features">Features</a></li>
+			<li><a href="#javascript" title="JavaScript">JavaScript</a></li>
+			<li><a href="#psd_files" title="PSD Files">PSD Files</a></li>
+			<li><a href="#sources_and_credits" title="Sources and Credits">Sources and Credits</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright Alison Conard 2013<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>Archipelago Specification</h1>
+	<h2>Feature Requirements and Data Sources</h2>
+	<div id="documenter_buttons">
+		<a href="#" class="btn btn-primary btn-large">Primary Button</a> <a href="#" class="btn btn-large">Secondary Button</a> 
+	</div>
+	<hr>
+	<ul>
+	<li>created: 10/22/2013</li>
+	<li>latest update: 10/22/2013</li>
+	<li>by: Alison Conard</li>
+	<li><a href=""></a></li>
+	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
+	</ul>
+	<p></p>
+	</section>
+	
+	<section id="data_sources">
+	<div class="page-header"><h3>Data Sources</h3><hr class="notop"></div>
+<h4 id="data_sources_entities">Entities</h4>
+<ul>
+	<li>
+		Non-profit organizations</li>
+	<li>
+		For-profit organizations</li>
+	<li>
+		Individual artists</li>
+	<li>
+		Unincorporated entities</li>
+	<li>
+		Government - state and local arts agencies</li>
+	<li>
+		Government - national</li>
+</ul>
+<h4 id="data_sources_audience">Audience</h4>
+<ul>
+	<li>
+		Audience lists from local arts organizations</li>
+	<li>
+		Survey for Public Participation in the Arts</li>
+	<li>
+		Cultural Data Project</li>
+</ul>
+<h4 id="data_sources_demographic_amp_consumer_behavior">Demographic &amp; Consumer Behavior</h4>
+<ul>
+	<li>
+		U.S. Census (2000 &amp; 2010) - PolicyMap API</li>
+	<li>
+		Consumer behavior - Scarborough</li>
+</ul>
+<h4 id="data_sources_funding">Funding</h4>
+<ul>
+	<li>
+		Private grants - Foundation Center API</li>
+	<li>
+		Federal arts grants - NEA</li>
+	<li>
+		State arts grants - NASAA</li>
+	<li>
+		Unincorporated/individual - Kickstarter</li>
+	<li>
+		Individual donors</li>
+</ul>
+</section>
+<section id="features">
+	<div class="page-header"><h3>Features</h3><hr class="notop"></div>
+<p>	I&#39;m using two CSS files in this theme. The first one is a generic reset file. Many browser interpret the default behavior of html elements differently. By using a general reset CSS file, we can work round this. This file also contains some general styling, such as anchor tag colors, font-sizes, etc. Keep in mind, that these values might be overridden somewhere else in the file.</p>
+<p>	The second file contains all of the specific stylings for the page. The file is separated into sections using:</p>
+<pre class="prettyprint lang-css linenums">
+/* === Header Section === */
+some code
+/* === Main Section === */
+some code
+/* === Sidebar Section === */
+some code
+/* === Footer === */
+some codeetc, etc.
+</pre>
+<p>	If you would like to edit a specific section of the site, simply find the appropriate label in the CSS file, and then scroll down until you find the appropriate style that needs to be edited.</p>
+<p>	Any images that are placed within the blog section have 5px worth of padding and a light bluish background. If you would like to edit the display of these images, find the following section in the style sheet:</p>
+<pre class="prettyprint lang-css linenums">
+#primaryContent #blog img {
+   change styles here:
+}
+</pre>
+<p>	&nbsp;</p>
+</section>
+<section id="javascript">
+	<div class="page-header"><h3>JavaScript</h3><hr class="notop"></div>
+<p>	This theme imports three Javascript files.</p>
+<ol>
+	<li>		jQuery</li>
+	<li>		My custom scripts</li>
+	<li>		Some plugin</li>
+</ol>
+<ol>
+	<li>		jQuery is a Javascript library that greatly reduces the amount of code that you must write.</li>
+	<li>		Most of the animation in this site is carried out from the customs scripts. There are a few functions worth looking over.
+		<pre class="prettyprint lang-js linenums">
+[some Javascript goes here...along with an general explanation]
+[some Javascript goes here...along with an general explanation]
+[some Javascript goes here...along with an general explanation]
+</pre>
+	</li>
+	<li>		In addition to the custom scripts, I implement a few &quot;tried and true&quot; plugins to create the effects. This plugin is packed, so you won&#39;t need to manually edit anything in the file. The only necessary thing to know is how to call the method. For example:
+		<pre class="prettyprint lang-js linenums">
+[some Javascript goes here...along with an general explanation]
+</pre>
+	</li>
+</ol>
+<p>	&nbsp;</p>
+</section>
+<section id="psd_files">
+	<div class="page-header"><h3>PSD Files</h3><hr class="notop"></div>
+<p>	I&#39;ve included three psds with this theme:</p>
+<ol>
+	<li>		The main layout</li>
+	<li>		The header</li>
+	<li>		The buttons</li>
+</ol>
+<p>	If you&#39;d like to change the main image in the header, open &quot;header.psd&quot;, make the necessary adjustments, and then save the file as &quot;headerBG.png&quot;. Do the same for the buttons.</p>
+<p>	Include any more specific information about your psds.</p>
+</section>
+<section id="sources_and_credits">
+	<div class="page-header"><h3>Sources and Credits</h3><hr class="notop"></div>
+<p>	I&#39;ve used the following images, icons or other files as listed.</p>
+<ul>	<li>		File name from file author</li>
+	<li>		File name from file author</li>
+	<li>		File name from file author</li>
+	<li>		File name from file author</li>
+</ul>
+<hr>
+<p>	Once again, thank you so much for purchasing this theme. As I said at the beginning, I&#39;d be glad to help you if you have any questions relating to this theme. No guarantees, but I&#39;ll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the &quot;Item Discussion&quot; section.</p>
+<p>	<strong>Your Name</strong></p>
+</section>
+
+	</div>
+</body>
+</html>
