@@ -75,7 +75,26 @@
 			<li><a href="#data_overview" title="Data Overview">Data Overview</a></li>
 			<li><a href="#data_sources" title="Data Sources">Data Sources</a>
 				<ul>
-					<li><a href="#data_sources__nbsp">&nbsp;</a>
+					<li><a href="#data_sources_data_sources_table">Data Sources Table</a>
+					<li><a href="#data_sources_a_name"guidestar_api"guidestar_api_non_profit_basic_info_a">Guidestar API (Non-Profit Basic Info)</a>
+					<li><a href="#data_sources_a_name"nccs"nccs_historical_non_profit_info_a">NCCS (Historical Non-Profit Info)</a>
+					<li><a href="#data_sources_a_name"cdp"cultural_data_project_cdp_extended_non_profit_info_a">Cultural Data Project (CDP - Extended Non-Profit Info)</a>
+					<li><a href="#data_sources_a_name"infousa"infousa_for_profit_info_a">InfoUSA (For-profit Info)</a>
+					<li><a href="#data_sources_a_name"fsprojects"fractured_atlas_api_fiscally_sponsored_projects_a">Fractured Atlas API (Fiscally Sponsored Projects)</a>
+					<li><a href="#data_sources_a_name"ksprojects"kickstarter_kickstarter_projects_a">Kickstarter (Kickstarter Projects)</a>
+					<li><a href="#data_sources_a_name"afta"afta_state_and_local_arts_agencies_a">AFTA (State and local arts agencies)</a>
+					<li><a href="#data_sources_a_name"nea"national_endowment_for_the_arts_nea_national_govt_arts_funder_a">National Endowment for the Arts (NEA - national govt. arts funder)</a>
+					<li><a href="#data_sources_a_name"trg"trg_list_of_audience_members_a">TRG (List of Audience Members)</a>
+					<li><a href="#data_sources_a_name"policymap"policymap_api_demographic_info_2000_and_2010_a">PolicyMap API (Demographic Info: 2000 and 2010)</a>
+					<li><a href="#data_sources_a_name"scarborough"scarborough_consumer_behavior_info_a">Scarborough (Consumer Behavior Info)</a>
+					<li><a href="#data_sources_a_name"sppa"survey_of_public_participation_in_the_arts_sppa_historical_participation_info_a">Survey of Public Participation in the Arts (SPPA - historical participation info)</a>
+					<li><a href="#data_sources_a_name"cdp_participation"cultural_data_project_cdp_attendance_info_by_artistic_discipline_a">Cultural Data Project (CDP - attendance info by artistic discipline)</a>
+					<li><a href="#data_sources_a_name"fc_api"foundation_center_api_private_grants_to_non_profit_organizations_a">Foundation Center API (private grants to non-profit organizations)</a>
+					<li><a href="#data_sources_a_name"nea_grants"nea_federal_arts_grants_a">NEA (Federal arts grants)</a>
+					<li><a href="#data_sources_a_name"nasaa_grants"nasaa_state_arts_grants_a">NASAA (State arts grants)</a>
+					<li><a href="#data_sources_a_name"kickstarter"kickstarter_individual_donations_to_unincorporated_entities_a">Kickstarter (Individual donations to unincorporated entities)</a>
+					<li><a href="#data_sources_a_name"vanguard"vanguard_individual_donations_to_non_profit_organizations_a">Vanguard (individual donations to non-profit organizations)</a>
+					<li><a href="#data_sources_a_name"spaces"fractured_atlas_spaces_api_places_where_art_happens_a">Fractured Atlas Spaces API (places where art happens)</a>
 				</ul>
 			</li>
 			<li><a href="#features" title="Features">Features</a></li>
@@ -159,10 +178,14 @@
 	<li>
 		Fractured Atlas Spaces API</li>
 </ul>
+<h3>
+	Intended Data Schema</h3>
+<p>
+	<img alt="" src="assets/images/image_1.jpg"  ></p>
 </section>
 <section id="data_sources">
 	<div class="page-header"><h3>Data Sources</h3><hr class="notop"></div>
-<h4 id="data_sources__nbsp">&nbsp;</h4>
+<h4 id="data_sources_data_sources_table">Data Sources Table</h4>
 <table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 750px;">
 	<thead>
 		<tr>
@@ -511,80 +534,81 @@
 	&nbsp;</p>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="guidestar-api">Guidestar API (Non-Profit Basic Info)</a></h3>
+<h4 id="data_sources_a_name"guidestar_api"guidestar_api_non_profit_basic_info_a"><a name="guidestar-api">Guidestar API (Non-Profit Basic Info)</a></h4>
+<ul>
+	<li>
+		&nbsp;</li>
+</ul>
+<h4 id="data_sources_a_name"nccs"nccs_historical_non_profit_info_a"><a name="nccs">NCCS (Historical Non-Profit Info)</a></h4>
+<ul>
+	<li>
+		not yet acquired (Oct. 23, 2013)</li>
+</ul>
+<h4 id="data_sources_a_name"cdp"cultural_data_project_cdp_extended_non_profit_info_a"><a name="cdp">Cultural Data Project (CDP - Extended Non-Profit Info)</a></h4>
+<p>
+	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing">Link to CSV</a>&nbsp;- Detroit Organizations</p>
+<p>
+	San Francisco Organizations - data set not yet acquired</p>
+<ul>
+	<li>
+		All data from linked CSV should be stored.</li>
+	<li>
+		There is currently a CDP table in BACAM that may be helpful; however, the fields have changed significantly, and all data (both for Detroit and San Francisco) will need to be re-imported.</li>
+	<li>
+		The CDP extended info will be connected with an organization&#39;s main profile via its EIN (Employer Identification Number). In the CDP data set, this field is called &quot;federal_id&quot;.</li>
+	<li>
+		In the database, the CDP information will remain separate from the Guidestar/NCCS non-profit information.</li>
+	<li>
+		In the interface, the CDP information should replace certain fields when available, as the information is more accurate than the information from Guidestar. (Please see <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5">this spreadsheet </a>for all fields that should be replaced in the interface, as well as the equivalent field names and notes.)</li>
+</ul>
+<h4 id="data_sources_a_name"infousa"infousa_for_profit_info_a"><a name="infousa">InfoUSA (For-profit Info)</a></h4>
+<p>
+	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPVGV1TDJBd1Y5dms/edit?usp=sharing">Link to CSV</a>&nbsp;- Detroit businesses</p>
+<p>
+	San Francisco businesses - data set not yet acquired</p>
+<h4 id="data_sources_a_name"fsprojects"fractured_atlas_api_fiscally_sponsored_projects_a"><a name="fsprojects">Fractured Atlas API (Fiscally Sponsored Projects)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="nccs">NCCS (Historical Non-Profit Info)</a></h3>
+<h4 id="data_sources_a_name"ksprojects"kickstarter_kickstarter_projects_a"><a name="ksprojects">Kickstarter (Kickstarter Projects)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="cdp">Cultural Data Project (CDP - Extended Non-Profit Info)</a></h3>
+<h4 id="data_sources_a_name"afta"afta_state_and_local_arts_agencies_a"><a name="afta">AFTA (State and local arts agencies)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="infousa">InfoUSA (For-profit Info)</a></h3>
+<h4 id="data_sources_a_name"nea"national_endowment_for_the_arts_nea_national_govt_arts_funder_a"><a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="fsprojects">Fractured Atlas API (Fiscally Sponsored Projects)</a></h3>
+<h4 id="data_sources_a_name"trg"trg_list_of_audience_members_a"><a name="trg">TRG (List of Audience Members)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="ksprojects">Kickstarter (Kickstarter Projects)</a></h3>
+<h4 id="data_sources_a_name"policymap"policymap_api_demographic_info_2000_and_2010_a"><a name="policymap">PolicyMap API (Demographic Info: 2000 and 2010)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="afta">AFTA (State and local arts agencies)</a></h3>
+<h4 id="data_sources_a_name"scarborough"scarborough_consumer_behavior_info_a"><a name="scarborough">Scarborough (Consumer Behavior Info)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h3>
+<h4 id="data_sources_a_name"sppa"survey_of_public_participation_in_the_arts_sppa_historical_participation_info_a"><a name="sppa">Survey of Public Participation in the Arts (SPPA - historical participation info)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="trg">TRG (List of Audience Members)</a></h3>
+<h4 id="data_sources_a_name"cdp_participation"cultural_data_project_cdp_attendance_info_by_artistic_discipline_a"><a name="cdp-participation">Cultural Data Project (CDP - attendance info by artistic discipline)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="policymap">PolicyMap API (Demographic Info: 2000 and 2010)</a></h3>
+<h4 id="data_sources_a_name"fc_api"foundation_center_api_private_grants_to_non_profit_organizations_a"><a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="scarborough">Scarborough (Consumer Behavior Info)</a></h3>
+<h4 id="data_sources_a_name"nea_grants"nea_federal_arts_grants_a"><a name="nea-grants">NEA (Federal arts grants)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="sppa">Survey of Public Participation in the Arts (SPPA - historical participation info)</a></h3>
+<h4 id="data_sources_a_name"nasaa_grants"nasaa_state_arts_grants_a"><a name="nasaa-grants">NASAA (State arts grants)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="cdp-participation">Cultural Data Project (CDP - attendance info by artistic discipline)</a></h3>
+<h4 id="data_sources_a_name"kickstarter"kickstarter_individual_donations_to_unincorporated_entities_a"><a name="kickstarter">Kickstarter (Individual donations to unincorporated entities)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h3>
+<h4 id="data_sources_a_name"vanguard"vanguard_individual_donations_to_non_profit_organizations_a"><a name="vanguard">Vanguard (individual donations to non-profit organizations)</a></h4>
 <p>
 	&nbsp;</p>
-<h3>
-	<a name="nea-grants">NEA (Federal arts grants)</a></h3>
-<p>
-	&nbsp;</p>
-<h3>
-	<a name="nasaa-grants">NASAA (State arts grants)</a></h3>
-<p>
-	&nbsp;</p>
-<h3>
-	<a name="kickstarter">Kickstarter (Individual donations to unincorporated entities)</a></h3>
-<p>
-	&nbsp;</p>
-<h3>
-	<a name="vanguard">Vanguard (individual donations to non-profit organizations)</a></h3>
-<p>
-	&nbsp;</p>
-<h3>
-	<a name="spaces">Fractured Atlas Spaces API (places where art happens)</a></h3>
+<h4 id="data_sources_a_name"spaces"fractured_atlas_spaces_api_places_where_art_happens_a"><a name="spaces">Fractured Atlas Spaces API (places where art happens)</a></h4>
 </section>
 <section id="features">
 	<div class="page-header"><h3>Features</h3><hr class="notop"></div>
