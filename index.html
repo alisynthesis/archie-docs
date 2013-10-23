@@ -13,7 +13,7 @@
 	<meta name="author" content="Alison Conard">
 	<meta name="copyright" content="Alison Conard">
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
-	<meta name="date" content="2013-10-22T00:00:00+02:00">
+	<meta name="date" content="2013-10-23T00:00:00+02:00">
 	
 	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
 	
@@ -72,13 +72,10 @@
 		<ul id="documenter_nav">
 			<li><a class="current" href="#documenter_cover">Start</a></li>
 				
+			<li><a href="#data_overview" title="Data Overview">Data Overview</a></li>
 			<li><a href="#data_sources" title="Data Sources">Data Sources</a>
 				<ul>
-					<li><a href="#data_sources_entities">Entities</a>
-					<li><a href="#data_sources_audience">Audience</a>
-					<li><a href="#data_sources_demographic_amp_consumer_behavior">Demographic &amp; Consumer Behavior</a>
-					<li><a href="#data_sources_funding">Funding</a>
-					<li><a href="#data_sources_spaces">Spaces</a>
+					<li><a href="#data_sources__nbsp">&nbsp;</a>
 				</ul>
 			</li>
 			<li><a href="#features" title="Features">Features</a></li>
@@ -93,12 +90,12 @@
 	<h1>Archipelago Specification</h1>
 	<h2>Feature Requirements and Data Sources</h2>
 	<div id="documenter_buttons">
-		<a href="#" class="btn btn-primary btn-large">Primary Button</a> <a href="#" class="btn btn-large">Secondary Button</a> 
+		<a href="http://www.fracturedatlas.org/site/technology/archipelago" class="btn btn-primary btn-large">Archipelago</a> <a href="http://sustainarts.org" class="btn btn-large">Sustain Arts</a> 
 	</div>
 	<hr>
 	<ul>
 	<li>created: 10/22/2013</li>
-	<li>latest update: 10/22/2013</li>
+	<li>latest update: 10/23/2013</li>
 	<li>by: Alison Conard</li>
 	<li><a href=""></a></li>
 	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
@@ -106,9 +103,10 @@
 	<p></p>
 	</section>
 	
-	<section id="data_sources">
-	<div class="page-header"><h3>Data Sources</h3><hr class="notop"></div>
-<h4 id="data_sources_entities">Entities</h4>
+	<section id="data_overview">
+	<div class="page-header"><h3>Data Overview</h3><hr class="notop"></div>
+<h3>
+	Entities</h3>
 <ul>
 	<li>
 		Non-profit organizations</li>
@@ -123,7 +121,8 @@
 	<li>
 		Government - national</li>
 </ul>
-<h4 id="data_sources_audience">Audience</h4>
+<h3>
+	Audience</h3>
 <ul>
 	<li>
 		Audience lists from local arts organizations</li>
@@ -132,14 +131,16 @@
 	<li>
 		Cultural Data Project</li>
 </ul>
-<h4 id="data_sources_demographic_amp_consumer_behavior">Demographic &amp; Consumer Behavior</h4>
+<h3>
+	Demographic &amp; Consumer Behavior</h3>
 <ul>
 	<li>
 		U.S. Census (2000 &amp; 2010) - PolicyMap API</li>
 	<li>
 		Consumer behavior - Scarborough</li>
 </ul>
-<h4 id="data_sources_funding">Funding</h4>
+<h3>
+	Funding</h3>
 <ul>
 	<li>
 		Private grants - Foundation Center API</li>
@@ -152,11 +153,438 @@
 	<li>
 		Individual donors - Vanguard</li>
 </ul>
-<h4 id="data_sources_spaces">Spaces</h4>
+<h3>
+	Spaces</h3>
 <ul>
 	<li>
 		Fractured Atlas Spaces API</li>
 </ul>
+</section>
+<section id="data_sources">
+	<div class="page-header"><h3>Data Sources</h3><hr class="notop"></div>
+<h4 id="data_sources__nbsp">&nbsp;</h4>
+<table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 750px;">
+	<thead>
+		<tr>
+			<th scope="col">
+				Category</th>
+			<th scope="col">
+				Sub-category</th>
+			<th scope="col">
+				Description</th>
+			<th scope="col">
+				Source</th>
+			<th scope="col">
+				Integration Status</th>
+			<th scope="col">
+				Details</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<strong>Entities</strong></td>
+			<td>
+				Non-profit</td>
+			<td>
+				Current non-profit from Internal Revenue Service (IRS) 990 form</td>
+			<td>
+				Guidestar API</td>
+			<td>
+				integrated in BACAM</td>
+			<td>
+				<a href="#guidestar-api">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Non-profit</td>
+			<td>
+				Historical non-profit from 990</td>
+			<td>
+				NCCS</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#nccs">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Non-profit</td>
+			<td>
+				Extended non-profit from Cultural Data Project</td>
+			<td>
+				CDP</td>
+			<td>
+				partially integrated</td>
+			<td>
+				<a href="#cdp">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				For-profit</td>
+			<td>
+				For-profit arts-related businesses</td>
+			<td>
+				InfoUSA</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#infousa">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Unincorporated</td>
+			<td>
+				Fractured Atlas fiscally sponsored projects</td>
+			<td>
+				Fractured Atlas</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#fsprojects">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Unincorporated</td>
+			<td>
+				Kickstarter projects</td>
+			<td>
+				Kickstarter</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#ksprojects">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Individual Artist</td>
+			<td>
+				Self-locate feature in platform</td>
+			<td>
+				Platform</td>
+			<td>
+				not integrated</td>
+			<td>
+				n/a</td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Govt - state/local</td>
+			<td>
+				State and local arts agencies</td>
+			<td>
+				AFTA</td>
+			<td>
+				integrated</td>
+			<td>
+				<a href="#afta">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Govt - national</td>
+			<td>
+				National Endowment for the Arts (NEA)</td>
+			<td>
+				manual</td>
+			<td>
+				integrated</td>
+			<td>
+				<a href="#nea">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Audience</strong></td>
+			<td>
+				Audience lists</td>
+			<td>
+				Mailing lists from local arts organizations</td>
+			<td>
+				TRG</td>
+			<td>
+				partially integrated</td>
+			<td>
+				<a href="#trg">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Demographic</td>
+			<td>
+				US Census demographics (2000 &amp; 2010)</td>
+			<td>
+				PolicyMap</td>
+			<td>
+				integrated</td>
+			<td>
+				<a href="#policymap">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Consumer</td>
+			<td>
+				Consumer behavior data (historical)</td>
+			<td>
+				Scarborough</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#scarborough">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Participation</td>
+			<td>
+				Detailed survey about arts participation</td>
+			<td>
+				SPPA</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#sppa">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Participation</td>
+			<td>
+				Attendance 2009-2012 by discipline</td>
+			<td>
+				CDP</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#cdp-participation">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Funding</strong></td>
+			<td>
+				Private grants</td>
+			<td>
+				Grants from foundations</td>
+			<td>
+				Foundation Center API</td>
+			<td>
+				partially integrated</td>
+			<td>
+				<a href="#fc-api">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Federal grants</td>
+			<td>
+				Grants from the National Endowment for the Arts</td>
+			<td>
+				NEA</td>
+			<td>
+				integrated</td>
+			<td>
+				<a href="#nea-grants">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				State grants</td>
+			<td>
+				Grants from the state arts agency</td>
+			<td>
+				NASAA</td>
+			<td>
+				partially integrated</td>
+			<td>
+				<a href="#nasaa-grants">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Individual donors</td>
+			<td>
+				Pledges to Kickstarter projects</td>
+			<td>
+				Kickstarter</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#kickstarter">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Individual donors</td>
+			<td>
+				Individual donations to non-profits</td>
+			<td>
+				Vanguard</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#vanguard">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				<strong>Spaces</strong></td>
+			<td>
+				Spaces</td>
+			<td>
+				Spaces where art happens</td>
+			<td>
+				FA Spaces API</td>
+			<td>
+				integrated</td>
+			<td>
+				<a href="#spaces">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="guidestar-api">Guidestar API (Non-Profit Basic Info)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="nccs">NCCS (Historical Non-Profit Info)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="cdp">Cultural Data Project (CDP - Extended Non-Profit Info)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="infousa">InfoUSA (For-profit Info)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="fsprojects">Fractured Atlas API (Fiscally Sponsored Projects)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="ksprojects">Kickstarter (Kickstarter Projects)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="afta">AFTA (State and local arts agencies)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="trg">TRG (List of Audience Members)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="policymap">PolicyMap API (Demographic Info: 2000 and 2010)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="scarborough">Scarborough (Consumer Behavior Info)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="sppa">Survey of Public Participation in the Arts (SPPA - historical participation info)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="cdp-participation">Cultural Data Project (CDP - attendance info by artistic discipline)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="nea-grants">NEA (Federal arts grants)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="nasaa-grants">NASAA (State arts grants)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="kickstarter">Kickstarter (Individual donations to unincorporated entities)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="vanguard">Vanguard (individual donations to non-profit organizations)</a></h3>
+<p>
+	&nbsp;</p>
+<h3>
+	<a name="spaces">Fractured Atlas Spaces API (places where art happens)</a></h3>
 </section>
 <section id="features">
 	<div class="page-header"><h3>Features</h3><hr class="notop"></div>
