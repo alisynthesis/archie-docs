@@ -76,25 +76,9 @@
 			<li><a href="#data_sources" title="Data Sources">Data Sources</a>
 				<ul>
 					<li><a href="#data_sources_data_sources_table">Data Sources Table</a>
-					<li><a href="#data_sources_a_name"guidestar_api"guidestar_api_non_profit_basic_info_a">Guidestar API (Non-Profit Basic Info)</a>
-					<li><a href="#data_sources_a_name"nccs"nccs_historical_non_profit_info_a">NCCS (Historical Non-Profit Info)</a>
-					<li><a href="#data_sources_a_name"cdp"cultural_data_project_cdp_extended_non_profit_info_a">Cultural Data Project (CDP - Extended Non-Profit Info)</a>
-					<li><a href="#data_sources_a_name"infousa"infousa_for_profit_info_a">InfoUSA (For-profit Info)</a>
-					<li><a href="#data_sources_a_name"fsprojects"fractured_atlas_api_fiscally_sponsored_projects_a">Fractured Atlas API (Fiscally Sponsored Projects)</a>
-					<li><a href="#data_sources_a_name"ksprojects"kickstarter_kickstarter_projects_a">Kickstarter (Kickstarter Projects)</a>
-					<li><a href="#data_sources_a_name"afta"afta_state_and_local_arts_agencies_a">AFTA (State and local arts agencies)</a>
-					<li><a href="#data_sources_a_name"nea"national_endowment_for_the_arts_nea_national_govt_arts_funder_a">National Endowment for the Arts (NEA - national govt. arts funder)</a>
-					<li><a href="#data_sources_a_name"trg"trg_list_of_audience_members_a">TRG (List of Audience Members)</a>
-					<li><a href="#data_sources_a_name"policymap"policymap_api_demographic_info_2000_and_2010_a">PolicyMap API (Demographic Info: 2000 and 2010)</a>
-					<li><a href="#data_sources_a_name"scarborough"scarborough_consumer_behavior_info_a">Scarborough (Consumer Behavior Info)</a>
-					<li><a href="#data_sources_a_name"sppa"survey_of_public_participation_in_the_arts_sppa_historical_participation_info_a">Survey of Public Participation in the Arts (SPPA - historical participation info)</a>
-					<li><a href="#data_sources_a_name"cdp_participation"cultural_data_project_cdp_attendance_info_by_artistic_discipline_a">Cultural Data Project (CDP - attendance info by artistic discipline)</a>
-					<li><a href="#data_sources_a_name"fc_api"foundation_center_api_private_grants_to_non_profit_organizations_a">Foundation Center API (private grants to non-profit organizations)</a>
-					<li><a href="#data_sources_a_name"nea_grants"nea_federal_arts_grants_a">NEA (Federal arts grants)</a>
-					<li><a href="#data_sources_a_name"nasaa_grants"nasaa_state_arts_grants_a">NASAA (State arts grants)</a>
-					<li><a href="#data_sources_a_name"kickstarter"kickstarter_individual_donations_to_unincorporated_entities_a">Kickstarter (Individual donations to unincorporated entities)</a>
-					<li><a href="#data_sources_a_name"vanguard"vanguard_individual_donations_to_non_profit_organizations_a">Vanguard (individual donations to non-profit organizations)</a>
-					<li><a href="#data_sources_a_name"spaces"fractured_atlas_spaces_api_places_where_art_happens_a">Fractured Atlas Spaces API (places where art happens)</a>
+					<li><a href="#data_sources_stronga_name"audience"audience_a_strong">Audience</a>
+					<li><a href="#data_sources_a_name"funding"strongfunding_strong_a">Funding</a>
+					<li><a href="#data_sources_stronga_name"spaces"spaces_a_strong">Spaces</a>
 				</ul>
 			</li>
 			<li><a href="#features" title="Features">Features</a></li>
@@ -181,12 +165,20 @@
 <h3>
 	Intended Data Schema</h3>
 <p>
+	Note: disregard &quot;Hewlett Grants RSS&quot; for now.</p>
+<p>
 	<img alt="" src="assets/images/image_1.jpg"  ></p>
+<p>
+	&nbsp;</p>
+<ul>
+	<li>
+		All data sources should be stored alongside the data in the database so that we can trace any data back to its source.&nbsp;</li>
+</ul>
 </section>
 <section id="data_sources">
 	<div class="page-header"><h3>Data Sources</h3><hr class="notop"></div>
 <h4 id="data_sources_data_sources_table">Data Sources Table</h4>
-<table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 750px;">
+<table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 800px;">
 	<thead>
 		<tr>
 			<th scope="col">
@@ -206,7 +198,7 @@
 	<tbody>
 		<tr>
 			<td>
-				<strong>Entities</strong></td>
+				<a href="#entities"><strong>Entities</strong></a></td>
 			<td>
 				Non-profit</td>
 			<td>
@@ -332,7 +324,7 @@
 		</tr>
 		<tr>
 			<td>
-				<strong>Audience</strong></td>
+				<a href="#audience"><strong>Audience</strong></a></td>
 			<td>
 				Audience lists</td>
 			<td>
@@ -402,7 +394,7 @@
 		</tr>
 		<tr>
 			<td>
-				<strong>Funding</strong></td>
+				<a href="#funding"><strong>Funding</strong></a></td>
 			<td>
 				Private grants</td>
 			<td>
@@ -472,7 +464,7 @@
 		</tr>
 		<tr>
 			<td>
-				<strong>Spaces</strong></td>
+				<a href="#spaces"><strong>Spaces</strong></a></td>
 			<td>
 				Spaces</td>
 			<td>
@@ -482,7 +474,7 @@
 			<td>
 				integrated</td>
 			<td>
-				<a href="#spaces">link</a></td>
+				<a href="#spaces-api">link</a></td>
 		</tr>
 		<tr>
 			<td>
@@ -533,82 +525,280 @@
 <p>
 	&nbsp;</p>
 <p>
-	&nbsp;</p>
-<h4 id="data_sources_a_name"guidestar_api"guidestar_api_non_profit_basic_info_a"><a name="guidestar-api">Guidestar API (Non-Profit Basic Info)</a></h4>
+	<strong><a name="entities">Entities</a></strong></p>
 <ul>
 	<li>
-		&nbsp;</li>
+		<div>
+			All entities should be geocoded and available for mapping. In the event that an address is a Post Office Box or cannot be displayed for other reasons, the geocoding should be set to City, State (e.g. Detroit, MI).</div>
+	</li>
+	<li>
+		<div>
+			All entities should have:</div>
+		<ul>
+			<li>
+				<div>
+					Visibility: Live (available to the front end) and Pending (not available to the front end)</div>
+			</li>
+			<li>
+				<div>
+					Administrator Flag: True or False; marks an entity as requiring admin attention</div>
+			</li>
+		</ul>
+	</li>
+	<li>
+		All entities should be marked with one or more of the following disciplines:
+		<ul>
+			<li>
+				Music</li>
+			<li>
+				Dance</li>
+			<li>
+				Film &amp; Electronic Media</li>
+			<li>
+				Visual Arts</li>
+			<li>
+				Theatre</li>
+			<li>
+				Literary Arts</li>
+			<li>
+				Humanities</li>
+		</ul>
+	</li>
+	<li>
+		All entities might be marked with one or more of the following <em>primary </em>disciplines:
+		<ul>
+			<li>
+				Music</li>
+			<li>
+				Dance</li>
+			<li>
+				Film &amp; Electronic Media</li>
+			<li>
+				Visual Arts</li>
+			<li>
+				Theatre</li>
+			<li>
+				Literary Arts</li>
+			<li>
+				Humanities (Humanities is a special case - if an entity is categorized as &quot;Humanities,&quot; it should automatically be categorized as &quot;Primarily Humanities.&quot;)</li>
+		</ul>
+	</li>
+	<li>
+		All entities must be one of the following types:
+		<ul>
+			<li>
+				Non-profit</li>
+			<li>
+				For-profit</li>
+			<li>
+				Unincorporated</li>
+			<li>
+				Individual Artist</li>
+			<li>
+				Government</li>
+		</ul>
+	</li>
 </ul>
-<h4 id="data_sources_a_name"nccs"nccs_historical_non_profit_info_a"><a name="nccs">NCCS (Historical Non-Profit Info)</a></h4>
+<h5>
+	<a name="guidestar-api">Guidestar API (Non-Profit Basic Info)</a></h5>
+<div>
+	Gemini SBS authored a Ruby gem to interact with the Guidestar API. <a href="https://github.com/geminisbs/guidestar">Github link</a></div>
+<div>
+	<a href="https://docs.google.com/document/d/1VILI0vNIMmkXK-7eWj3QyRWPJDg8a843icqhT_uln9U/edit">Guidestar API Credentials</a></div>
 <ul>
 	<li>
-		not yet acquired (Oct. 23, 2013)</li>
+		<div>
+			nationwide data source</div>
+	</li>
+	<li>
+		<div>
+			should begin building historical information from this source beginning in 2012</div>
+	</li>
+	<li>
+		<div>
+			Imported data is first passed through a script that makes an initial attempt to classify organizations, then each organization in Match Scores 3-5 is goes through Amazon Mechanical Turk processing to classify disciplines and activity. Current non-profit data in both Detroit and San Francisco has undergone both processes.</div>
+	</li>
+	<li>
+		The application should pull from the API once per year. All new organizations should be exported to be put through the Mechanical Turk process.</li>
 </ul>
-<h4 id="data_sources_a_name"cdp"cultural_data_project_cdp_extended_non_profit_info_a"><a name="cdp">Cultural Data Project (CDP - Extended Non-Profit Info)</a></h4>
-<p>
-	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing">Link to CSV</a>&nbsp;- Detroit Organizations</p>
-<p>
-	San Francisco Organizations - data set not yet acquired</p>
+<h5>
+	<a name="nccs">NCCS (Historical Non-Profit Info)</a></h5>
+<div>
+	Detroit Organizations - data set not yet acquired (spreadsheet)</div>
+<div>
+	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
 <ul>
 	<li>
-		All data from linked CSV should be stored.</li>
-	<li>
-		There is currently a CDP table in BACAM that may be helpful; however, the fields have changed significantly, and all data (both for Detroit and San Francisco) will need to be re-imported.</li>
-	<li>
-		The CDP extended info will be connected with an organization&#39;s main profile via its EIN (Employer Identification Number). In the CDP data set, this field is called &quot;federal_id&quot;.</li>
-	<li>
-		In the database, the CDP information will remain separate from the Guidestar/NCCS non-profit information.</li>
-	<li>
-		In the interface, the CDP information should replace certain fields when available, as the information is more accurate than the information from Guidestar. (Please see <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5">this spreadsheet </a>for all fields that should be replaced in the interface, as well as the equivalent field names and notes.)</li>
+		<div>
+			provides historical organization data from 2003-2011</div>
+	</li>
 </ul>
-<h4 id="data_sources_a_name"infousa"infousa_for_profit_info_a"><a name="infousa">InfoUSA (For-profit Info)</a></h4>
+<h5>
+	<a name="cdp">Cultural Data Project (CDP - Extended Non-Profit Info)</a></h5>
+<div>
+	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing">Link to CSV</a>&nbsp;- Detroit Organizations</div>
+<div>
+	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
+<ul>
+	<li>
+		<div>
+			All data from linked CSV should be stored.</div>
+	</li>
+	<li>
+		<div>
+			There is currently a CDP table in BACAM that may be helpful; however, the fields have changed significantly, and all data (both for Detroit and San Francisco) will need to be re-imported.</div>
+	</li>
+	<li>
+		<div>
+			The CDP extended info will be connected with an organization&#39;s main profile via its EIN (Employer Identification Number). In the CDP data set, this field is called &quot;federal_id&quot;.</div>
+	</li>
+	<li>
+		<div>
+			In the database, the CDP information will remain separate from the Guidestar/NCCS non-profit information.</div>
+	</li>
+	<li>
+		<div>
+			In the interface, the CDP information should replace certain fields when available, as the information is more accurate than the information from Guidestar. (Please see <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5">this spreadsheet </a>for all fields that should be replaced in the interface, as well as the equivalent field names and notes.)</div>
+	</li>
+	<li>
+		<div>
+			If an organization is in this data set and not in our database, it should be imported from Guidestar.</div>
+	</li>
+</ul>
+<h5>
+	<a name="infousa">InfoUSA (For-profit Info)</a></h5>
+<div>
+	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPVGV1TDJBd1Y5dms/edit?usp=sharing">Link to CSV</a>&nbsp;- Detroit businesses</div>
+<div>
+	San Francisco businesses - data set not yet acquired&nbsp;(spreadsheet)</div>
+<ul>
+	<li>
+		<div>
+			The API should deliver these to the front end of the application separately from the non-profit businesses. A user might want to see *all* organizations (both for- and non-profit), or they might want to see only for-profit businesses and/or non-profit businesses.</div>
+	</li>
+	<li>
+		<div>
+			Import Logic</div>
+		<ul>
+			<li>
+				<div>
+					Any time one of the seven FA disciplines is listed in either column, we categorize the business as that discipline. (This will limit the highest number of possible disciplines for each business to two.)</div>
+			</li>
+			<li>
+				<div>
+					All other words that appear except &quot;other&quot; should be added to the business as a tag (e.g. &quot;library, religious, arts education, multidisciplinary, etc.&quot;).</div>
+			</li>
+			<li>
+				<div>
+					If the business does not have any Fractured Atlas disciplines, set the entity to visibility: pending and flag for an administrator.</div>
+			</li>
+		</ul>
+	</li>
+</ul>
+<h5>
+	<a name="fsprojects">Fractured Atlas API (Fiscally Sponsored Projects)</a></h5>
 <p>
-	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPVGV1TDJBd1Y5dms/edit?usp=sharing">Link to CSV</a>&nbsp;- Detroit businesses</p>
-<p>
-	San Francisco businesses - data set not yet acquired</p>
-<h4 id="data_sources_a_name"fsprojects"fractured_atlas_api_fiscally_sponsored_projects_a"><a name="fsprojects">Fractured Atlas API (Fiscally Sponsored Projects)</a></h4>
+	Gemini SBS&nbsp;built a rake task (called fiscal_sponsors.rake, in the pa_data repo)&nbsp;that downloads the data from the FA database to the Archie database.</p>
+<ul>
+	<li>
+		All fiscally-sponsored projects should be marked as &quot;unincorporated.&quot;</li>
+	<li>
+		The Archipelago software should be able to access the Fractured Atlas fiscal sponsorship database and sync project records on a regular basis.</li>
+	<li>
+		When the Archipelago software creates a record for a Fractured Atlas fiscally sponsored project, certain organization attributes are set automatically
+		<ul>
+			<li>
+				<div>
+					All FA sponsored projects are primarily arts.</div>
+			</li>
+			<li>
+				<div>
+					All FA sponsored projects are &quot;unincorporated&quot; entities.</div>
+			</li>
+			<li>
+				<div>
+					All sponsored projects have 1 to n fiscal sponsors. All FA sponsored projects receive Fractured Atlas&#39;s organization ID as a fiscal sponsor.</div>
+			</li>
+			<li>
+				<div>
+					Active/Inactive FA sponsored projects should set the respective inactive flag in Archie</div>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<div>
+			A fiscally sponsored project should have their geocode defaulted to the city and state if they have not opted in to share their &quot;full profile&quot;</div>
+		<ul>
+			<li>
+				<div>
+					The projects will be geocoded according to their actual address in the Fractured Atlas database. However, their exact adddress and location will not be revealed to the user. Instead, they will be assigned to the city in which they are located, much the same way that P.O. Boxes are handled.</div>
+			</li>
+		</ul>
+	</li>
+</ul>
+<h5>
+	<a name="ksprojects">Kickstarter (Kickstarter Projects)</a></h5>
+<div>
+	Detroit Projects - data set not yet acquired</div>
+<div>
+	San Francisco Projects - data set not yet acquired</div>
+<ul>
+	<li>
+		All Kickstarter projects should be marked as &quot;unincorporated.&quot;</li>
+</ul>
+<h5>
+	<a name="afta">AFTA (State and local arts agencies)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"ksprojects"kickstarter_kickstarter_projects_a"><a name="ksprojects">Kickstarter (Kickstarter Projects)</a></h4>
+<h5>
+	<a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"afta"afta_state_and_local_arts_agencies_a"><a name="afta">AFTA (State and local arts agencies)</a></h4>
+<h4 id="data_sources_stronga_name"audience"audience_a_strong"><strong><a name="audience">Audience</a></strong></h4>
+<h5>
+	<a name="trg">TRG (List of Audience Members)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"nea"national_endowment_for_the_arts_nea_national_govt_arts_funder_a"><a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h4>
+<h5>
+	<a name="policymap">PolicyMap API (Demographic Info: 2000 and 2010)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"trg"trg_list_of_audience_members_a"><a name="trg">TRG (List of Audience Members)</a></h4>
+<h5>
+	<a name="scarborough">Scarborough (Consumer Behavior Info)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"policymap"policymap_api_demographic_info_2000_and_2010_a"><a name="policymap">PolicyMap API (Demographic Info: 2000 and 2010)</a></h4>
+<h5>
+	<a name="sppa">Survey of Public Participation in the Arts (SPPA - historical participation info)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"scarborough"scarborough_consumer_behavior_info_a"><a name="scarborough">Scarborough (Consumer Behavior Info)</a></h4>
+<h5>
+	<a name="cdp-participation">Cultural Data Project (CDP - attendance info by artistic discipline)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"sppa"survey_of_public_participation_in_the_arts_sppa_historical_participation_info_a"><a name="sppa">Survey of Public Participation in the Arts (SPPA - historical participation info)</a></h4>
+<h4 id="data_sources_a_name"funding"strongfunding_strong_a"><a name="funding"><strong>Funding</strong></a></h4>
+<h5>
+	<a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"cdp_participation"cultural_data_project_cdp_attendance_info_by_artistic_discipline_a"><a name="cdp-participation">Cultural Data Project (CDP - attendance info by artistic discipline)</a></h4>
+<h5>
+	<a name="nea-grants">NEA (Federal arts grants)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"fc_api"foundation_center_api_private_grants_to_non_profit_organizations_a"><a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h4>
+<h5>
+	<a name="nasaa-grants">NASAA (State arts grants)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"nea_grants"nea_federal_arts_grants_a"><a name="nea-grants">NEA (Federal arts grants)</a></h4>
+<h5>
+	<a name="kickstarter">Kickstarter (Individual donations to unincorporated entities)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"nasaa_grants"nasaa_state_arts_grants_a"><a name="nasaa-grants">NASAA (State arts grants)</a></h4>
+<h5>
+	<a name="vanguard">Vanguard (individual donations to non-profit organizations)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_a_name"kickstarter"kickstarter_individual_donations_to_unincorporated_entities_a"><a name="kickstarter">Kickstarter (Individual donations to unincorporated entities)</a></h4>
-<p>
-	&nbsp;</p>
-<h4 id="data_sources_a_name"vanguard"vanguard_individual_donations_to_non_profit_organizations_a"><a name="vanguard">Vanguard (individual donations to non-profit organizations)</a></h4>
-<p>
-	&nbsp;</p>
-<h4 id="data_sources_a_name"spaces"fractured_atlas_spaces_api_places_where_art_happens_a"><a name="spaces">Fractured Atlas Spaces API (places where art happens)</a></h4>
+<h4 id="data_sources_stronga_name"spaces"spaces_a_strong"><strong><a name="spaces">Spaces</a></strong></h4>
+<h5>
+	<a name="spaces-api">Fractured Atlas Spaces API (places where art happens)</a></h5>
 </section>
 <section id="features">
 	<div class="page-header"><h3>Features</h3><hr class="notop"></div>
