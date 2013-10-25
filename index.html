@@ -76,7 +76,8 @@
 			<li><a href="#data_sources" title="Data Sources">Data Sources</a>
 				<ul>
 					<li><a href="#data_sources_data_sources_table">Data Sources Table</a>
-					<li><a href="#data_sources_stronga_name"audience"audience_a_strong">Audience</a>
+					<li><a href="#data_sources_stronga_name"entities"entities_a_strong">Entities</a>
+					<li><a href="#data_sources_stronga_name"audience"audience_amp_demographics_a_strong">Audience &amp; Demographics</a>
 					<li><a href="#data_sources_a_name"funding"strongfunding_strong_a">Funding</a>
 					<li><a href="#data_sources_stronga_name"spaces"spaces_a_strong">Spaces</a>
 				</ul>
@@ -170,9 +171,13 @@
 	<img alt="" src="assets/images/image_1.jpg"  ></p>
 <p>
 	&nbsp;</p>
+<h5>
+	Requirements</h5>
 <ul>
 	<li>
-		All data sources should be stored alongside the data in the database so that we can trace any data back to its source.&nbsp;</li>
+		All data sources should be stored alongside the data in the database so that we can trace any data back to its source. This feature should already be implemented.</li>
+	<li>
+		All tables and fields should be available to the front end via a JSON API</li>
 </ul>
 </section>
 <section id="data_sources">
@@ -492,6 +497,7 @@
 		</tr>
 	</tbody>
 </table>
+<br>
 <p>
 	&nbsp;</p>
 <p>
@@ -520,12 +526,7 @@
 	&nbsp;</p>
 <p>
 	&nbsp;</p>
-<p>
-	&nbsp;</p>
-<p>
-	&nbsp;</p>
-<p>
-	<strong><a name="entities">Entities</a></strong></p>
+<h4 id="data_sources_stronga_name"entities"entities_a_strong"><strong><a name="entities">Entities</a></strong></h4>
 <ul>
 	<li>
 		<div>
@@ -674,6 +675,14 @@
 <ul>
 	<li>
 		<div>
+			All for-profit businesses should be classified as &quot;for-profit.&quot;</div>
+	</li>
+	<li>
+		<div>
+			All data from linked CSV should be stored.</div>
+	</li>
+	<li>
+		<div>
 			The API should deliver these to the front end of the application separately from the non-profit businesses. A user might want to see *all* organizations (both for- and non-profit), or they might want to see only for-profit businesses and/or non-profit businesses.</div>
 	</li>
 	<li>
@@ -701,7 +710,7 @@
 	Gemini SBS&nbsp;built a rake task (called fiscal_sponsors.rake, in the pa_data repo)&nbsp;that downloads the data from the FA database to the Archie database.</p>
 <ul>
 	<li>
-		All fiscally-sponsored projects should be marked as &quot;unincorporated.&quot;</li>
+		All fiscally-sponsored projects should be classified as &quot;unincorporated.&quot;</li>
 	<li>
 		The Archipelago software should be able to access the Fractured Atlas fiscal sponsorship database and sync project records on a regular basis.</li>
 	<li>
@@ -744,7 +753,7 @@
 	San Francisco Projects - data set not yet acquired</div>
 <ul>
 	<li>
-		All Kickstarter projects should be marked as &quot;unincorporated.&quot;</li>
+		All Kickstarter projects should be classified as &quot;unincorporated.&quot;</li>
 </ul>
 <h5>
 	<a name="afta">AFTA (State and local arts agencies)</a></h5>
@@ -754,15 +763,45 @@
 	<a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h5>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_stronga_name"audience"audience_a_strong"><strong><a name="audience">Audience</a></strong></h4>
+<h4 id="data_sources_stronga_name"audience"audience_amp_demographics_a_strong"><strong><a name="audience">Audience &amp; Demographics</a></strong></h4>
 <h5>
 	<a name="trg">TRG (List of Audience Members)</a></h5>
 <p>
 	&nbsp;</p>
 <h5>
 	<a name="policymap">PolicyMap API (Demographic Info: 2000 and 2010)</a></h5>
+<div>
+	<a href="https://docs.google.com/document/d/17Jt609LkA4dN439tRckx6GnOlNQJjBqxx9cQl6S-Wfo/edit">PolicyMap API&nbsp;Information</a></div>
 <p>
-	&nbsp;</p>
+	The PolicyMap API is undocumented. If you have questions, you can reach out directly to our developer contact there: Daniel Ceregatti</p>
+<table border="0">
+	<tbody>
+		<tr>
+			<td align="right">
+				Cell:</td>
+			<td>
+				(<span class="undefined" id="OBJ_PREFIX_DWT8101_com_zimbra_phone"><a href="callto:310%29%20849-7139">310) 849-7139</a></span></td>
+		</tr>
+		<tr>
+			<td align="right">
+				Office:</td>
+			<td>
+				(<span class="undefined" id="OBJ_PREFIX_DWT8102_com_zimbra_phone"><a href="callto:213%29%20617-0116">213) 617-0116</a></span></td>
+		</tr>
+		<tr>
+			<td align="right">
+				XMPP:</td>
+			<td>
+				<span class="Object" id="OBJ_PREFIX_DWT8103_com_zimbra_url"><a class="moz-txt-link-abbreviated" href="mailto:&#100;&#99;&#101;&#114;&#101;&#103;&#97;&#116;&#116;&#105;&#64;&#51;&#100;&#45;&#108;&#46;&#99;&#111;&#109;" target="_blank">&#100;&#99;&#101;&#114;&#101;&#103;&#97;&#116;&#116;&#105;&#64;&#51;&#100;&#45;&#108;&#46;&#99;&#111;&#109;</a></span></td>
+		</tr>
+		<tr>
+			<td align="right">
+				Skype:</td>
+			<td>
+				DanielCeregatti</td>
+		</tr>
+	</tbody>
+</table>
 <h5>
 	<a name="scarborough">Scarborough (Consumer Behavior Info)</a></h5>
 <p>
@@ -803,193 +842,7 @@
 <section id="features">
 	<div class="page-header"><h3>Features</h3><hr class="notop"></div>
 <div>
-	Audience</div>
-<ul>
-	<li>
-		Audience clusters</li>
-	<li>
-		orgs who have exhibited largest % growth</li>
-	<li>
-		integrate consumer behavior data</li>
-	<li>
-		Implement participation triangulation</li>
-	<li>
-		&ldquo;Art loving places&rdquo; broken down by geography</li>
-	<li>
-		Feature graph &ldquo;audience by discipline&rdquo;</li>
-	<li>
-		Provide a base layer of census data (general population, not audience)</li>
-	<li>
-		Sort audience data by discipline/county</li>
-	<li>
-		Add age to audience info</li>
-	<li>
-		Add % hovers to charts</li>
-	<li>
-		Clarify $ next to discipline in &ldquo;Funding by Discipline&rdquo; graph</li>
-</ul>
-<div>
-	Scenarios</div>
-<ul>
-	<li>
-		Take out &lsquo;x&rsquo; (eg Kresge)</li>
-	<li>
-		people filling an auditorium</li>
-</ul>
-<div>
-	Grants info-windows</div>
-<ul>
-	<li>
-		type of support</li>
-	<li>
-		description</li>
-	<li>
-		population served</li>
-	<li>
-		% relevant year&rsquo;s 990 revenue</li>
-</ul>
-<div>
-	Spaces</div>
-<ul>
-	<li>
-		display spaces on map</li>
-	<li>
-		filter spaces by discipline served</li>
-	<li>
-		Where does arts activity happen?</li>
-	<li>
-		Integrate spaces info through events activity</li>
-	<li>
-		Connect spaces to orgs (comb of name lookup and manual)</li>
-</ul>
-<div>
-	Funding</div>
-<ul>
-	<li>
-		Show funder/recipient relationship (individual org page)</li>
-	<li>
-		Default chord diagram setting?</li>
-	<li>
-		Sort chord by discipline, geography</li>
-	<li>
-		Map of funding flow</li>
-	<li>
-		Avg. funding per discipline per year (disc. graph)</li>
-	<li>
-		Kickstarter viz</li>
-	<li>
-		KS as part of ecology</li>
-</ul>
-<div>
-	Unincorporated</div>
-<ul>
-	<li>
-		FA fiscally sponsored projects</li>
-	<li>
-		Self-locate feature</li>
-	<li>
-		Include in nearby feature</li>
-</ul>
-<div>
-	For-profits</div>
-<ul>
-	<li>
-		Purchase historical data on for-profits?</li>
-	<li>
-		Include in nearby feature</li>
-</ul>
-<div>
-	Non-profits</div>
-<ul>
-	<li>
-		List of orgs by discipline</li>
-	<li>
-		Extended org info - CDP</li>
-	<li>
-		Generate lists by zip/city/etc.</li>
-	<li>
-		Chord diagram - type of support</li>
-	<li>
-		Historical non-profit visualizations</li>
-</ul>
-<div>
-	User profiles</div>
-<ul>
-	<li>
-		Advanced user profiles (claim an org)</li>
-	<li>
-		User behavior tracking (MixPanel)</li>
-	<li>
-		Support channel</li>
-	<li>
-		Viz: landscape &amp; your place in it</li>
-</ul>
-<div>
-	Sharing</div>
-<ul>
-	<li>
-		Share entire site</li>
-	<li>
-		Share individual viz</li>
-	<li>
-		Embed individual viz</li>
-</ul>
-<div>
-	Editing</div>
-<ul>
-	<li>
-		Admin can edit orgs (can&rsquo;t edit $ amounts)</li>
-	<li>
-		Claim your non-profit</li>
-	<li>
-		Add entity wizard</li>
-</ul>
-<div>
-	Tagging</div>
-<ul>
-	<li>
-		Show all tags (tag cloud)</li>
-	<li>
-		Tags are searchable</li>
-	<li>
-		Tag an entity</li>
-	<li>
-		Inferences</li>
-</ul>
-<div>
-	&nbsp;</div>
-<div>
-	Interface</div>
-<ul>
-	<li>
-		SA logo?</li>
-	<li>
-		Discipline selectors for all modules</li>
-	<li>
-		Name of geography in header</li>
-	<li>
-		Add neighborhood boundaries</li>
-	<li>
-		Year sliders stay visible on front page</li>
-	<li>
-		All longitudinal sliders include 2013</li>
-	<li>
-		Mobile version</li>
-	<li>
-		Display entity disciplines</li>
-	<li>
-		Preset questions point to visualizations</li>
-	<li>
-		About the platform</li>
-	<li>
-		Help on 1st log-in</li>
-	<li>
-		Help text</li>
-	<li>
-		front page</li>
-</ul>
-<div>
-	&nbsp;</div>
+	<a href="https://trello.com/b/FPtTQgPM/sa-features-dev">Please see Trello for features list.</a></div>
 <div>
 	&nbsp;</div>
 </section>
