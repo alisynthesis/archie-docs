@@ -13,7 +13,7 @@
 	<meta name="author" content="Alison Conard">
 	<meta name="copyright" content="Alison Conard">
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
-	<meta name="date" content="2013-10-25T00:00:00+02:00">
+	<meta name="date" content="2013-10-29T00:00:00+01:00">
 	
 	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
 	
@@ -99,7 +99,7 @@
 	<hr>
 	<ul>
 	<li>created: 10/22/2013</li>
-	<li>latest update: 10/25/2013</li>
+	<li>latest update: 10/29/2013</li>
 	<li>by: Alison Conard</li>
 	<li><a href=""></a></li>
 	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
@@ -647,6 +647,10 @@
 <ul>
 	<li>
 		<div>
+			This is a detailed data source that covers a subset of the total entities in the database (mostly non-profit organizations). All data is provided by the organizations themselves, so it is very accurate.</div>
+	</li>
+	<li>
+		<div>
 			All data from linked CSV should be stored. (This data set is also a source for audience/participation data.)</div>
 	</li>
 	<li>
@@ -663,11 +667,19 @@
 	</li>
 	<li>
 		<div>
-			In the interface, the CDP information should replace certain fields when available, as the information is more accurate than the information from Guidestar. (Please see <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5">this spreadsheet </a>for all fields that should be replaced in the interface, as well as the equivalent field names and notes.)</div>
+			<strike>In the interface, the CDP information should replace certain fields when available, as the information is more accurate than the information from Guidestar. (Please see <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5">this spreadsheet </a>for all fields that should be replaced in the interface, as well as the equivalent field names and notes.)</strike> <strong>Note: </strong>this functionality will have to wait due to our license agreement w/ the CDP: no information about individual organizations may be shown in the interface.</div>
 	</li>
 	<li>
 		<div>
 			If an organization is in this data set and not in our database, it should be imported from Guidestar.</div>
+	</li>
+	<li>
+		<div>
+			The CDP has historical data (multiple years for the same entity) and should form part of the overall historical profile of the organizations included.</div>
+	</li>
+	<li>
+		<div>
+			The CDP also contains audience information, which is covered in more detail in the Audience section below.</div>
 	</li>
 </ul>
 <h5>
@@ -798,7 +810,7 @@
 	<li>
 		This data set is a list of audience members for a subset of non-profit organizations in the instance region.</li>
 	<li>
-		A similar data set is already integrated into BACAM, though there are probably differences between the old source and the new source.</li>
+		A similar data set is already integrated into BACAM (audience_members table), though there are differences between the old source and the new source.</li>
 	<li>
 		<strong>Important</strong>: this data source does *not* provide EINs for the organizations that each audience member is attached to; therefore, we will have to create an import script that attempts a name lookup and, if none is found, the organizations will need to be manually matched with organizations in our database. (Name lookup to match an import source w/ an entity in the database will be required in other places in the application as well, so it is probably worth building.)</li>
 	<li>
@@ -866,15 +878,15 @@
 	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
 <ul>
 	<li>
-		See information in Cultural Data Project section in entites above.</li>
+		See basic information in Cultural Data Project section in entites above.</li>
 </ul>
 <h4 id="data_sources_a_name"funding"strongfunding_strong_a"><a name="funding"><strong>Funding</strong></a></h4>
 <h5>
 	<a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h5>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPdENEY1ZNS1h2RDA/edit?usp=sharing">Documentation</a> - currently integrated version of API</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPdENEY1ZNS1h2RDA/edit?usp=sharing">Documentation</a> - currently integrated version of Detroit API</div>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWGZkbGE3bXJYczQ/edit?usp=sharing">Changes documentation</a> - updated API (changes not integrated)</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWGZkbGE3bXJYczQ/edit?usp=sharing">Changes documentation</a> - updated Detroit API (changes not integrated)</div>
 <ul>
 	<li>
 		This is our largest source for grants.</li>
@@ -895,17 +907,19 @@
 	<li>
 		All data should be stored.</li>
 	<li>
-		Question: how are current grants matched w/ organizations in Archie DB?</li>
+		Question: how are current grants matched w/ organizations in front end code by Stamen?&nbsp;(There is no EIN for grantees in this data set.)</li>
 </ul>
 <h5>
 	<a name="nasaa-grants">NASAA (State arts grants)</a></h5>
 <div>
 	Grants from Michigan Council for Arts &amp; Cultural Affairs to Detroit non-profit orgs - needs revision</div>
 <div>
-	Grants from California Arts Council to non-profit orgs - not yet acquired</div>
+	Grants from California Arts Council to non-profit orgs - not yet cleaned</div>
 <ul>
 	<li>
-		The Detroit data set is already imported; however, there was a mistake in the data cleaning and it must be re-imported.</li>
+		The Detroit data set is already imported; however, there was a mistake in the data cleaning and it must be re-cleaned and re-imported.</li>
+	<li>
+		Question: how are current grants matched w/ organizations in front end code by Stamen? (There is no EIN for grantees in this data set.)</li>
 </ul>
 <h5>
 	<a name="kickstarter">Kickstarter (Individual donations to unincorporated entities)</a></h5>
