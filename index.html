@@ -13,7 +13,7 @@
 	<meta name="author" content="Alison Conard">
 	<meta name="copyright" content="Alison Conard">
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
-	<meta name="date" content="2013-10-30T00:00:00+01:00">
+	<meta name="date" content="2013-11-05T00:00:00+01:00">
 	
 	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
 	
@@ -99,7 +99,7 @@
 	<hr>
 	<ul>
 	<li>created: 10/22/2013</li>
-	<li>latest update: 10/30/2013</li>
+	<li>latest update: 11/05/2013</li>
 	<li>by: Alison Conard</li>
 	<li><a href=""></a></li>
 	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
@@ -604,18 +604,20 @@
 		</ul>
 	</li>
 	<li>
-		All entities that are employers in the United States have a unique ID number called an &quot;Employer Identification Number,&quot; or EIN. (This is sometimes called a &quot;federal id&quot; as well.) This number helps us to connect For-profit, Non-profit, and Government entities across data sources. It is always 9 digits long, and sometimes has a hyphen after the first two digits.&nbsp;<strong>Warning:</strong> the number might begin w/ zero, and sometimes Excel dumps the leading zero when it formats the field.</li>
+		All individual entities (of all types) should have a list of tags associated with it. (Associated user stories: a user should be able to tag an entity; a user should be able to call a list of entities w/ a particular tag.)</li>
+	<li>
+		All entities should be able to be delivered to the front end of the application separately from one another. For instance, the front end should be able to get a list of *only* non-profit entities, as well as be able to call a list that includes *both* for-profit and unincorporated entities.</li>
 </ul>
 <h5>
 	<a name="guidestar-api">Guidestar API (Non-Profit Basic Info)</a></h5>
 <div>
-	Gemini SBS authored a Ruby gem to interact with the Guidestar API. <a href="https://github.com/geminisbs/guidestar">Github link</a></div>
+	Gemini SBS authored a Ruby gem to interact with the Guidestar API. <a href="https://github.com/geminisbs/guidestar" target="_blank">Github link</a></div>
 <div>
-	<a href="https://docs.google.com/document/d/1VILI0vNIMmkXK-7eWj3QyRWPJDg8a843icqhT_uln9U/edit">Guidestar API Credentials</a></div>
+	<a href="https://docs.google.com/document/d/1VILI0vNIMmkXK-7eWj3QyRWPJDg8a843icqhT_uln9U/edit" target="_blank">Guidestar API Credentials</a></div>
 <ul>
 	<li>
 		<div>
-			nationwide data source</div>
+			nationwide data source for non-profit entities</div>
 	</li>
 	<li>
 		<div>
@@ -626,7 +628,7 @@
 			Imported data is first passed through a script that makes an initial attempt to classify organizations, then each organization in Match Scores 3-5 is goes through Amazon Mechanical Turk processing to classify disciplines and activity. Current non-profit data in both Detroit and San Francisco has undergone both processes.</div>
 	</li>
 	<li>
-		The application should pull from the API once per year. All new organizations should be exported to be put through the Mechanical Turk process.</li>
+		The application should pull from the API once per year. All new organizations should be exported and sent to Alison Conard to be put through the Mechanical Turk process.</li>
 </ul>
 <h5>
 	<a name="nccs">NCCS (Historical Non-Profit Info)</a></h5>
@@ -637,19 +639,21 @@
 <ul>
 	<li>
 		<div>
-			provides historical organization data from 2003-2011</div>
+			provides historical non-profit organization data from 2003-2011</div>
 	</li>
+	<li>
+		&nbsp;</li>
 </ul>
 <h5>
 	<a name="cdp">Cultural Data Project (CDP - Extended Non-Profit Info)</a></h5>
 <div>
-	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing">Link to CSV</a>&nbsp;- Detroit Organizations</div>
+	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit Organizations</div>
 <div>
 	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
 <ul>
 	<li>
 		<div>
-			This is a detailed data source that covers a subset of the total entities in the database (mostly non-profit organizations). All data is provided by the organizations themselves, so it is very accurate.</div>
+			This is a detailed data source that covers a subset of the total entities in the database (mostly non-profit organizations). All data are provided by the organizations themselves, so it is very accurate.</div>
 	</li>
 	<li>
 		<div>
@@ -665,7 +669,7 @@
 	</li>
 	<li>
 		<div>
-			In the database, the CDP information will remain separate from the Guidestar/NCCS non-profit information.</div>
+			In the database, the CDP information should remain separate from the Guidestar/NCCS non-profit information.</div>
 	</li>
 	<li>
 		<div>
@@ -681,19 +685,19 @@
 	</li>
 	<li>
 		<div>
-			The CDP also contains audience information, which is covered in more detail in the Audience section below.</div>
+			The CDP profiles also contain audience information, which is covered in more detail in the Audience section below.</div>
 	</li>
 </ul>
 <h5>
-	<a name="infousa">InfoUSA (For-profit Info)</a></h5>
+	<a name="infousa">InfoUSA (For-profit Entities Info)</a></h5>
 <div>
-	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPVGV1TDJBd1Y5dms/edit?usp=sharing">Link to CSV</a>&nbsp;- Detroit businesses</div>
+	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPVGV1TDJBd1Y5dms/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit businesses</div>
 <div>
 	San Francisco businesses - data set not yet acquired&nbsp;(spreadsheet)</div>
 <ul>
 	<li>
 		<div>
-			All for-profit businesses should be classified as &quot;for-profit.&quot;</div>
+			All for-profit entities should be classified as &quot;for-profit.&quot;</div>
 	</li>
 	<li>
 		<div>
@@ -701,11 +705,11 @@
 	</li>
 	<li>
 		<div>
-			The API should deliver these to the front end of the application separately from the non-profit businesses. A user might want to see *all* organizations (both for- and non-profit), or they might want to see only for-profit businesses and/or non-profit businesses.</div>
+			The API should be able to deliver these to the front end of the application separately from the non-profit businesses. A user might want to see *all* organizations (both for- and non-profit), or they might want to see only for-profit businesses and/or non-profit businesses.</div>
 	</li>
 	<li>
 		<div>
-			Import Logic</div>
+			<strong>Import Logic</strong></div>
 		<ul>
 			<li>
 				<div>
@@ -726,6 +730,8 @@
 	<a name="fsprojects">Fractured Atlas API (Fiscally Sponsored Projects)</a></h5>
 <p>
 	Gemini SBS&nbsp;built a rake task (called fiscal_sponsors.rake, in the pa_data repo)&nbsp;that downloads the data from the FA database to the Archie database. This should contain the necessary credentials to access the fiscal sponsorship database.</p>
+<p>
+	The API will be undergoing changes soon and will provide financial data (a &quot;full profile&quot;), in addition to the data it currently provides.</p>
 <ul>
 	<li>
 		All fiscally-sponsored projects should be classified as &quot;unincorporated.&quot;</li>
@@ -764,7 +770,7 @@
 	</li>
 	<li>
 		<div>
-			For all Fractured Atlas fiscally sponsored projects, set Fractured Atlas Productions, Inc. as fiscal_sponsor_id. Fractured Atlas must be pulled from Guidestar so that it exists in the db as an entity. (This should happen w/ every new instance.) I believe you can pull w/ the EIN: 11-3451703. <a href="http://www.guidestar.org/organizations/11-3451703/fractured-atlas-productions.aspx">Link to Fractured Atlas on Guidestar website</a></div>
+			For all Fractured Atlas fiscally sponsored projects, set Fractured Atlas Productions, Inc. as fiscal_sponsor_id. Fractured Atlas must be pulled from Guidestar so that it exists in the db as an entity. (This should happen w/ every new instance.) I believe you can pull w/ the EIN: 11-3451703. <a href="http://www.guidestar.org/organizations/11-3451703/fractured-atlas-productions.aspx" target="_blank">Link to Fractured Atlas on Guidestar website</a></div>
 	</li>
 </ul>
 <h5>
@@ -780,7 +786,7 @@
 <h5>
 	<a name="afta">AFTA (State and local arts agencies)</a></h5>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPY1dmcW5SLW96QjQ/edit?usp=sharing">Link to spreadsheet</a>&nbsp;- Detroit local arts agencies</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPY1dmcW5SLW96QjQ/edit?usp=sharing" target="_blank">Link to spreadsheet</a>&nbsp;- Detroit local arts agencies</div>
 <div>
 	San Francisco local arts agencies - data set not yet acquired</div>
 <div>
@@ -791,7 +797,7 @@
 	State arts agency (California - for Bay Area instance) - California Arts Council (status unknown)</div>
 <ul>
 	<li>
-		All state and local arts agencies should be classified as &quot;government.&quot;</li>
+		All state and local arts agencies are entities and should be classified as &quot;government.&quot;</li>
 </ul>
 <h5>
 	<a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h5>
@@ -807,23 +813,33 @@
 <div>
 	Detroit Audience List - data set not yet collected; <strong>this data set might not be acquired in time for Detroit launch</strong></div>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPYmxOV2U4TVNEOVE/edit?usp=sharing">Link to file</a>&nbsp;- Bay Area Audience List</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPYmxOV2U4TVNEOVE/edit?usp=sharing" target="_blank">Link to file</a>&nbsp;- Bay Area Audience List</div>
 <ul>
 	<li>
 		This data set is a list of audience members for a subset of non-profit organizations in the instance region.</li>
 	<li>
-		A similar data set is already integrated into BACAM (audience_members table), though there are differences between the old source and the new source.</li>
+		A similar data set is already integrated into BACAM (audience_members and audience_organizations tables), though there are differences between the old source and the new source.</li>
 	<li>
 		<strong>Important</strong>: this data source does *not* provide EINs for the organizations that each audience member is attached to; therefore, we will have to create an import script that attempts a name lookup and, if none is found, the organizations will need to be manually matched with organizations in our database. (Name lookup to match an import source w/ an entity in the database will be required in other places in the application as well, so it is probably worth building.)</li>
 	<li>
 		If the Detroit audience list is collected, the fields may be slightly different from the Bay Area list.</li>
+	<li>
+		Each HHID belongs to a single audience member. The front end should be able to display trends in audience crossover between non-profit organizations. (If audience member 11111 patronized organizations X &amp; Y and audience member 22222 patronized organizations X, Y and Z, then organizations X &amp; Y share an audience member in common.)</li>
 </ul>
 <h5>
 	<a name="policymap">PolicyMap API (Demographic Info: 2000 and 2010)</a></h5>
 <div>
-	<a href="https://docs.google.com/document/d/17Jt609LkA4dN439tRckx6GnOlNQJjBqxx9cQl6S-Wfo/edit">PolicyMap API&nbsp;Information</a></div>
+	<a href="https://docs.google.com/document/d/17Jt609LkA4dN439tRckx6GnOlNQJjBqxx9cQl6S-Wfo/edit" target="_blank">PolicyMap API&nbsp;Information and Credentials</a></div>
 <p>
-	The PolicyMap API is undocumented. If you have questions, you can reach out directly to our developer contact there: Daniel Ceregatti</p>
+	The PolicyMap API is our source for demographic information from the US Census from 2000 and 2010, as well as boundary data.</p>
+<p>
+	The PolicyMap AP is not well-documented. There is an API demo site; see the link above for information.</p>
+<p>
+	There is also a <a href="http://www.policymap.com/data-api-overview.html">technical overview</a> on their website; however, this has not been updated since changes have been made to the API, so I&#39;m not sure how much of the information is valid.</p>
+<p>
+	<a href="http://www.policymap.com/our-data.html#Demographics" target="_blank">This page</a>&nbsp;will tell you what indicators we have access to via their API. They do not provide a complete list of variables for each indicator.</p>
+<p>
+	If you have questions, you can reach out directly to our developer contact there: Daniel Ceregatti</p>
 <table border="0">
 	<tbody>
 		<tr>
@@ -854,41 +870,47 @@
 		</tr>
 	</tbody>
 </table>
-<ul>
-	<li>
-		<div>
-			PolicyMap is also the data source for boundaries.</div>
-	</li>
-</ul>
 <h5>
 	<a name="scarborough">Scarborough (Consumer Behavior Info)</a></h5>
 <div>
-	Detroit - on order</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPZkJaYkthalNFdnM/edit?usp=sharing" target="_blank">Link to file</a> - Detroit Scarborough data</div>
 <div>
-	Bay Area - on order</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPbW9DdUtQVWVraHc/edit?usp=sharing" target="_blank">Link to file</a> - Bay Area Scarborough data</div>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPVzk1bE9BUGtKZkk/edit?usp=sharing" target="_blank">Link to file</a> - How to Read Scarborough data</div>
+<ul>
+	<li>
+		This is a new data set; it was not incorporated in to BACAM at all.</li>
+	<li>
+		We should discuss how best to import; I believe it will require significant formatting.</li>
+	<li>
+		The smallest region this data is available for is the county level. The spreadsheets have tabs for each county; the front end will need to be able to call data for each county separately.</li>
+</ul>
 <h5>
 	<a name="sppa">Survey of Public Participation in the Arts (SPPA - historical participation info)</a></h5>
 <div>
-	Detroit - waiting for cleaning</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPd1JuOUV5N01Cc0k/edit?usp=sharing" target="_blank">2002</a></div>
 <div>
-	Bay Area - waiting for cleaning</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPa0NQTFpyVXFKVzA/edit?usp=sharing" target="_blank">2008</a></div>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPVEt6aUhYSEtXcEE/edit?usp=sharing" target="_blank">2012</a></div>
 <h5>
 	<a name="cdp-participation">Cultural Data Project (CDP - attendance info by artistic discipline)</a></h5>
 <div>
-	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing">Link to CSV</a>&nbsp;- Detroit Organizations</div>
+	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit Organizations</div>
 <div>
 	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
 <ul>
 	<li>
-		See basic information in Cultural Data Project section in entites above.</li>
+		See basic information in Cultural Data Project section in &quot;Entities&quot; above.</li>
 </ul>
 <h4 id="data_sources_a_name"funding"strongfunding_strong_a"><a name="funding"><strong>Funding</strong></a></h4>
 <h5>
 	<a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h5>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPdENEY1ZNS1h2RDA/edit?usp=sharing">Documentation</a> - currently integrated version of Detroit API</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPdENEY1ZNS1h2RDA/edit?usp=sharing" target="_blank">Documentation</a> - currently integrated version of Detroit API</div>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWGZkbGE3bXJYczQ/edit?usp=sharing">Changes documentation</a> - updated Detroit API (changes not integrated)</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWGZkbGE3bXJYczQ/edit?usp=sharing" target="_blank">Changes documentation</a> - updated Detroit API (changes not integrated)</div>
 <ul>
 	<li>
 		This is our largest source for grants.</li>
@@ -900,7 +922,7 @@
 <h5>
 	<a name="nea-grants">NEA (Federal arts grants)</a></h5>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPVDZ3ZFFoTXVBREk/edit?usp=sharing">Link to CSV</a> - Grants from NEA to Detroit non-profit organizations</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPVDZ3ZFFoTXVBREk/edit?usp=sharing" target="_blank">Link to CSV</a> - Grants from NEA to Detroit non-profit organizations</div>
 <div>
 	Grants from NEA to Bay Area non-profit organizations - waiting for cleaning</div>
 <ul>
@@ -930,7 +952,7 @@
 <h5>
 	<a name="vanguard">Vanguard (individual donations to non-profit organizations)</a></h5>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWmlQYm1IemU4c1E/edit?usp=sharing">Link to CSV </a>- Detroit Instance Individual Donors</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWmlQYm1IemU4c1E/edit?usp=sharing" target="_blank">Link to CSV </a>- Detroit Instance Individual Donors</div>
 <div>
 	Bay Area Instance Individual Donors - not cleaned</div>
 <ul>
@@ -945,7 +967,7 @@
 <div>
 	Spaces is another Fractured Atlas platform that lists places where art happens.</div>
 <div>
-	<a href="https://docs.google.com/document/d/1koTKlFMnxPqlYZrgba8uqjgDp7-dGDfWFO0mL7obAVw/edit">API Sandbox Info</a></div>
+	<a href="https://docs.google.com/document/d/1koTKlFMnxPqlYZrgba8uqjgDp7-dGDfWFO0mL7obAVw/edit" target="_blank">API Sandbox Info</a></div>
 <ul>
 	<li>
 		Bay Area Spaces data is integrated via this API into BACAM.</li>
