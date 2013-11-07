@@ -13,7 +13,7 @@
 	<meta name="author" content="Alison Conard">
 	<meta name="copyright" content="Alison Conard">
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
-	<meta name="date" content="2013-11-05T00:00:00+01:00">
+	<meta name="date" content="2013-11-07T00:00:00+01:00">
 	
 	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
 	
@@ -99,7 +99,7 @@
 	<hr>
 	<ul>
 	<li>created: 10/22/2013</li>
-	<li>latest update: 11/05/2013</li>
+	<li>latest update: 11/07/2013</li>
 	<li>by: Alison Conard</li>
 	<li><a href=""></a></li>
 	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
@@ -611,7 +611,7 @@
 <h5>
 	<a name="guidestar-api">Guidestar API (Non-Profit Basic Info)</a></h5>
 <div>
-	Gemini SBS authored a Ruby gem to interact with the Guidestar API. <a href="https://github.com/geminisbs/guidestar" target="_blank">Github link</a></div>
+	Gemini SBS (the consultants who built BACAM) authored a Ruby gem to interact with the Guidestar API. <a href="https://github.com/geminisbs/guidestar" target="_blank">Github link</a></div>
 <div>
 	<a href="https://docs.google.com/document/d/1VILI0vNIMmkXK-7eWj3QyRWPJDg8a843icqhT_uln9U/edit" target="_blank">Guidestar API Credentials</a></div>
 <ul>
@@ -905,6 +905,8 @@
 		See basic information in Cultural Data Project section in &quot;Entities&quot; above.</li>
 </ul>
 <h4 id="data_sources_a_name"funding"strongfunding_strong_a"><a name="funding"><strong>Funding</strong></a></h4>
+<div>
+	<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdHdGQWtOcWpQeGFPSXlwbFpvb0lab2c&amp;usp=sharing" target="_blank">Link to funding schema</a></div>
 <h5>
 	<a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h5>
 <div>
@@ -918,6 +920,8 @@
 		Currently, the API only returns grants to and from organizations in our Detroit instance region; this will change soon and they&#39;ll create a similar API that serves Bay Area grants.</li>
 	<li>
 		We should pull from this source frequently - probably at least once a week.</li>
+	<li>
+		The database will columns from this source that will not be duplicated for any other funding source. (See funding schema for details.)</li>
 </ul>
 <h5>
 	<a name="nea-grants">NEA (Federal arts grants)</a></h5>
@@ -929,19 +933,17 @@
 	<li>
 		These grants are already imported for Detroit instance.</li>
 	<li>
-		All data should be stored.</li>
-	<li>
 		Question: how are current grants matched w/ organizations in front end code by Stamen?&nbsp;(There is no EIN for grantees in this data set.)</li>
 </ul>
 <h5>
 	<a name="nasaa-grants">NASAA (State arts grants)</a></h5>
 <div>
-	Grants from Michigan Council for Arts &amp; Cultural Affairs to Detroit non-profit orgs - needs revision</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPNmFoRVpMT2tTVm8/edit?usp=sharing">Link to spreadsheet</a> - Grants from Michigan Council for Arts &amp; Cultural Affairs to Detroit non-profit orgs</div>
 <div>
-	Grants from California Arts Council to non-profit orgs - not yet cleaned</div>
+	Grants from California Arts Council to non-profit orgs - acquired but not cleaned</div>
 <ul>
 	<li>
-		The Detroit data set is already imported; however, there was a mistake in the data cleaning and it must be re-cleaned and re-imported.</li>
+		The Detroit data set is already imported; however, there was a mistake in the data cleaning and it must be re-imported. Do not migrate this data set from the old database.</li>
 	<li>
 		Question: how are current grants matched w/ organizations in front end code by Stamen? (There is no EIN for grantees in this data set.)</li>
 </ul>
@@ -954,12 +956,12 @@
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWmlQYm1IemU4c1E/edit?usp=sharing" target="_blank">Link to CSV </a>- Detroit Instance Individual Donors</div>
 <div>
-	Bay Area Instance Individual Donors - not cleaned</div>
+	Bay Area Instance Individual Donors - acquired but not cleaned</div>
 <ul>
 	<li>
-		All fields should be stored.</li>
-	<li>
 		These will be displayed on maps by city and amount.</li>
+	<li>
+		There is no information about who is giving these donations -- these grants are anonymous. This means we will have no grantmaker information for this data set.</li>
 </ul>
 <h4 id="data_sources_stronga_name"spaces"spaces_a_strong"><strong><a name="spaces">Spaces</a></strong></h4>
 <h5>
