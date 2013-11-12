@@ -13,7 +13,7 @@
 	<meta name="author" content="Alison Conard">
 	<meta name="copyright" content="Alison Conard">
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
-	<meta name="date" content="2013-11-07T00:00:00+01:00">
+	<meta name="date" content="2013-11-12T00:00:00+01:00">
 	
 	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
 	
@@ -99,7 +99,7 @@
 	<hr>
 	<ul>
 	<li>created: 10/22/2013</li>
-	<li>latest update: 11/07/2013</li>
+	<li>latest update: 11/12/2013</li>
 	<li>by: Alison Conard</li>
 	<li><a href=""></a></li>
 	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
@@ -625,10 +625,19 @@
 	</li>
 	<li>
 		<div>
-			Imported data is first passed through a script that makes an initial attempt to classify organizations, then each organization in Match Scores 3-5 is goes through Amazon Mechanical Turk processing to classify disciplines and activity. Current non-profit data in both Detroit and San Francisco has undergone both processes.</div>
+			We pull organizations from Guidestar based on<br>
+			<ol>
+				<li>
+					the instance region (see counties for Detroit and Bay Area instances <a href="https://docs.google.com/document/d/17gHwV3NBAFN4Wxml-N0BFPKscNNwdW7kZ2Owc0vf2FI/edit?usp=sharing">here</a>)</li>
+				<li>
+					a script that pulls and classifies organizations according to some criteria. (Script documentation in progress; it&#39;s built in to BACAM already.) On import, data is first passed through a script that makes an initial attempt to classify organizations, then each organization in Match Scores 3-5 is goes through Amazon Mechanical Turk processing to classify disciplines and activity. Current non-profit data in both Detroit and San Francisco has undergone both processes, <strong>so this data needs to be migrated from the old databases.</strong></li>
+			</ol>
+		</div>
 	</li>
 	<li>
 		The application should pull from the API once per year. All new organizations should be exported and sent to Alison Conard to be put through the Mechanical Turk process.</li>
+	<li>
+		Any time a non-profit organization exists in a data source other than Guidestar, we need to pull that organization from Guidestar, store it, and it needs to be run through the Mechanical Turk process.</li>
 </ul>
 <h5>
 	<a name="nccs">NCCS (Historical Non-Profit Info)</a></h5>
@@ -705,6 +714,10 @@
 	</li>
 	<li>
 		<div>
+			We don&#39;t have an EIN for these businesses in the original data source. (Only an InfoUSA ID, which is not a federal ID.) This is okay, because we won&#39;t be connecting the for-profit businesses w/ any other data; we&#39;ll simply be displaying data about these businesses.</div>
+	</li>
+	<li>
+		<div>
 			The API should be able to deliver these to the front end of the application separately from the non-profit businesses. A user might want to see *all* organizations (both for- and non-profit), or they might want to see only for-profit businesses and/or non-profit businesses.</div>
 	</li>
 	<li>
@@ -732,6 +745,8 @@
 	Gemini SBS&nbsp;built a rake task (called fiscal_sponsors.rake, in the pa_data repo)&nbsp;that downloads the data from the FA database to the Archie database. This should contain the necessary credentials to access the fiscal sponsorship database.</p>
 <p>
 	The API will be undergoing changes soon and will provide financial data (a &quot;full profile&quot;), in addition to the data it currently provides.</p>
+<p>
+	This data should be pulled once/week.</p>
 <ul>
 	<li>
 		All fiscally-sponsored projects should be classified as &quot;unincorporated.&quot;</li>
@@ -776,12 +791,31 @@
 <h5>
 	<a name="ksprojects">Kickstarter (Kickstarter Projects)</a></h5>
 <div>
-	Detroit Projects - data set not yet acquired</div>
+	Detroit Projects - acquired; needs cleaning</div>
 <div>
-	San Francisco Projects - data set not yet acquired</div>
+	Detroit Yearly Metrics - acquired; needs cleaning</div>
+<div>
+	San Francisco Projects - acquired; needs cleaning</div>
+<div>
+	San Francisco Yearly Metrics -&nbsp;acquired; needs cleaning</div>
 <ul>
 	<li>
-		All Kickstarter projects should be classified as &quot;unincorporated.&quot;</li>
+		All Kickstarter projects should be classified as &quot;unincorporated&quot; entities</li>
+	<li>
+		Notes from KS about their data:
+		<ul>
+			<li>
+				The total_pledges column in the yearly metrics CSVs represent the total number of pledges not unique backers, since many users back multiple projects. It is worth emphasizing this to Fractured Atlas so that they don&#39;t accidentally assume there are more backers to these projects than there are.&nbsp;</li>
+			<li>
+				I included live project money in the yearly metrics to be completist&nbsp;</li>
+			<li>
+				Unsuccessful project money and unsuccessful projects count include failed, canceled, and suspended projects.&nbsp;</li>
+			<li>
+				Success rate is calculated by the total number of successful projects divided by the total number of closed (i.e. not-live) projects, which includes canceled, suspended, etc.</li>
+			<li>
+				We&#39;d like not to distinguish between failed/canceled/suspended. We would just call them Unsuccessful.</li>
+		</ul>
+	</li>
 </ul>
 <h5>
 	<a name="afta">AFTA (State and local arts agencies)</a></h5>
@@ -933,8 +967,30 @@
 	<li>
 		These grants are already imported for Detroit instance.</li>
 	<li>
+		All grants from this source should have the grantmaker_id set as the NEA (National Endowment for the Arts).</li>
+	<li>
 		Question: how are current grants matched w/ organizations in front end code by Stamen?&nbsp;(There is no EIN for grantees in this data set.)</li>
+	<li>
+		<a name="no-ein">We don&#39;t have EINs for the organizations in the NEA and NASAA spreadsheets</a>. Somehow, we need to figure out if we already have these organizations imported from Guidestar, and if we do, connect their grant information from NEA and NASAA with their organization information from Guidestar. I suggest a name lookup. Here&#39;s one idea for how this could be done:</li>
 </ul>
+<ol style="margin-left: 40px;">
+	<li>
+		<div>
+			For each grant in NEA/NASAA, look at the grantee name (NEA=&quot;Grantee&quot; and NASAAA=&quot;ApplName&quot;).</div>
+	</li>
+	<li>
+		<div>
+			Try to match the name to an organization already in our database. If there&#39;s a match, set &quot;grantee_id&quot; to the correct grantee.</div>
+	</li>
+	<li>
+		<div>
+			For organizations that don&#39;t match, try to find a name match via the Guidestar API.</div>
+	</li>
+	<li>
+		<div>
+			If no match can be found, we&#39;ll need to figure out a way for an intern to match the grantee organizations w/ an organization EIN. Maybe a spreadsheet export of all grants that have not been matched to organizations that the intern can fill in?</div>
+	</li>
+</ol>
 <h5>
 	<a name="nasaa-grants">NASAA (State arts grants)</a></h5>
 <div>
@@ -943,14 +999,20 @@
 	Grants from California Arts Council to non-profit orgs - acquired but not cleaned</div>
 <ul>
 	<li>
-		The Detroit data set is already imported; however, there was a mistake in the data cleaning and it must be re-imported. Do not migrate this data set from the old database.</li>
+		The Detroit data set is already imported; however, there was a mistake in the data cleaning and it must be re-imported. <strong>Do not migrate this data set from the old database.</strong></li>
 	<li>
-		Question: how are current grants matched w/ organizations in front end code by Stamen? (There is no EIN for grantees in this data set.)</li>
+		All grants in the NASAA (National Association for State Arts Agencies) spreadsheet for each region will come from a single grantmaker. In the Detroit spreadsheet, that&#39;s the Michigan Council for Arts &amp; Cultural Affairs. The NASAA imports will have a different grantmaker organization for each state, so somehow, we need to be able to set one organization for each instance as the &quot;state arts agency,&quot; and that&#39;s the organization that will be the grantmaker for all NASAA-imported grants.</li>
+	<li>
+		Question: how are current grants matched w/ organizations in front end code by Stamen? (There is <a href="#no-ein">no EIN for grantees in this data set</a>.)</li>
 </ul>
 <h5>
 	<a name="kickstarter">Kickstarter (Individual donations to unincorporated entities)</a></h5>
 <div>
-	Data not yet acquired</div>
+	Data acquired; needs cleaning</div>
+<ul>
+	<li>
+		A few fields from the Kickstarter data set will be included in the funding table. See the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdHdGQWtOcWpQeGFPSXlwbFpvb0lab2c&amp;usp=drive_web#gid=0" target="_blank">funding schema spreadsheet</a> for details.</li>
+</ul>
 <h5>
 	<a name="vanguard">Vanguard (individual donations to non-profit organizations)</a></h5>
 <div>
