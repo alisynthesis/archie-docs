@@ -542,11 +542,15 @@
 		<ul>
 			<li>
 				<div>
-					Visibility: Live (available to the front end) and Pending (not available to the front end)</div>
+					Visibility: Live (available to the front end), Pending (not available to the front end), and Inactive (not available to the front end)</div>
 			</li>
 			<li>
 				<div>
 					Administrator Flag: True or False; marks an entity as requiring admin attention</div>
+			</li>
+			<li>
+				<div>
+					Administrator Flag Comment: should provide a reason for the admin flag</div>
 			</li>
 		</ul>
 	</li>
@@ -585,7 +589,7 @@
 			<li>
 				Literary Arts</li>
 			<li>
-				Humanities (Humanities is a special case - if an entity is categorized as &quot;Humanities,&quot; it should automatically be categorized as &quot;Primarily Humanities.&quot;)</li>
+				Humanities (Humanities is a special case - if an entity is categorized as &quot;Humanities,&quot; it should automatically be categorized as &quot;Primarily Humanities in the front end.&quot;)</li>
 		</ul>
 	</li>
 	<li>
@@ -606,7 +610,41 @@
 	<li>
 		All individual entities (of all types) should have a list of tags associated with it. (Associated user stories: a user should be able to tag an entity; a user should be able to call a list of entities w/ a particular tag.)</li>
 	<li>
-		All entities should be able to be delivered to the front end of the application separately from one another. For instance, the front end should be able to get a list of *only* non-profit entities, as well as be able to call a list that includes *both* for-profit and project entities.</li>
+		All entity types should be able to be delivered to the front end of the application separately from one another. For instance, the front end should be able to get a list of *only* non-profit entities, as well as be able to call a list that includes *both* for-profit and project entities.</li>
+</ul>
+<h5>
+	Importing Entities</h5>
+<ul>
+	<li>
+		Both funding sources and Spaces are secondary data sources for entities.</li>
+	<li>
+		When we come across an entity in one of these data sources that already exists in the Archipelago database:
+		<ul>
+			<li>
+				Do not override any fields with data in them.</li>
+			<li>
+				If the data source provides data for fields that are NULL, store the new data.</li>
+		</ul>
+	</li>
+	<li>
+		When we come across an entity in one of these data sources that does NOT exist in the Archipelago database:
+		<ul>
+			<li>
+				Add an entity record with the information we acquire from the source (e.g. organization name).</li>
+			<li>
+				Search Guidestar for the entity. If a match is found, store the data.</li>
+			<li>
+				Mark the entity &quot;pending.&quot;</li>
+			<li>
+				Flag the entity for admin review. (Add comment to flag: &quot;Imported from $datasource&quot;)</li>
+			<li>
+				All new non-profit entities will need to be exported and run in batches through Mechanical Turk processing.</li>
+			<li>
+				All new entities added through this process will be looked at by a SA admin, coded properly, saved, and marked &quot;active.&quot;</li>
+		</ul>
+	</li>
+	<li>
+		Some fields should never be overwritten when importing new data because they were created manually. These are in the column &quot;Unchangeable&quot; in the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">Entities Data Schema</a>.</li>
 </ul>
 <h5>
 	<a name="guidestar-api">Guidestar API (Non-Profit Basic Info)</a></h5>
