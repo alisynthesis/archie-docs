@@ -13,7 +13,7 @@
 	<meta name="author" content="Alison Conard">
 	<meta name="copyright" content="Alison Conard">
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
-	<meta name="date" content="2013-11-19T00:00:00+01:00">
+	<meta name="date" content="2013-11-20T00:00:00+01:00">
 	
 	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
 	
@@ -99,7 +99,7 @@
 	<hr>
 	<ul>
 	<li>created: 10/22/2013</li>
-	<li>latest update: 11/19/2013</li>
+	<li>latest update: 11/20/2013</li>
 	<li>by: Alison Conard</li>
 	<li><a href=""></a></li>
 	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
@@ -616,7 +616,7 @@
 	Importing Entities</h5>
 <ul>
 	<li>
-		Both funding sources and Spaces are secondary data sources for entities.</li>
+		Funding data sets, Spaces, and the Fractured Atlas fiscal sponsorship API are secondary data sources for entities. (Meaning: any entities that we find in those data sources should be added to the database.)</li>
 	<li>
 		When we come across an entity in one of these data sources that already exists in the Archipelago database:
 		<ul>
@@ -647,6 +647,42 @@
 		Some fields should never be overwritten when importing new data because they were created manually. These are in the column &quot;Unchangeable&quot; in the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">Entities Data Schema</a>.</li>
 </ul>
 <h5>
+	Historical Entity Records</h5>
+<ul>
+	<li>
+		<div>
+			Non-profit - historical data for non-profits comes from two places:</div>
+		<ul>
+			<li>
+				<div>
+					NCCS provides the main historical record (see info below)</div>
+			</li>
+			<li>
+				<div>
+					CDP also provides historical information on many non-profits&nbsp;(see info below)</div>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<div>
+			For-profit - start building a historical record per business from current year (no back-data)</div>
+	</li>
+	<li>
+		<div>
+			Government - start building a historical record per business from current year (no back-data)</div>
+	</li>
+	<li>
+		<div>
+			Project - no historical record</div>
+	</li>
+	<li>
+		<div>
+			Individual Artist - no historical record</div>
+		<div>
+			&nbsp;</div>
+	</li>
+</ul>
+<h5>
 	<a name="guidestar-api">Guidestar API (Non-Profit Basic Info)</a></h5>
 <div>
 	Gemini SBS (the consultants who built BACAM) authored a Ruby gem to interact with the Guidestar API. <a href="https://github.com/geminisbs/guidestar" target="_blank">Github link</a></div>
@@ -675,6 +711,8 @@
 	<li>
 		The application should pull from the API once per year. All new organizations should be exported and sent to Alison Conard to be put through the Mechanical Turk process.</li>
 	<li>
+		All newly-imported organizations should be set to visibility: pending and marked for inclusion in the next Mechanical Turk batch.</li>
+	<li>
 		Any time a non-profit organization exists in a data source other than Guidestar, we need to pull that organization from Guidestar, store it, and it needs to be run through the Mechanical Turk process.</li>
 </ul>
 <h5>
@@ -688,7 +726,7 @@
 <ul>
 	<li>
 		<div>
-			provides historical non-profit organization data for the years 1990, 1995, and 2000-present</div>
+			provides historical non-profit organization data for the years 1990 and 2000-2011</div>
 	</li>
 	<li>
 		There are two spreadsheets: one with detailed records on a smaller number of non-profits, and another with less detailed records on all non-profits in our database.
@@ -702,7 +740,7 @@
 		</ul>
 	</li>
 	<li>
-		See <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdG8ta19nMHd5MENGdWt3Y0hYQ0FMT0E#gid=0" target="_blank">field name matchup w/ Guidestar fields here</a>. (Also contains notes)</li>
+		Our historical table for non-profits will have more fields than the table based on the Guidestar data source. See <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdG8ta19nMHd5MENGdWt3Y0hYQ0FMT0E#gid=0" target="_blank">field name matchup w/ Guidestar fields here</a>. (This should be used to create the historical entities table.)</li>
 	<li>
 		Note: these spreadsheets some formatting issues, especially in the EIN field. (Excel has stored all numbers as numbers, and dropped leading zeroes. All EINs should be 9 digits long.)</li>
 </ul>
@@ -739,7 +777,7 @@
 	</li>
 	<li>
 		<div>
-			If an organization is in this data set and not in our database, it should be imported from Guidestar.</div>
+			If an organization is in this data set and not in our database,<strong> it should be imported from Guidestar.</strong></div>
 	</li>
 	<li>
 		<div>
@@ -783,7 +821,7 @@
 			</li>
 			<li>
 				<div>
-					If the business does not have any Fractured Atlas disciplines, set the entity to visibility: pending and flag for an administrator.</div>
+					If the business does not have any Fractured Atlas disciplines, set the entity to visibility: pending and flag for an administrator with administrator flag comment &quot;InfoUSA - no discipline&quot;</div>
 			</li>
 		</ul>
 	</li>
