@@ -279,20 +279,6 @@
 			<td>
 				&nbsp;</td>
 			<td>
-				All</td>
-			<td>
-				Kickstarter projects</td>
-			<td>
-				Kickstarter</td>
-			<td>
-				not integrated</td>
-			<td>
-				<a href="#ksprojects">link</a></td>
-		</tr>
-		<tr>
-			<td>
-				&nbsp;</td>
-			<td>
 				Individual Artist</td>
 			<td>
 				Self-locate feature in platform</td>
@@ -455,7 +441,7 @@
 			<td>
 				not integrated</td>
 			<td>
-				<a href="#kickstarter">link</a></td>
+				<a href="#ksprojects">link</a></td>
 		</tr>
 		<tr>
 			<td>
@@ -726,7 +712,11 @@
 <ul>
 	<li>
 		<div>
-			provides historical non-profit organization data for the years 1990 and 2000-2011</div>
+			provides historical non-profit organization data for the years 2000-2011. (The spreadsheets contain tabs for 1990 and 1995, but these should not be imported.)</div>
+	</li>
+	<li>
+		<div>
+			Starting next year (2013 data), we will begin annual migration of our current organization records to the history table. The NCCS order was only necessary so that we could get back-dated records for the organizations, as historical data is not available from Guidestar.</div>
 	</li>
 	<li>
 		There are two spreadsheets: one with detailed records on a smaller number of non-profits, and another with less detailed records on all non-profits in our database.
@@ -873,39 +863,6 @@
 	<li>
 		<div>
 			For all Fractured Atlas fiscally sponsored projects, set Fractured Atlas Productions, Inc. as fiscal_sponsor_id. Fractured Atlas must be pulled from Guidestar so that it exists in the db as an entity. (This should happen w/ every new instance.) I believe you can pull w/ the EIN: 11-3451703. <a href="http://www.guidestar.org/organizations/11-3451703/fractured-atlas-productions.aspx" target="_blank">Link to Fractured Atlas on Guidestar website</a></div>
-	</li>
-</ul>
-<h5>
-	<a name="ksprojects">Kickstarter (Kickstarter Projects)</a></h5>
-<div>
-	Detroit Projects - <a href="https://drive.google.com/file/d/0B4vBl2qdSnVPN0JzeWlBekRBWEE/edit?usp=sharing" target="_blank">link</a>&nbsp;(<strong>Note</strong>: there are 4 columns with no data. These columns should exist in the table. I&#39;ll provide a new spreadsheet for import when this data has been manually added by Sustain Arts.</div>
-<div>
-	Detroit Yearly Metrics - <a href="https://drive.google.com/file/d/0B4vBl2qdSnVPNklpZTF6SzBkR1U/edit?usp=sharing" target="_blank">link</a></div>
-<div>
-	San Francisco Projects - acquired; needs cleaning</div>
-<div>
-	San Francisco Yearly Metrics -&nbsp;acquired; needs cleaning</div>
-<ul>
-	<li>
-		All Kickstarter columns&nbsp;<a href="https://docs.google.com/document/d/101nvyJN0U1vV6B5FpWc_inzzGN1_1gTl_rSRjTAAujc/edit" target="_blank">here</a></li>
-	<li>
-		Kickstarter projects will be attached to entities in the database.</li>
-	<li>
-		Kickstarter projects will be coded with 1) legal name, 2) entity type, and 3) entity EIN (in the case where there is an EIN)&nbsp;</li>
-	<li>
-		Notes from KS about their data:
-		<ul>
-			<li>
-				The total_pledges column in the yearly metrics CSVs represent the total number of pledges not unique backers, since many users back multiple projects. It is worth emphasizing this to Fractured Atlas so that they don&#39;t accidentally assume there are more backers to these projects than there are.&nbsp;</li>
-			<li>
-				I included live project money in the yearly metrics to be completist&nbsp;</li>
-			<li>
-				Unsuccessful project money and unsuccessful projects count include failed, canceled, and suspended projects.&nbsp;</li>
-			<li>
-				Success rate is calculated by the total number of successful projects divided by the total number of closed (i.e. not-live) projects, which includes canceled, suspended, etc.</li>
-			<li>
-				We&#39;d like not to distinguish between failed/canceled/suspended. We would just call them Unsuccessful.</li>
-		</ul>
 	</li>
 </ul>
 <h5>
@@ -1097,12 +1054,40 @@
 		Question: how are current grants matched w/ organizations in front end code by Stamen? (There is <a href="#no-ein">no EIN for grantees in this data set</a>.)</li>
 </ul>
 <h5>
-	<a name="kickstarter">Kickstarter (Individual donations to unincorporated entities)</a></h5>
+	<a name="ksprojects">Kickstarter (Kickstarter Projects)</a></h5>
 <div>
-	Data acquired; needs cleaning</div>
+	Detroit Projects -&nbsp;<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPN0JzeWlBekRBWEE/edit?usp=sharing" target="_blank">link</a>&nbsp;(<strong>Note</strong>: there are 4 columns with no data. These columns should exist in the table. I&#39;ll provide a new spreadsheet for import when this data has been manually added by Sustain Arts.</div>
+<div>
+	Detroit Yearly Metrics -&nbsp;<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPNklpZTF6SzBkR1U/edit?usp=sharing" target="_blank">link</a></div>
+<div>
+	San Francisco Projects - acquired; needs cleaning</div>
+<div>
+	San Francisco Yearly Metrics -&nbsp;acquired; needs cleaning</div>
 <ul>
 	<li>
-		A few fields from the Kickstarter data set will be included in the funding table. See the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdHdGQWtOcWpQeGFPSXlwbFpvb0lab2c&amp;usp=drive_web#gid=0" target="_blank">funding schema spreadsheet</a> for details.</li>
+		All Kickstarter columns&nbsp;<a href="https://docs.google.com/document/d/101nvyJN0U1vV6B5FpWc_inzzGN1_1gTl_rSRjTAAujc/edit" target="_blank">here</a></li>
+	<li>
+		Kickstarter projects will be attached to entities in the database based on the following fields:
+		<ul>
+			<li>
+				1) legal name, 2) entity type, and 3) entity EIN (in the case where there is an EIN)&nbsp;</li>
+		</ul>
+	</li>
+	<li>
+		Notes from KS about their data:
+		<ul>
+			<li>
+				The total_pledges column in the yearly metrics CSVs represent the total number of pledges not unique backers, since many users back multiple projects. It is worth emphasizing this to Fractured Atlas so that they don&#39;t accidentally assume there are more backers to these projects than there are.&nbsp;</li>
+			<li>
+				I included live project money in the yearly metrics to be completist&nbsp;</li>
+			<li>
+				Unsuccessful project money and unsuccessful projects count include failed, canceled, and suspended projects.&nbsp;</li>
+			<li>
+				Success rate is calculated by the total number of successful projects divided by the total number of closed (i.e. not-live) projects, which includes canceled, suspended, etc.</li>
+			<li>
+				We&#39;d like not to distinguish between failed/canceled/suspended. We would just call them Unsuccessful.</li>
+		</ul>
+	</li>
 </ul>
 <h5>
 	<a name="vanguard">Vanguard (individual donations to non-profit organizations)</a></h5>
