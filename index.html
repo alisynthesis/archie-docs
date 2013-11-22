@@ -13,7 +13,7 @@
 	<meta name="author" content="Alison Conard">
 	<meta name="copyright" content="Alison Conard">
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
-	<meta name="date" content="2013-11-21T00:00:00+01:00">
+	<meta name="date" content="2013-11-22T00:00:00+01:00">
 	
 	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
 	
@@ -99,7 +99,7 @@
 	<hr>
 	<ul>
 	<li>created: 10/22/2013</li>
-	<li>latest update: 11/21/2013</li>
+	<li>latest update: 11/22/2013</li>
 	<li>by: Alison Conard</li>
 	<li><a href=""></a></li>
 	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
@@ -706,7 +706,7 @@
 <div>
 	Detroit Organizations - <a href="https://drive.google.com/file/d/0B4vBl2qdSnVPVVduWHBidmxMU3c/edit?usp=sharing" target="_blank">Supplemental Requests 11-5-13 (BMF).xlsx</a> (first import)</div>
 <div>
-	Detroit Organizations - <a href="https://drive.google.com/file/d/0B4vBl2qdSnVPZDAtekpDd2dxQm8/edit?usp=sharing" target="_blank">Supplemental Requests 10-28-13.xlsx</a> (second import)</div>
+	Detroit Organizations - <a href="https://drive.google.com/file/d/0B4vBl2qdSnVPUGp1ZnBycHpwUXM/edit?usp=sharing" target="_blank">Supplmental Requests 10-28-13 v2 (Core).xlsx</a>&nbsp;(second import)</div>
 <div>
 	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
 <ul>
@@ -883,14 +883,14 @@
 </ul>
 <h5>
 	<a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h5>
-<div>
-	Type = Government</div>
-<div>
-	Subtype = federal_government</div>
-<div>
-	&nbsp;</div>
-<div>
-	The NEA is a single organization that has been manually added to the Detroit database. This organization should exist in every instance of Archipelago.</div>
+<ul>
+	<li>
+		Manual import that exists in every instance of Archipelago</li>
+	<li>
+		Type = Government</li>
+	<li>
+		Subtype = federal_government</li>
+</ul>
 <h4 id="data_sources_stronga_name"audience"audience,_participation_amp_demographics_a_strong"><strong><a name="audience">Audience, Participation &amp; Demographics</a></strong></h4>
 <h5>
 	<a name="trg">TRG (List of Audience Members)</a></h5>
@@ -1004,6 +1004,10 @@
 		We should pull from this source frequently - probably at least once a week.</li>
 	<li>
 		The database will columns from this source that will not be duplicated for any other funding source. (See funding schema for details.)</li>
+	<li>
+		All grantmakers and grantees from this source should be imported if they don&#39;t already exist in our system.</li>
+	<li>
+		See <a href="https://docs.google.com/document/d/1trVkdAlxeveMyFFpGS7byRI0AFzTU0BbWs9iijRo2T4/edit" target="_blank">this document</a> for an explanation of assigning entity types to Foundation Center grantees.</li>
 </ul>
 <h5>
 	<a name="nea-grants">NEA (Federal arts grants)</a></h5>
@@ -1019,7 +1023,7 @@
 	<li>
 		Question: how are current grants matched w/ organizations in front end code by Stamen?&nbsp;(There is no EIN for grantees in this data set.)</li>
 	<li>
-		<a name="no-ein">We don&#39;t have EINs for the organizations in the NEA and NASAA spreadsheets</a>. Somehow, we need to figure out if we already have these organizations imported from Guidestar, and if we do, connect their grant information from NEA and NASAA with their organization information from Guidestar. I suggest a name lookup. Here&#39;s one idea for how this could be done:</li>
+		<a name="no-ein">We don&#39;t have EINs for the organizations in the NEA and NASAA spreadsheets</a>. We need to figure out if these organizations exist in our database, and if they do, connect their grant information from NEA and NASAA with their organization information from Guidestar. I suggest a name lookup. Here&#39;s one idea for how this could be done:</li>
 </ul>
 <ol style="margin-left: 40px;">
 	<li>
@@ -1032,11 +1036,11 @@
 	</li>
 	<li>
 		<div>
-			For organizations that don&#39;t match, try to find a name match via the Guidestar API.</div>
+			For organizations that don&#39;t match, try to find a name match via the Guidestar API. If found, import the organization (type = non-profit)</div>
 	</li>
 	<li>
 		<div>
-			If no match can be found, we&#39;ll need to figure out a way for an intern to match the grantee organizations w/ an organization EIN. Maybe a spreadsheet export of all grants that have not been matched to organizations that the intern can fill in?</div>
+			If no match can be found, set to visibility: pending and flag for an admin with comment &quot;Imported from $source; no EIN found.&quot;</div>
 	</li>
 </ol>
 <h5>
