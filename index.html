@@ -13,7 +13,7 @@
 	<meta name="author" content="Alison Conard">
 	<meta name="copyright" content="Alison Conard">
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
-	<meta name="date" content="2013-11-25T00:00:00+01:00">
+	<meta name="date" content="2013-11-26T00:00:00+01:00">
 	
 	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
 	
@@ -73,13 +73,22 @@
 			<li><a class="current" href="#documenter_cover">Start</a></li>
 				
 			<li><a href="#data_overview" title="Data Overview">Data Overview</a></li>
-			<li><a href="#data_sources" title="Data Sources">Data Sources</a>
+			<li><a href="#data_types" title="Data Types">Data Types</a>
 				<ul>
-					<li><a href="#data_sources_data_sources_table">Data Sources Table</a>
-					<li><a href="#data_sources_stronga_name"entities"entities_a_strong">Entities</a>
-					<li><a href="#data_sources_stronga_name"audience"audience,_participation_amp_demographics_a_strong">Audience, Participation &amp; Demographics</a>
-					<li><a href="#data_sources_a_name"funding"strongfunding_strong_a">Funding</a>
-					<li><a href="#data_sources_stronga_name"spaces"spaces_a_strong">Spaces</a>
+					<li><a href="#data_types_data_sources_table">Data Sources Table</a>
+					<li><a href="#data_types_stronga_name"entities"entities_a_strong">Entities</a>
+					<li><a href="#data_types_stronga_name"audience"audience,_participation_amp_demographics_a_strong">Audience, Participation &amp; Demographics</a>
+					<li><a href="#data_types_a_name"funding"strongfunding_strong_a">Funding</a>
+					<li><a href="#data_types_stronga_name"spaces"spaces_a_strong">Spaces</a>
+				</ul>
+			</li>
+			<li><a href="#user_types" title="User Types">User Types</a>
+				<ul>
+					<li><a href="#user_types_super_admin">Super Admin</a>
+					<li><a href="#user_types_instance_admin">Instance Admin</a>
+					<li><a href="#user_types_users">Users</a>
+					<li><a href="#user_types_users_39_relationships_to_entities">Users&#39; Relationships to Entities</a>
+					<li><a href="#user_types_user_permissions">User Permissions</a>
 				</ul>
 			</li>
 			<li><a href="#features" title="Features">Features</a></li>
@@ -99,7 +108,7 @@
 	<hr>
 	<ul>
 	<li>created: 10/22/2013</li>
-	<li>latest update: 11/25/2013</li>
+	<li>latest update: 11/26/2013</li>
 	<li>by: Alison Conard</li>
 	<li><a href=""></a></li>
 	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
@@ -184,9 +193,9 @@
 <div>
 	Note: <a href="https://docs.google.com/document/d/1L5dZQu5nHGCVu5pOsmanLPr5g01qQkyFTvUDYdBArTM/edit">this document</a> was created for Xentio by FA developers in summer 2013, and might be helpful to provide background info about the architecture of the old code base.</div>
 </section>
-<section id="data_sources">
-	<div class="page-header"><h3>Data Sources</h3><hr class="notop"></div>
-<h4 id="data_sources_data_sources_table">Data Sources Table</h4>
+<section id="data_types">
+	<div class="page-header"><h3>Data Types</h3><hr class="notop"></div>
+<h4 id="data_types_data_sources_table">Data Sources Table</h4>
 <table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 800px;">
 	<thead>
 		<tr>
@@ -516,7 +525,7 @@
 	&nbsp;</p>
 <p>
 	&nbsp;</p>
-<h4 id="data_sources_stronga_name"entities"entities_a_strong"><strong><a name="entities">Entities</a></strong></h4>
+<h4 id="data_types_stronga_name"entities"entities_a_strong"><strong><a name="entities">Entities</a></strong></h4>
 <ul>
 	<li>
 		<div>
@@ -594,9 +603,22 @@
 		</ul>
 	</li>
 	<li>
-		All individual entities (of all types) should have a list of tags associated with it. (Associated user stories: a user should be able to tag an entity; a user should be able to call a list of entities w/ a particular tag.)</li>
+		All individual entities (of all types) should have a list of tags. (Associated user stories in Trello: <a href="https://trello.com/c/radf16o8/35-a-logged-in-user-should-be-able-to-tag-an-entity" target="_blank">a user should be able to tag an entity</a>; <a href="https://trello.com/c/2tYzuYwb/32-tags-should-be-searchable-in-the-main-search-bar">tags should be searchable</a>.)</li>
 	<li>
 		All entity types should be able to be delivered to the front end of the application separately from one another. For instance, the front end should be able to get a list of *only* non-profit entities, as well as be able to call a list that includes *both* for-profit and project entities.</li>
+	<li>
+		Users may <strong>add entities</strong> to the system and edit entities they have claimed. (See section &quot;User Types&quot; for more details)
+		<ul>
+			<li>
+				Entities of the following types may be added or claimed: nonprofit, for-profit, government, or individual artist.</li>
+			<li>
+				Project entities will never be edited or claimed by users.</li>
+			<li>
+				See <a href="https://trello.com/c/nzYpXle6/50-a-logged-in-user-should-be-able-to-add-an-entity-to-an-instance" target="_blank">Trello story</a> for details (including attached wireframes).</li>
+			<li>
+				Once a user is associated with any entity, that user may edit some data for the entity. For a complete list of user-editable fields, see column D in the&nbsp;<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">entities schema</a>.</li>
+		</ul>
+	</li>
 </ul>
 <h5>
 	Importing Entities</h5>
@@ -618,7 +640,7 @@
 			<li>
 				Add an entity record with the information we acquire from the source (e.g. organization name).</li>
 			<li>
-				Search Guidestar for the entity. If a match is found, store the data.</li>
+				Search Guidestar for the entity. If a match is found, store the data and classify the entity as a nonprofit.</li>
 			<li>
 				Mark the entity &quot;pending.&quot;</li>
 			<li>
@@ -630,7 +652,7 @@
 		</ul>
 	</li>
 	<li>
-		Some fields should never be overwritten when importing new data because they were created manually. These are in the column &quot;Unchangeable&quot; in the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">Entities Data Schema</a>.</li>
+		Some fields should never be overwritten when importing new data because they were created manually. These are in the column &quot;Manually Written?&quot; in the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">Entities Data Schema</a>.</li>
 </ul>
 <h5>
 	Historical Entity Records</h5>
@@ -730,9 +752,9 @@
 		</ul>
 	</li>
 	<li>
-		Our historical table for non-profits will have more fields than the table based on the Guidestar data source. See <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdG8ta19nMHd5MENGdWt3Y0hYQ0FMT0E#gid=0" target="_blank">field name matchup w/ Guidestar fields here</a>. (This should be used to create the historical entities table.)</li>
+		NCCS has more fields available than the Guidestar data source, but many of the fields are the same between the two sources. See <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdG8ta19nMHd5MENGdWt3Y0hYQ0FMT0E#gid=0" target="_blank">field name matchup w/ Guidestar fields here</a>. (This should be used to create the historical entities table.)</li>
 	<li>
-		Note: these spreadsheets some formatting issues, especially in the EIN field. (Excel has stored all numbers as numbers, and dropped leading zeroes. All EINs should be 9 digits long.)</li>
+		Note: these spreadsheets have some formatting issues, especially in the EIN field. (Excel has stored all numbers as numbers, and dropped leading zeroes. All EINs should be 9 digits long.)</li>
 </ul>
 <h5>
 	<a name="cdp">Cultural Data Project (CDP - Extended Non-Profit Info)</a></h5>
@@ -891,7 +913,7 @@
 	<li>
 		Subtype = federal_government</li>
 </ul>
-<h4 id="data_sources_stronga_name"audience"audience,_participation_amp_demographics_a_strong"><strong><a name="audience">Audience, Participation &amp; Demographics</a></strong></h4>
+<h4 id="data_types_stronga_name"audience"audience,_participation_amp_demographics_a_strong"><strong><a name="audience">Audience, Participation &amp; Demographics</a></strong></h4>
 <h5>
 	<a name="trg">TRG (List of Audience Members)</a></h5>
 <div>
@@ -1007,7 +1029,7 @@
 	<li>
 		See basic information in Cultural Data Project section in &quot;Entities&quot; above.</li>
 </ul>
-<h4 id="data_sources_a_name"funding"strongfunding_strong_a"><a name="funding"><strong>Funding</strong></a></h4>
+<h4 id="data_types_a_name"funding"strongfunding_strong_a"><a name="funding"><strong>Funding</strong></a></h4>
 <div>
 	<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdHdGQWtOcWpQeGFPSXlwbFpvb0lab2c&amp;usp=sharing" target="_blank">Link to funding schema</a></div>
 <h5>
@@ -1126,7 +1148,7 @@
 	<li>
 		There is no information about who is giving these donations -- these grants are anonymous. This means we will have no grantmaker information for this data set.</li>
 </ul>
-<h4 id="data_sources_stronga_name"spaces"spaces_a_strong"><strong><a name="spaces">Spaces</a></strong></h4>
+<h4 id="data_types_stronga_name"spaces"spaces_a_strong"><strong><a name="spaces">Spaces</a></strong></h4>
 <h5>
 	<a name="spaces-api">Fractured Atlas Spaces API (places where art happens)</a></h5>
 <div>
@@ -1157,6 +1179,85 @@
 	&nbsp;</div>
 <div>
 	&nbsp;</div>
+</section>
+<section id="user_types">
+	<div class="page-header"><h3>User Types</h3><hr class="notop"></div>
+<h4 id="user_types_super_admin">Super Admin</h4>
+<ul>
+	<li>
+		Super admin users should be able to edit all data system wide.&nbsp;</li>
+	<li>
+		Super admin permissions should include all instances using the same code base (in the current case, all Sustain Arts instances).</li>
+	<li>
+		If possible, super admins should be transferred to new Archipelago implementations.</li>
+	<li>
+		Super admins will be Fractured Atlas employees and affiliated developers (e.g. Xentio).</li>
+</ul>
+<h4 id="user_types_instance_admin">Instance Admin</h4>
+<ul>
+	<li>
+		Instance admins should have the same permissions as super admins, but only for a single instance (e.g. Detroit or Bay Area).</li>
+	<li>
+		Instance admins will be partners in the particular implementation (e.g. Sustain Arts staff members).</li>
+</ul>
+<h4 id="user_types_users">Users</h4>
+<ul>
+	<li>
+		User profiles will be created through a user sign-up process.</li>
+	<li>
+		Users may choose to give us only their basic information (Email, first name, last name, zip code, password).</li>
+	<li>
+		If a user completes the advanced user profile, we will also know what type of entity they work for and/or their role in the arts community.</li>
+	<li>
+		See schema for users <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdE4xeU1ZYlZNZDFoZm52VDNyQ05RY2c#gid=0" target="_blank">here.</a></li>
+	<li>
+		For a basic list of features surrounding user profiles and their permissions, see the <a href="https://trello.com/b/FPtTQgPM/sa-features-dev" target="_blank">SA Features (Dev) Trello board</a>&nbsp;(User Profiles/Permissions list).</li>
+	<li>
+		For a complete mockup of user profile (basic &amp; advanced) creation, see:&nbsp;<a href="https://trello-attachments.s3.amazonaws.com/525dada7fdf226372e000428/5269826c12b17c9f4e000487/876075df1ab31a06b4e8d3a3b94dd44f/user_profiles_wireframe_11262013.pdf" target="_blank">Wireframes for user profiles</a></li>
+</ul>
+<h4 id="user_types_users_39_relationships_to_entities">Users&#39; Relationships to Entities</h4>
+<ul>
+	<li>
+		Users may be associated with entities in the following ways:</li>
+	<li>
+		For entity types nonprofit, for-profit, government:
+		<ul>
+			<li>
+				A user can claim only one entity.</li>
+			<li>
+				Multiple users can claim the same entity.</li>
+		</ul>
+	</li>
+	<li>
+		For entity type individual artist:
+		<ul>
+			<li>
+				A user can claim one and only one individual artist profile that exists in our database.</li>
+			<li>
+				Multiple users can *not* claim the same individual artist profile. If a user tries to claim an individual artist profile that has already been claimed by another user, the front end should offer the user a way to contact support and dispute the claim.</li>
+			<li>
+				A user can claim *both* an individual artist profile and a business entity (nonprofit, for-profit, government, and project). (This is because users may be both an artist and work for an arts and culture entity.)</li>
+			<li>
+				Users can also add entities to the database.
+				<ul>
+					<li>
+						Like claiming entities, they may add a single business entity (nonprofit, for-profit, government, or project) and/or an individual artist profile.</li>
+					<li>
+						Once the user adds an entity, the rules for claiming that entity are the same as above.</li>
+				</ul>
+			</li>
+			<li>
+				Users can never be associated with entities of type: project. (They cannot add or claim these entities.)</li>
+		</ul>
+	</li>
+	<li>
+		Once a user is associated with any entity, that user may edit some data for the entity. For a complete list of user-editable fields, see column D in the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">entities schema</a>.</li>
+</ul>
+<h4 id="user_types_user_permissions">User Permissions</h4>
+<ul>
+	<li>
+		Only a logged in user can tag an entity.</li>
+</ul>
 </section>
 <section id="features">
 	<div class="page-header"><h3>Features</h3><hr class="notop"></div>
