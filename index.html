@@ -13,7 +13,7 @@
 	<meta name="author" content="Alison Conard">
 	<meta name="copyright" content="Alison Conard">
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
-	<meta name="date" content="2013-11-26T00:00:00+01:00">
+	<meta name="date" content="2013-12-03T00:00:00+01:00">
 	
 	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
 	
@@ -108,7 +108,7 @@
 	<hr>
 	<ul>
 	<li>created: 10/22/2013</li>
-	<li>latest update: 11/26/2013</li>
+	<li>latest update: 12/03/2013</li>
 	<li>by: Alison Conard</li>
 	<li><a href=""></a></li>
 	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
@@ -722,6 +722,8 @@
 		All newly-imported organizations should be set to visibility: pending and marked for inclusion in the next Mechanical Turk batch.</li>
 	<li>
 		Any time a non-profit organization exists in a data source other than Guidestar, we need to pull that organization from Guidestar, store it, and it needs to be run through the Mechanical Turk process.</li>
+	<li>
+		Examples of Mechanical Turk files <a href="https://drive.google.com/folderview?id=0B4vBl2qdSnVPNklDeHpYRHZJQ2c&amp;usp=sharing" target="_blank">here</a>;&nbsp;includes input files (input into M Turk), results (export from M Turk), and Archie output (after M Turk results were imported into database)</li>
 </ul>
 <h5>
 	<a name="nccs">NCCS (Historical Non-Profit Info)</a></h5>
@@ -1185,11 +1187,9 @@
 	<li>
 		Super admin users should be able to edit all data system wide.&nbsp;</li>
 	<li>
-		Super admin permissions should include all instances using the same code base (in the current case, all Sustain Arts instances).</li>
-	<li>
-		If possible, super admins should be transferred to new Archipelago implementations.</li>
-	<li>
 		Super admins will be Fractured Atlas employees and affiliated developers (e.g. Xentio).</li>
+	<li>
+		Super admins can create new admin users.</li>
 </ul>
 <h4 id="user_types_instance_admin">Instance Admin</h4>
 <ul>
@@ -1197,6 +1197,8 @@
 		Instance admins should have the same permissions as super admins, but only for a single instance (e.g. Detroit or Bay Area).</li>
 	<li>
 		Instance admins will be partners in the particular implementation (e.g. Sustain Arts staff members).</li>
+	<li>
+		Instance admins can be created only by super admins.</li>
 </ul>
 <h4 id="user_types_users">Users</h4>
 <ul>
@@ -1206,6 +1208,8 @@
 		Users may choose to give us only their basic information (Email, first name, last name, zip code, password).</li>
 	<li>
 		If a user completes the advanced user profile, we will also know what type of entity they work for and/or their role in the arts community.</li>
+	<li>
+		User activation will happen automatically -- we will verify their email and their account will be active.</li>
 	<li>
 		See schema for users <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdE4xeU1ZYlZNZDFoZm52VDNyQ05RY2c#gid=0" target="_blank">here.</a></li>
 	<li>
@@ -1261,6 +1265,10 @@
 	<div class="page-header"><h3>Features</h3><hr class="notop"></div>
 <div>
 	<a href="https://trello.com/b/FPtTQgPM/sa-features-dev">Please see Trello for features list.</a></div>
+<div>
+	&nbsp;</div>
+<div>
+	Data required for all features will be delivered to the front-end via a JSON API.</div>
 <div>
 	&nbsp;</div>
 </section>
