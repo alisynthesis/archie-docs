@@ -1,0 +1,1278 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Archipelago Specification - Feature Requirements and Data Sources</title>
+	
+	<meta name="description" content="This document will detail requirements for all Archipelago features, data requirements, and data sources. It will contain all known documentation for data sources as well.">
+	<meta name="author" content="Alison Conard">
+	<meta name="copyright" content="Alison Conard">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2013-12-03T00:00:00+01:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	
+	
+	
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#EEEEEE;color:#383838;}
+		::-moz-selection{background:#333636;color:#00DFFC;}
+		::selection{background:#333636;color:#00DFFC;}
+		#documenter_sidebar #documenter_logo{background-image:url();}
+		a{color:#008C9E;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #008C9E, #006673);
+			  background-image: -ms-linear-gradient(top, #008C9E, #006673);
+			  background-image: -webkit-gradient(linear, 0 0, 0 008C9E%, from(#343838), to(#006673));
+			  background-image: -webkit-linear-gradient(top, #008C9E, #006673);
+			  background-image: -o-linear-gradient(top, #008C9E, #006673);
+			  background-image: linear-gradient(top, #008C9E, #006673);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008C9E', endColorstr='#006673', GradientType=0);
+			  border-color: #006673 #006673 #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #008C9E #008C9E #bfbfbf;
+		  background-color: #006673;
+		}
+		hr{border-top:1px solid #D4D4D4;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#343838;color:#FFFFFF;}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #494F4F;-moz-text-shadow:1px 1px 0px #494F4F;text-shadow:1px 1px 0px #494F4F;}
+		#documenter_sidebar ul{border-top:1px solid #212424;}
+		#documenter_sidebar ul a{border-top:1px solid #494F4F;border-bottom:1px solid #212424;color:#FFFFFF;}
+		#documenter_sidebar ul a:hover{background:#333636;color:#00DFFC;border-top:1px solid #333636;}
+		#documenter_sidebar ul a.current{background:#333636;color:#00DFFC;border-top:1px solid #333636;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-archipelago-specification">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#data_overview" title="Data Overview">Data Overview</a></li>
+			<li><a href="#data_types" title="Data Types">Data Types</a>
+				<ul>
+					<li><a href="#data_types_data_sources_table">Data Sources Table</a>
+					<li><a href="#data_types_stronga_name"entities"entities_a_strong">Entities</a>
+					<li><a href="#data_types_stronga_name"audience"audience,_participation_amp_demographics_a_strong">Audience, Participation &amp; Demographics</a>
+					<li><a href="#data_types_a_name"funding"strongfunding_strong_a">Funding</a>
+					<li><a href="#data_types_stronga_name"spaces"spaces_a_strong">Spaces</a>
+				</ul>
+			</li>
+			<li><a href="#user_types" title="User Types">User Types</a>
+				<ul>
+					<li><a href="#user_types_super_admin">Super Admin</a>
+					<li><a href="#user_types_instance_admin">Instance Admin</a>
+					<li><a href="#user_types_users">Users</a>
+					<li><a href="#user_types_users_39_relationships_to_entities">Users&#39; Relationships to Entities</a>
+					<li><a href="#user_types_user_permissions">User Permissions</a>
+				</ul>
+			</li>
+			<li><a href="#features" title="Features">Features</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright Alison Conard 2013<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>Archipelago Specification</h1>
+	<h2>Feature Requirements and Data Sources</h2>
+	<div id="documenter_buttons">
+		<a href="http://www.fracturedatlas.org/site/technology/archipelago" class="btn btn-primary btn-large">Archipelago</a> <a href="http://sustainarts.org" class="btn btn-large">Sustain Arts</a> 
+	</div>
+	<hr>
+	<ul>
+	<li>created: 10/22/2013</li>
+	<li>latest update: 12/03/2013</li>
+	<li>by: Alison Conard</li>
+	<li><a href=""></a></li>
+	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
+	</ul>
+	<p></p>
+	</section>
+	
+	<section id="data_overview">
+	<div class="page-header"><h3>Data Overview</h3><hr class="notop"></div>
+<h3>
+	Entities</h3>
+<ul>
+	<li>
+		Non-profit organizations</li>
+	<li>
+		For-profit organizations</li>
+	<li>
+		Individual artists</li>
+	<li>
+		Unincorporated entities - Fractured Atlas fiscally sponsored projects</li>
+	<li>
+		Government - state and local arts agencies</li>
+	<li>
+		Government - national</li>
+</ul>
+<h3>
+	Audience</h3>
+<ul>
+	<li>
+		Audience lists from local arts organizations</li>
+	<li>
+		Survey for Public Participation in the Arts</li>
+	<li>
+		Cultural Data Project</li>
+</ul>
+<h3>
+	Demographic &amp; Consumer Behavior</h3>
+<ul>
+	<li>
+		U.S. Census (2000 &amp; 2010) - PolicyMap API</li>
+	<li>
+		Consumer behavior - Scarborough</li>
+</ul>
+<h3>
+	Funding</h3>
+<ul>
+	<li>
+		Private grants - Foundation Center API</li>
+	<li>
+		Federal arts grants - NEA</li>
+	<li>
+		State arts grants - NASAA</li>
+	<li>
+		Unincorporated/individual - Kickstarter</li>
+	<li>
+		Individual donors - Vanguard</li>
+</ul>
+<h3>
+	Spaces</h3>
+<ul>
+	<li>
+		Fractured Atlas Spaces API</li>
+</ul>
+<h3>
+	Intended Data Schema</h3>
+<p>
+	Note: disregard &quot;Hewlett Grants RSS&quot; for now.</p>
+<p>
+	<img alt="" src="assets/images/image_1.jpg"  ></p>
+<p>
+	&nbsp;</p>
+<h5>
+	General Requirements</h5>
+<ul>
+	<li>
+		All data sources should be stored alongside the data in the database so that we can trace any data back to its source. This feature should already be implemented.</li>
+	<li>
+		All tables and fields should be available to the front end via a JSON API</li>
+</ul>
+<p>
+	&nbsp;</p>
+<div>
+	Note: <a href="https://docs.google.com/document/d/1L5dZQu5nHGCVu5pOsmanLPr5g01qQkyFTvUDYdBArTM/edit">this document</a> was created for Xentio by FA developers in summer 2013, and might be helpful to provide background info about the architecture of the old code base.</div>
+</section>
+<section id="data_types">
+	<div class="page-header"><h3>Data Types</h3><hr class="notop"></div>
+<h4 id="data_types_data_sources_table">Data Sources Table</h4>
+<table align="left" border="1" cellpadding="1" cellspacing="1" style="width: 800px;">
+	<thead>
+		<tr>
+			<th scope="col">
+				Category</th>
+			<th scope="col">
+				Sub-category</th>
+			<th scope="col">
+				Description</th>
+			<th scope="col">
+				Source</th>
+			<th scope="col">
+				Integration Status</th>
+			<th scope="col">
+				Details</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<a href="#entities"><strong>Entities</strong></a></td>
+			<td>
+				Non-profit</td>
+			<td>
+				Current non-profit from Internal Revenue Service (IRS) 990 form</td>
+			<td>
+				Guidestar API</td>
+			<td>
+				integrated in BACAM</td>
+			<td>
+				<a href="#guidestar-api">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Non-profit</td>
+			<td>
+				Historical non-profit from 990</td>
+			<td>
+				NCCS</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#nccs">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Non-profit</td>
+			<td>
+				Extended non-profit from Cultural Data Project</td>
+			<td>
+				CDP</td>
+			<td>
+				partially integrated</td>
+			<td>
+				<a href="#cdp">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				For-profit</td>
+			<td>
+				For-profit arts-related businesses</td>
+			<td>
+				InfoUSA</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#infousa">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Project</td>
+			<td>
+				Fractured Atlas fiscally sponsored projects</td>
+			<td>
+				Fractured Atlas</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#fsprojects">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Individual Artist</td>
+			<td>
+				Self-locate feature in platform</td>
+			<td>
+				Platform</td>
+			<td>
+				not integrated</td>
+			<td>
+				n/a</td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Govt - state/local</td>
+			<td>
+				State and local arts agencies</td>
+			<td>
+				AFTA</td>
+			<td>
+				integrated</td>
+			<td>
+				<a href="#afta">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Govt - national</td>
+			<td>
+				National Endowment for the Arts (NEA)</td>
+			<td>
+				manual</td>
+			<td>
+				integrated</td>
+			<td>
+				<a href="#nea">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				<a href="#audience"><strong>Audience</strong></a></td>
+			<td>
+				Audience lists</td>
+			<td>
+				Mailing lists from local arts organizations</td>
+			<td>
+				TRG</td>
+			<td>
+				partially integrated</td>
+			<td>
+				<a href="#trg">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Demographic</td>
+			<td>
+				US Census demographics (2000 &amp; 2010)</td>
+			<td>
+				PolicyMap</td>
+			<td>
+				integrated</td>
+			<td>
+				<a href="#policymap">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Consumer</td>
+			<td>
+				Consumer behavior data (historical)</td>
+			<td>
+				Scarborough</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#scarborough">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Participation</td>
+			<td>
+				Detailed survey about arts participation</td>
+			<td>
+				SPPA</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#sppa">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Participation</td>
+			<td>
+				Attendance 2009-2012 by discipline</td>
+			<td>
+				CDP</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#cdp-participation">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				<a href="#funding"><strong>Funding</strong></a></td>
+			<td>
+				Private grants</td>
+			<td>
+				Grants from foundations</td>
+			<td>
+				Foundation Center API</td>
+			<td>
+				partially integrated</td>
+			<td>
+				<a href="#fc-api">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Federal grants</td>
+			<td>
+				Grants from the National Endowment for the Arts</td>
+			<td>
+				NEA</td>
+			<td>
+				integrated</td>
+			<td>
+				<a href="#nea-grants">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				State grants</td>
+			<td>
+				Grants from the state arts agency</td>
+			<td>
+				NASAA</td>
+			<td>
+				partially integrated</td>
+			<td>
+				<a href="#nasaa-grants">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Individual donors</td>
+			<td>
+				Pledges to Kickstarter projects</td>
+			<td>
+				Kickstarter</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#ksprojects">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				Individual donors</td>
+			<td>
+				Individual donations to non-profits</td>
+			<td>
+				Vanguard</td>
+			<td>
+				not integrated</td>
+			<td>
+				<a href="#vanguard">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				<a href="#spaces"><strong>Spaces</strong></a></td>
+			<td>
+				Spaces</td>
+			<td>
+				Spaces where art happens</td>
+			<td>
+				FA Spaces API</td>
+			<td>
+				integrated</td>
+			<td>
+				<a href="#spaces-api">link</a></td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+<br>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h4 id="data_types_stronga_name"entities"entities_a_strong"><strong><a name="entities">Entities</a></strong></h4>
+<ul>
+	<li>
+		<div>
+			All entities should be geocoded and available for mapping. In the event that an address is a Post Office Box or cannot be displayed for other reasons, the geocoding should be set to City, State (e.g. Detroit, MI).</div>
+	</li>
+	<li>
+		<div>
+			All entities should have:</div>
+		<ul>
+			<li>
+				<div>
+					Visibility: Live (available to the front end), Pending (not available to the front end), and Inactive (not available to the front end)</div>
+			</li>
+			<li>
+				<div>
+					Administrator Flag: True or False; marks an entity as requiring admin attention</div>
+			</li>
+			<li>
+				<div>
+					Administrator Flag Comment: should provide a reason for the admin flag</div>
+			</li>
+		</ul>
+	</li>
+	<li>
+		All entities should be marked with one or more of the following disciplines:
+		<ul>
+			<li>
+				Music</li>
+			<li>
+				Dance</li>
+			<li>
+				Film &amp; Electronic Media</li>
+			<li>
+				Visual Arts</li>
+			<li>
+				Theatre</li>
+			<li>
+				Literary Arts</li>
+			<li>
+				Humanities</li>
+		</ul>
+	</li>
+	<li>
+		All entities might be marked with one or more of the following <em>primary </em>disciplines:
+		<ul>
+			<li>
+				Music</li>
+			<li>
+				Dance</li>
+			<li>
+				Film &amp; Electronic Media</li>
+			<li>
+				Visual Arts</li>
+			<li>
+				Theatre</li>
+			<li>
+				Literary Arts</li>
+			<li>
+				Humanities (Humanities is a special case - if an entity is categorized as &quot;Humanities,&quot; it should automatically be categorized as &quot;Primarily Humanities in the front end.&quot;)</li>
+		</ul>
+	</li>
+	<li>
+		All entities must be one of the following types:
+		<ul>
+			<li>
+				Non-profit</li>
+			<li>
+				For-profit</li>
+			<li>
+				Projects</li>
+			<li>
+				Individual Artist</li>
+			<li>
+				Government</li>
+		</ul>
+	</li>
+	<li>
+		All individual entities (of all types) should have a list of tags. (Associated user stories in Trello: <a href="https://trello.com/c/radf16o8/35-a-logged-in-user-should-be-able-to-tag-an-entity" target="_blank">a user should be able to tag an entity</a>; <a href="https://trello.com/c/2tYzuYwb/32-tags-should-be-searchable-in-the-main-search-bar">tags should be searchable</a>.)</li>
+	<li>
+		All entity types should be able to be delivered to the front end of the application separately from one another. For instance, the front end should be able to get a list of *only* non-profit entities, as well as be able to call a list that includes *both* for-profit and project entities.</li>
+	<li>
+		Users may <strong>add entities</strong> to the system and edit entities they have claimed. (See section &quot;User Types&quot; for more details)
+		<ul>
+			<li>
+				Entities of the following types may be added or claimed: nonprofit, for-profit, government, or individual artist.</li>
+			<li>
+				Project entities will never be edited or claimed by users.</li>
+			<li>
+				See <a href="https://trello.com/c/nzYpXle6/50-a-logged-in-user-should-be-able-to-add-an-entity-to-an-instance" target="_blank">Trello story</a> for details (including attached wireframes).</li>
+			<li>
+				Once a user is associated with any entity, that user may edit some data for the entity. For a complete list of user-editable fields, see column D in the&nbsp;<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">entities schema</a>.</li>
+		</ul>
+	</li>
+</ul>
+<h5>
+	Importing Entities</h5>
+<ul>
+	<li>
+		Funding data sets, Spaces, and the Fractured Atlas fiscal sponsorship API are secondary data sources for entities. (Meaning: any entities that we find in those data sources should be added to the database.)</li>
+	<li>
+		When we come across an entity in one of these data sources that already exists in the Archipelago database:
+		<ul>
+			<li>
+				Do not override any fields with data in them.</li>
+			<li>
+				If the data source provides data for fields that are NULL, store the new data.</li>
+		</ul>
+	</li>
+	<li>
+		When we come across an entity in one of these data sources that does NOT exist in the Archipelago database:
+		<ul>
+			<li>
+				Add an entity record with the information we acquire from the source (e.g. organization name).</li>
+			<li>
+				Search Guidestar for the entity. If a match is found, store the data and classify the entity as a nonprofit.</li>
+			<li>
+				Mark the entity &quot;pending.&quot;</li>
+			<li>
+				Flag the entity for admin review. (Add comment to flag: &quot;Imported from $datasource&quot;)</li>
+			<li>
+				All new non-profit entities will need to be exported and run in batches through Mechanical Turk processing.</li>
+			<li>
+				All new entities added through this process will be looked at by a SA admin, coded properly, saved, and marked &quot;active.&quot;</li>
+		</ul>
+	</li>
+	<li>
+		Some fields should never be overwritten when importing new data because they were created manually. These are in the column &quot;Manually Written?&quot; in the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">Entities Data Schema</a>.</li>
+</ul>
+<h5>
+	Historical Entity Records</h5>
+<ul>
+	<li>
+		<div>
+			Non-profit - historical data for non-profits comes from two places:</div>
+		<ul>
+			<li>
+				<div>
+					NCCS provides the main historical record (see info below)</div>
+			</li>
+			<li>
+				<div>
+					CDP also provides historical information on many non-profits&nbsp;(see info below)</div>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<div>
+			For-profit - start building a historical record per business from current year (no back-data)</div>
+	</li>
+	<li>
+		<div>
+			Government - start building a historical record per business from current year (no back-data)</div>
+	</li>
+	<li>
+		<div>
+			Project - no historical record</div>
+	</li>
+	<li>
+		<div>
+			Individual Artist - no historical record</div>
+		<div>
+			&nbsp;</div>
+	</li>
+</ul>
+<h5>
+	<a name="guidestar-api">Guidestar API (Non-Profit Basic Info)</a></h5>
+<div>
+	Gemini SBS (the consultants who built BACAM) authored a Ruby gem to interact with the Guidestar API. <a href="https://github.com/geminisbs/guidestar" target="_blank">Github link</a></div>
+<div>
+	<a href="https://docs.google.com/document/d/1VILI0vNIMmkXK-7eWj3QyRWPJDg8a843icqhT_uln9U/edit" target="_blank">Guidestar API Credentials</a></div>
+<ul>
+	<li>
+		<div>
+			nationwide data source for non-profit entities</div>
+	</li>
+	<li>
+		<div>
+			should begin building historical information from this source beginning in 2012</div>
+	</li>
+	<li>
+		<div>
+			We pull organizations from Guidestar based on<br>
+			<ol>
+				<li>
+					the instance region (see counties for Detroit and Bay Area instances <a href="https://docs.google.com/document/d/17gHwV3NBAFN4Wxml-N0BFPKscNNwdW7kZ2Owc0vf2FI/edit?usp=sharing">here</a>)</li>
+				<li>
+					a script that pulls and classifies organizations according to some criteria. (Script documentation in progress; it&#39;s built in to BACAM already.) On import, data is first passed through a script that makes an initial attempt to classify organizations, then each organization in Match Scores 3-5 is goes through Amazon Mechanical Turk processing to classify disciplines and activity. Current non-profit data in both Detroit and San Francisco has undergone both processes, <strong>so this data needs to be migrated from the old databases.</strong></li>
+			</ol>
+		</div>
+	</li>
+	<li>
+		The application should pull from the API once per year. All new organizations should be exported and sent to Alison Conard to be put through the Mechanical Turk process.</li>
+	<li>
+		All newly-imported organizations should be set to visibility: pending and marked for inclusion in the next Mechanical Turk batch.</li>
+	<li>
+		Any time a non-profit organization exists in a data source other than Guidestar, we need to pull that organization from Guidestar, store it, and it needs to be run through the Mechanical Turk process.</li>
+	<li>
+		Examples of Mechanical Turk files <a href="https://drive.google.com/folderview?id=0B4vBl2qdSnVPNklDeHpYRHZJQ2c&amp;usp=sharing" target="_blank">here</a>;&nbsp;includes input files (input into M Turk), results (export from M Turk), and Archie output (after M Turk results were imported into database)</li>
+</ul>
+<h5>
+	<a name="nccs">NCCS (Historical Non-Profit Info)</a></h5>
+<div>
+	Detroit Organizations - <a href="https://drive.google.com/file/d/0B4vBl2qdSnVPVVduWHBidmxMU3c/edit?usp=sharing" target="_blank">Supplemental Requests 11-5-13 (BMF).xlsx</a> (first import)</div>
+<div>
+	Detroit Organizations - <a href="https://drive.google.com/file/d/0B4vBl2qdSnVPUGp1ZnBycHpwUXM/edit?usp=sharing" target="_blank">Supplmental Requests 10-28-13 v2 (Core).xlsx</a>&nbsp;(second import)</div>
+<div>
+	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
+<ul>
+	<li>
+		<div>
+			provides historical non-profit organization data for the years 2000-2011. (The spreadsheets contain tabs for 1990 and 1995, but these should not be imported.)</div>
+	</li>
+	<li>
+		<div>
+			Starting next year (2013 data), we will begin annual migration of our current organization records to the history table. The NCCS order was only necessary so that we could get back-dated records for the organizations, as historical data is not available from Guidestar.</div>
+	</li>
+	<li>
+		There are two spreadsheets: one with detailed records on a smaller number of non-profits, and another with less detailed records on all non-profits in our database.
+		<ul>
+			<li>
+				Each year is stored in a separate tab in the spreadsheets.</li>
+			<li>
+				First, we import the spreadsheet that builds a historical record for all non-profits.</li>
+			<li>
+				Next, we import the spreadsheet that contains more information. We should override any data from the first import when possible, as the second spreadsheet contains more (and more accurate) information. We should also add extra data to existing records when possible.</li>
+		</ul>
+	</li>
+	<li>
+		NCCS has more fields available than the Guidestar data source, but many of the fields are the same between the two sources. See <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdG8ta19nMHd5MENGdWt3Y0hYQ0FMT0E#gid=0" target="_blank">field name matchup w/ Guidestar fields here</a>. (This should be used to create the historical entities table.)</li>
+	<li>
+		Note: these spreadsheets have some formatting issues, especially in the EIN field. (Excel has stored all numbers as numbers, and dropped leading zeroes. All EINs should be 9 digits long.)</li>
+</ul>
+<h5>
+	<a name="cdp">Cultural Data Project (CDP - Extended Non-Profit Info)</a></h5>
+<div>
+	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit Organizations</div>
+<div>
+	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
+<ul>
+	<li>
+		<div>
+			This is a detailed data source that covers a subset of the total entities in the database (mostly non-profit organizations). All data are provided by the organizations themselves, so it is very accurate.</div>
+	</li>
+	<li>
+		<div>
+			All data from linked CSV should be stored. (This data set is also a source for audience/participation data.)</div>
+	</li>
+	<li>
+		<div>
+			There is currently a CDP table in BACAM that may be helpful; however, the fields have changed significantly, and all data (both for Detroit and San Francisco) will need to be re-imported.</div>
+	</li>
+	<li>
+		<div>
+			The CDP extended info will be connected with an organization&#39;s main profile via its EIN (Employer Identification Number). In the CDP data set, this field is called &quot;federal_id&quot;.</div>
+	</li>
+	<li>
+		<div>
+			In the database, the CDP information should remain separate from the Guidestar/NCCS non-profit information.</div>
+	</li>
+	<li>
+		<div>
+			<strike>In the interface, the CDP information should replace certain fields when available, as the information is more accurate than the information from Guidestar. (Please see <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5">this spreadsheet </a>for all fields that should be replaced in the interface, as well as the equivalent field names and notes.)</strike> <strong>Note: </strong>this functionality will have to wait due to our license agreement w/ the CDP: no information about individual organizations may be shown in the interface.</div>
+	</li>
+	<li>
+		<div>
+			If an organization is in this data set and not in our database,<strong> it should be imported from Guidestar.</strong></div>
+	</li>
+	<li>
+		<div>
+			The CDP has historical data (multiple years for the same entity) and should form part of the overall historical profile of the organizations included.</div>
+	</li>
+	<li>
+		<div>
+			The CDP profiles also contain audience information, which is covered in more detail in the Audience section below.</div>
+	</li>
+</ul>
+<h5>
+	<a name="infousa">InfoUSA (For-profit Entities Info)</a></h5>
+<div>
+	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPVGV1TDJBd1Y5dms/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit businesses</div>
+<div>
+	San Francisco businesses - data set not yet acquired&nbsp;(spreadsheet)</div>
+<ul>
+	<li>
+		<div>
+			All for-profit entities should be classified as &quot;for-profit.&quot;</div>
+	</li>
+	<li>
+		<div>
+			All data from linked CSV should be stored.</div>
+	</li>
+	<li>
+		<div>
+			We don&#39;t have an EIN for these businesses in the original data source. (Only an InfoUSA ID, which is not a federal ID.) This is okay, because we won&#39;t be connecting the for-profit businesses w/ any other data; we&#39;ll simply be displaying data about these businesses.</div>
+	</li>
+	<li>
+		<div>
+			The API should be able to deliver these to the front end of the application separately from the non-profit businesses. A user might want to see *all* organizations (both for- and non-profit), or they might want to see only for-profit businesses and/or non-profit businesses.</div>
+	</li>
+	<li>
+		<div>
+			<strong>Import Logic</strong></div>
+		<ul>
+			<li>
+				<div>
+					See discipline mapping logic&nbsp;<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdDJ6bHlOQ0ZlMkhwblYxM21qV256R1E#gid=0" target="_blank">here</a>.</div>
+			</li>
+			<li>
+				<div>
+					If the business does not have any Fractured Atlas disciplines, set the entity to visibility: pending and flag for an administrator with administrator flag comment &quot;InfoUSA - no discipline&quot;</div>
+			</li>
+		</ul>
+	</li>
+</ul>
+<h5>
+	<a name="fsprojects">Fractured Atlas API (Fiscally Sponsored Projects)</a></h5>
+<p>
+	Gemini SBS&nbsp;built a rake task (called fiscal_sponsors.rake, in the pa_data repo)&nbsp;that downloads the data from the FA database to the Archie database. This should contain the necessary credentials to access the fiscal sponsorship database.</p>
+<p>
+	The API will be undergoing changes soon and will provide financial data (a &quot;full profile&quot;), in addition to the data it currently provides.</p>
+<p>
+	This data should be pulled once/week.</p>
+<ul>
+	<li>
+		All fiscally-sponsored projects should be classified as &quot;project.&quot;</li>
+	<li>
+		The Archipelago software should be able to access the Fractured Atlas fiscal sponsorship database and sync project records on a regular basis.</li>
+	<li>
+		When the Archipelago software creates a record for a Fractured Atlas fiscally sponsored project, certain organization attributes are set automatically
+		<ul>
+			<li>
+				<div>
+					All FA sponsored projects are primarily arts.</div>
+			</li>
+			<li>
+				<div>
+					All FA sponsored projects are &quot;unincorporated&quot; entities.</div>
+			</li>
+			<li>
+				<div>
+					All sponsored projects have 1 to n fiscal sponsors. All FA sponsored projects receive Fractured Atlas&#39;s organization ID as a fiscal sponsor.</div>
+			</li>
+			<li>
+				<div>
+					Active/Inactive FA sponsored projects should set the respective inactive flag in Archie</div>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<div>
+			A fiscally sponsored project should have their geocode defaulted to the city and state if they have not opted in to share their &quot;full profile&quot;</div>
+		<ul>
+			<li>
+				<div>
+					The projects will be geocoded according to their actual address in the Fractured Atlas database. However, their exact adddress and location will not be revealed to the user. Instead, they will be assigned to the city in which they are located, much the same way that P.O. Boxes are handled.</div>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<div>
+			For all Fractured Atlas fiscally sponsored projects, set Fractured Atlas Productions, Inc. as fiscal_sponsor_id. Fractured Atlas must be pulled from Guidestar so that it exists in the db as an entity. (This should happen w/ every new instance.) I believe you can pull w/ the EIN: 11-3451703. <a href="http://www.guidestar.org/organizations/11-3451703/fractured-atlas-productions.aspx" target="_blank">Link to Fractured Atlas on Guidestar website</a></div>
+	</li>
+</ul>
+<h5>
+	<a name="afta">AFTA (State and local arts agencies)</a></h5>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPY1dmcW5SLW96QjQ/edit?usp=sharing" target="_blank">Link to spreadsheet</a>&nbsp;- Detroit local arts agencies</div>
+<div>
+	San Francisco local arts agencies - data set not yet acquired</div>
+<div>
+	&nbsp;</div>
+<div>
+	State arts agency (Michigan - for Detroit instance) - Michigan Council for Arts &amp; Cultural Affairs (already in db)</div>
+<div>
+	State arts agency (California - for Bay Area instance) - California Arts Council (status unknown)</div>
+<ul>
+	<li>
+		All state and local arts agencies are entities and should be classified as &quot;government.&quot;</li>
+</ul>
+<h5>
+	<a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h5>
+<ul>
+	<li>
+		Manual import that exists in every instance of Archipelago</li>
+	<li>
+		Type = Government</li>
+	<li>
+		Subtype = federal_government</li>
+</ul>
+<h4 id="data_types_stronga_name"audience"audience,_participation_amp_demographics_a_strong"><strong><a name="audience">Audience, Participation &amp; Demographics</a></strong></h4>
+<h5>
+	<a name="trg">TRG (List of Audience Members)</a></h5>
+<div>
+	Detroit Audience List - data set not yet collected; <strong>this data set might not be acquired in time for Detroit launch</strong></div>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPYmxOV2U4TVNEOVE/edit?usp=sharing" target="_blank">Link to file</a>&nbsp;- Bay Area Audience List</div>
+<ul>
+	<li>
+		This data set is a list of audience members for a subset of non-profit organizations in the instance region.</li>
+	<li>
+		A similar data set is already integrated into BACAM (audience_members and audience_organizations tables), though there are differences between the old source and the new source.</li>
+	<li>
+		<strong>Important</strong>: this data source does *not* provide EINs for the organizations that each audience member is attached to; therefore, we will have to create an import script that attempts a name lookup and, if none is found, the organizations will need to be manually matched with organizations in our database. (Name lookup to match an import source w/ an entity in the database will be required in other places in the application as well, so it is probably worth building.)</li>
+	<li>
+		If the Detroit audience list is collected, the fields may be slightly different from the Bay Area list.</li>
+	<li>
+		Each HHID belongs to a single audience member. The front end should be able to display trends in audience crossover between non-profit organizations. (If audience member 11111 patronized organizations X &amp; Y and audience member 22222 patronized organizations X, Y and Z, then organizations X &amp; Y share an audience member in common.)</li>
+</ul>
+<h5>
+	<a name="policymap">PolicyMap API (Demographic Info: 2000 and 2010)</a></h5>
+<div>
+	<a href="https://docs.google.com/document/d/17Jt609LkA4dN439tRckx6GnOlNQJjBqxx9cQl6S-Wfo/edit" target="_blank">PolicyMap API&nbsp;Information and Credentials</a></div>
+<p>
+	The PolicyMap API is our source for demographic information from the US Census from 2000 and 2010, as well as boundary data.</p>
+<p>
+	The PolicyMap AP is not well-documented. There is an API demo site; see the link above for information.</p>
+<p>
+	There is also a <a href="http://www.policymap.com/data-api-overview.html">technical overview</a> on their website; however, this has not been updated since changes have been made to the API, so I&#39;m not sure how much of the information is valid.</p>
+<p>
+	<a href="http://www.policymap.com/our-data.html#Demographics" target="_blank">This page</a>&nbsp;will tell you what indicators we have access to via their API. They do not provide a complete list of variables for each indicator.</p>
+<p>
+	If you have questions, you can reach out directly to our developer contact there: Daniel Ceregatti</p>
+<table border="0">
+	<tbody>
+		<tr>
+			<td align="right">
+				Cell:</td>
+			<td>
+				(<span class="undefined" id="OBJ_PREFIX_DWT8101_com_zimbra_phone"><a href="callto:310%29%20849-7139">310) 849-7139</a></span></td>
+		</tr>
+		<tr>
+			<td align="right">
+				Office:</td>
+			<td>
+				(<span class="undefined" id="OBJ_PREFIX_DWT8102_com_zimbra_phone"><a href="callto:213%29%20617-0116">213) 617-0116</a></span></td>
+		</tr>
+		<tr>
+			<td align="right">
+				XMPP:</td>
+			<td>
+				<span class="Object" id="OBJ_PREFIX_DWT8103_com_zimbra_url"><a class="moz-txt-link-abbreviated" href="mailto:&#100;&#99;&#101;&#114;&#101;&#103;&#97;&#116;&#116;&#105;&#64;&#51;&#100;&#45;&#108;&#46;&#99;&#111;&#109;" target="_blank">&#100;&#99;&#101;&#114;&#101;&#103;&#97;&#116;&#116;&#105;&#64;&#51;&#100;&#45;&#108;&#46;&#99;&#111;&#109;</a></span></td>
+		</tr>
+		<tr>
+			<td align="right">
+				Skype:</td>
+			<td>
+				<p>
+					DanielCeregatti</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<h5>
+	<a name="scarborough">Scarborough (Consumer Behavior Info)</a></h5>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPZkJaYkthalNFdnM/edit?usp=sharing" target="_blank">Link to file</a> - Detroit Scarborough data</div>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPbW9DdUtQVWVraHc/edit?usp=sharing" target="_blank">Link to file</a> - Bay Area Scarborough data</div>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPVzk1bE9BUGtKZkk/edit?usp=sharing" target="_blank">Link to file</a> - How to Read Scarborough data</div>
+<ul>
+	<li>
+		This is a new data set; it was not incorporated in to BACAM at all.</li>
+	<li>
+		We should discuss how best to import; I believe it will require significant formatting.</li>
+	<li>
+		The smallest region this data is available for is the county level. The spreadsheets have tabs for each county; the front end will need to be able to call data for each county separately.</li>
+</ul>
+<h5>
+	<a name="sppa">Survey of Public Participation in the Arts (SPPA - historical participation info)</a></h5>
+<div>
+	not processed - 2002 national data</div>
+<div>
+	not processed - 2008 national data</div>
+<div>
+	not processed - 2012 national data</div>
+<div>
+	not processed - 2002, 2008, 2012 Michigan data</div>
+<div>
+	not processed - 2002, 2008, 2012 Bay Area data</div>
+<ul>
+	<li>
+		The SPPA data will be used for two purposes:
+		<ul>
+			<li>
+				to look historically at participation in the instance region</li>
+			<li>
+				to compare participation in the instance region with national participation levels</li>
+		</ul>
+	</li>
+	<li>
+		Each import file will be set up in exactly the same way for easy comparison.</li>
+</ul>
+<h5>
+	<a name="cdp-participation">Cultural Data Project (CDP - attendance info by artistic discipline)</a></h5>
+<div>
+	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit Organizations</div>
+<div>
+	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
+<ul>
+	<li>
+		See basic information in Cultural Data Project section in &quot;Entities&quot; above.</li>
+</ul>
+<h4 id="data_types_a_name"funding"strongfunding_strong_a"><a name="funding"><strong>Funding</strong></a></h4>
+<div>
+	<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdHdGQWtOcWpQeGFPSXlwbFpvb0lab2c&amp;usp=sharing" target="_blank">Link to funding schema</a></div>
+<h5>
+	<a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h5>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPdENEY1ZNS1h2RDA/edit?usp=sharing" target="_blank">Documentation</a> - currently integrated version of Detroit API</div>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWGZkbGE3bXJYczQ/edit?usp=sharing" target="_blank">Changes documentation</a> - updated Detroit API (changes not integrated)</div>
+<ul>
+	<li>
+		This is our largest source for grants.</li>
+	<li>
+		Currently, the API only returns grants to and from organizations in our Detroit instance region; this will change soon and they&#39;ll create a similar API that serves Bay Area grants.</li>
+	<li>
+		We should pull from this source frequently - probably at least once a week.</li>
+	<li>
+		The database will columns from this source that will not be duplicated for any other funding source. (See funding schema for details.)</li>
+	<li>
+		All grantmakers and grantees from this source should be imported if they don&#39;t already exist in our system.</li>
+	<li>
+		See <a href="https://docs.google.com/document/d/1trVkdAlxeveMyFFpGS7byRI0AFzTU0BbWs9iijRo2T4/edit" target="_blank">this document</a> for an explanation of assigning entity types to Foundation Center grantees.</li>
+</ul>
+<h5>
+	<a name="nea-grants">NEA (Federal arts grants)</a></h5>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPVDZ3ZFFoTXVBREk/edit?usp=sharing" target="_blank">Link to CSV</a> - Grants from NEA to Detroit non-profit organizations</div>
+<div>
+	Grants from NEA to Bay Area non-profit organizations - waiting for cleaning</div>
+<ul>
+	<li>
+		These grants are already imported for Detroit instance.</li>
+	<li>
+		All grants from this source should have the grantmaker_id set as the NEA (National Endowment for the Arts).</li>
+	<li>
+		Question: how are current grants matched w/ organizations in front end code by Stamen?&nbsp;(There is no EIN for grantees in this data set.)</li>
+	<li>
+		<a name="no-ein">We don&#39;t have EINs for the organizations in the NEA and NASAA spreadsheets</a>. We need to figure out if these organizations exist in our database, and if they do, connect their grant information from NEA and NASAA with their organization information from Guidestar. I suggest a name lookup. Here&#39;s one idea for how this could be done:</li>
+</ul>
+<ol style="margin-left: 40px;">
+	<li>
+		<div>
+			For each grant in NEA/NASAA, look at the grantee name (NEA=&quot;Grantee&quot; and NASAAA=&quot;ApplName&quot;).</div>
+	</li>
+	<li>
+		<div>
+			Try to match the name to an organization already in our database. If there&#39;s a match, set &quot;grantee_id&quot; to the correct grantee.</div>
+	</li>
+	<li>
+		<div>
+			For organizations that don&#39;t match, try to find a name match via the Guidestar API. If found, import the organization (type = non-profit)</div>
+	</li>
+	<li>
+		<div>
+			If no match can be found, set to visibility: pending and flag for an admin with comment &quot;Imported from $source; no EIN found.&quot;</div>
+	</li>
+</ol>
+<h5>
+	<a name="nasaa-grants">NASAA (State arts grants)</a></h5>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPNmFoRVpMT2tTVm8/edit?usp=sharing">Link to spreadsheet</a> - Grants from Michigan Council for Arts &amp; Cultural Affairs to Detroit non-profit orgs</div>
+<div>
+	Grants from California Arts Council to non-profit orgs - acquired but not cleaned</div>
+<ul>
+	<li>
+		The Detroit data set is already imported; however, there was a mistake in the data cleaning and it must be re-imported. <strong>Do not migrate this data set from the old database.</strong></li>
+	<li>
+		All grants in the NASAA (National Association for State Arts Agencies) spreadsheet for each region will come from a single grantmaker. In the Detroit spreadsheet, that&#39;s the Michigan Council for Arts &amp; Cultural Affairs. The NASAA imports will have a different grantmaker organization for each state, so somehow, we need to be able to set one organization for each instance as the &quot;state arts agency,&quot; and that&#39;s the organization that will be the grantmaker for all NASAA-imported grants.</li>
+	<li>
+		Question: how are current grants matched w/ organizations in front end code by Stamen? (There is <a href="#no-ein">no EIN for grantees in this data set</a>.)</li>
+</ul>
+<h5>
+	<a name="ksprojects">Kickstarter (Kickstarter Projects)</a></h5>
+<div>
+	Detroit Projects -&nbsp;<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPN0JzeWlBekRBWEE/edit?usp=sharing" target="_blank">link</a>&nbsp;(<strong>Note</strong>: there are 4 columns with no data. These columns should exist in the table. I&#39;ll provide a new spreadsheet for import when this data has been manually added by Sustain Arts.</div>
+<div>
+	Detroit Yearly Metrics -&nbsp;<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPNklpZTF6SzBkR1U/edit?usp=sharing" target="_blank">link</a></div>
+<div>
+	San Francisco Projects - acquired; needs cleaning</div>
+<div>
+	San Francisco Yearly Metrics -&nbsp;acquired; needs cleaning</div>
+<ul>
+	<li>
+		All Kickstarter columns&nbsp;<a href="https://docs.google.com/document/d/101nvyJN0U1vV6B5FpWc_inzzGN1_1gTl_rSRjTAAujc/edit" target="_blank">here</a></li>
+	<li>
+		Kickstarter projects will be attached to entities in the database based on the following fields:
+		<ul>
+			<li>
+				1) legal name, 2) entity type, and 3) entity EIN (in the case where there is an EIN)&nbsp;</li>
+		</ul>
+	</li>
+	<li>
+		Notes from KS about their data:
+		<ul>
+			<li>
+				The total_pledges column in the yearly metrics CSVs represent the total number of pledges not unique backers, since many users back multiple projects. It is worth emphasizing this to Fractured Atlas so that they don&#39;t accidentally assume there are more backers to these projects than there are.&nbsp;</li>
+			<li>
+				I included live project money in the yearly metrics to be completist&nbsp;</li>
+			<li>
+				Unsuccessful project money and unsuccessful projects count include failed, canceled, and suspended projects.&nbsp;</li>
+			<li>
+				Success rate is calculated by the total number of successful projects divided by the total number of closed (i.e. not-live) projects, which includes canceled, suspended, etc.</li>
+			<li>
+				We&#39;d like not to distinguish between failed/canceled/suspended. We would just call them Unsuccessful.</li>
+		</ul>
+	</li>
+</ul>
+<h5>
+	<a name="vanguard">Vanguard (individual donations to non-profit organizations)</a></h5>
+<div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWmlQYm1IemU4c1E/edit?usp=sharing" target="_blank">Link to CSV </a>- Detroit Instance Individual Donors</div>
+<div>
+	Bay Area Instance Individual Donors - acquired but not cleaned</div>
+<ul>
+	<li>
+		These will be displayed on maps by city and amount.</li>
+	<li>
+		There is no information about who is giving these donations -- these grants are anonymous. This means we will have no grantmaker information for this data set.</li>
+</ul>
+<h4 id="data_types_stronga_name"spaces"spaces_a_strong"><strong><a name="spaces">Spaces</a></strong></h4>
+<h5>
+	<a name="spaces-api">Fractured Atlas Spaces API (places where art happens)</a></h5>
+<div>
+	Spaces is another Fractured Atlas platform that lists places where art happens. See an example of a Spaces platform <a href="http://nycpaspaces.org/" target="_blank">here.</a></div>
+<ul>
+	<li>
+		<a href="https://docs.google.com/document/d/1koTKlFMnxPqlYZrgba8uqjgDp7-dGDfWFO0mL7obAVw/edit" target="_blank">API Sandbox Info</a></li>
+	<li>
+		Bay Area Spaces data is integrated via this API into BACAM.</li>
+	<li>
+		The API Sandbox Info document also contains the fields to store.</li>
+	<li>
+		The Archie spaces table reflects the current contents of the Spaces database, so we overwrite all spaces on each import.</li>
+	<li>
+		Each space in the spaces database is connected with an organization. We should match these organizations via name lookup with the organizations in our database so that our spaces table contains a foreign key to an entity. This means that we&#39;ll need a field that contains a foreign key link to the entities table. (I&#39;ll call it archie_entity_id for now.) The logic will be similar to finding organizations without EINs that we acquire in our grants data sources:</li>
+</ul>
+<ol style="margin-left: 40px;">
+	<li>
+		For each organization in the Spaces API, look at the organization_name.</li>
+	<li>
+		Try to match the name to an organization already in our database. If there&#39;s a match, set &quot;archie_entity_id&quot; to the correct organization.</li>
+	<li>
+		For organizations that don&#39;t match, try to find a name match via the Guidestar API.</li>
+	<li>
+		If no match can be found, we&#39;ll need to figure out a way for an intern to match the grantee organizations w/ an organization EIN. Maybe a spreadsheet export of all grants that have not been matched to organizations that the intern can fill in?</li>
+</ol>
+<div>
+	&nbsp;</div>
+<div>
+	&nbsp;</div>
+</section>
+<section id="user_types">
+	<div class="page-header"><h3>User Types</h3><hr class="notop"></div>
+<h4 id="user_types_super_admin">Super Admin</h4>
+<ul>
+	<li>
+		Super admin users should be able to edit all data system wide.&nbsp;</li>
+	<li>
+		Super admins will be Fractured Atlas employees and affiliated developers (e.g. Xentio).</li>
+	<li>
+		Super admins can create new admin users.</li>
+</ul>
+<h4 id="user_types_instance_admin">Instance Admin</h4>
+<ul>
+	<li>
+		Instance admins should have the same permissions as super admins, but only for a single instance (e.g. Detroit or Bay Area).</li>
+	<li>
+		Instance admins will be partners in the particular implementation (e.g. Sustain Arts staff members).</li>
+	<li>
+		Instance admins can be created only by super admins.</li>
+</ul>
+<h4 id="user_types_users">Users</h4>
+<ul>
+	<li>
+		User profiles will be created through a user sign-up process.</li>
+	<li>
+		Users may choose to give us only their basic information (Email, first name, last name, zip code, password).</li>
+	<li>
+		If a user completes the advanced user profile, we will also know what type of entity they work for and/or their role in the arts community.</li>
+	<li>
+		User activation will happen automatically -- we will verify their email and their account will be active.</li>
+	<li>
+		See schema for users <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdE4xeU1ZYlZNZDFoZm52VDNyQ05RY2c#gid=0" target="_blank">here.</a></li>
+	<li>
+		For a basic list of features surrounding user profiles and their permissions, see the <a href="https://trello.com/b/FPtTQgPM/sa-features-dev" target="_blank">SA Features (Dev) Trello board</a>&nbsp;(User Profiles/Permissions list).</li>
+	<li>
+		For a complete mockup of user profile (basic &amp; advanced) creation, see:&nbsp;<a href="https://trello-attachments.s3.amazonaws.com/525dada7fdf226372e000428/5269826c12b17c9f4e000487/876075df1ab31a06b4e8d3a3b94dd44f/user_profiles_wireframe_11262013.pdf" target="_blank">Wireframes for user profiles</a></li>
+</ul>
+<h4 id="user_types_users_39_relationships_to_entities">Users&#39; Relationships to Entities</h4>
+<ul>
+	<li>
+		Users may be associated with entities in the following ways:</li>
+	<li>
+		For entity types nonprofit, for-profit, government:
+		<ul>
+			<li>
+				A user can claim only one entity.</li>
+			<li>
+				Multiple users can claim the same entity.</li>
+		</ul>
+	</li>
+	<li>
+		For entity type individual artist:
+		<ul>
+			<li>
+				A user can claim one and only one individual artist profile that exists in our database.</li>
+			<li>
+				Multiple users can *not* claim the same individual artist profile. If a user tries to claim an individual artist profile that has already been claimed by another user, the front end should offer the user a way to contact support and dispute the claim.</li>
+			<li>
+				A user can claim *both* an individual artist profile and a business entity (nonprofit, for-profit, government, and project). (This is because users may be both an artist and work for an arts and culture entity.)</li>
+			<li>
+				Users can also add entities to the database.
+				<ul>
+					<li>
+						Like claiming entities, they may add a single business entity (nonprofit, for-profit, government, or project) and/or an individual artist profile.</li>
+					<li>
+						Once the user adds an entity, the rules for claiming that entity are the same as above.</li>
+				</ul>
+			</li>
+			<li>
+				Users can never be associated with entities of type: project. (They cannot add or claim these entities.)</li>
+		</ul>
+	</li>
+	<li>
+		Once a user is associated with any entity, that user may edit some data for the entity. For a complete list of user-editable fields, see column D in the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">entities schema</a>.</li>
+</ul>
+<h4 id="user_types_user_permissions">User Permissions</h4>
+<ul>
+	<li>
+		Only a logged in user can tag an entity.</li>
+</ul>
+</section>
+<section id="features">
+	<div class="page-header"><h3>Features</h3><hr class="notop"></div>
+<div>
+	<a href="https://trello.com/b/FPtTQgPM/sa-features-dev">Please see Trello for features list.</a></div>
+<div>
+	&nbsp;</div>
+<div>
+	Data required for all features will be delivered to the front-end via a JSON API.</div>
+<div>
+	&nbsp;</div>
+</section>
+
+	</div>
+</body>
+</html>
