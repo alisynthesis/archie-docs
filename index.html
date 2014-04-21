@@ -7,13 +7,13 @@
 <head>
 	<meta charset="utf-8">
 	
-	<title>Archipelago Specification - Feature Requirements and Data Sources</title>
+	<title>Archipelago Data Sources and Usage</title>
 	
 	<meta name="description" content="This document will detail requirements for all Archipelago features, data requirements, and data sources. It will contain all known documentation for data sources as well.">
 	<meta name="author" content="Alison Conard">
 	<meta name="copyright" content="Alison Conard">
 	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
-	<meta name="date" content="2014-02-07T00:00:00+01:00">
+	<meta name="date" content="2014-04-21T00:00:00+02:00">
 	
 	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
 	
@@ -66,7 +66,7 @@
 	</style>
 	
 </head>
-<body class="documenter-project-archipelago-specification">
+<body class="documenter-project-archipelago-data-sources-and-usage">
 	<div id="documenter_sidebar">
 		<a href="#documenter_cover" id="documenter_logo"></a>
 		<ul id="documenter_nav">
@@ -101,15 +101,15 @@
 	</div>
 	<div id="documenter_content">
 	<section id="documenter_cover">
-	<h1>Archipelago Specification</h1>
-	<h2>Feature Requirements and Data Sources</h2>
+	<h1>Archipelago Data Sources and Usage</h1>
+	
 	<div id="documenter_buttons">
 		<a href="http://www.fracturedatlas.org/site/technology/archipelago" class="btn btn-primary btn-large">Archipelago</a> <a href="http://sustainarts.org" class="btn btn-large">Sustain Arts</a> 
 	</div>
 	<hr>
 	<ul>
 	<li>created: 10/22/2013</li>
-	<li>latest update: 02/07/2014</li>
+	<li>latest update: 04/21/2014</li>
 	<li>by: Alison Conard</li>
 	<li><a href=""></a></li>
 	<li>email: <a href="mailto:&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;">&#97;&#108;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#110;&#97;&#114;&#100;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103;</a></li>
@@ -514,6 +514,10 @@
 <ul>
 	<li>
 		<div>
+			<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web" target="_blank">Entities schema</a></div>
+	</li>
+	<li>
+		<div>
 			All entities should be geocoded and available for mapping. In the event that an address is a Post Office Box or cannot be displayed for other reasons, the geocoding should be set to City, State (e.g. Detroit, MI).</div>
 	</li>
 	<li>
@@ -522,7 +526,7 @@
 		<ul>
 			<li>
 				<div>
-					Visibility: Live (available to the front end), Pending (not available to the front end), and Inactive (not available to the front end)</div>
+					Visibility: Live (available to the front end), Pending (not available to the front end except when searching by entity id), and Inactive (not available to the front end)</div>
 			</li>
 			<li>
 				<div>
@@ -530,12 +534,12 @@
 			</li>
 			<li>
 				<div>
-					Administrator Flag Comment: should provide a reason for the admin flag</div>
+					Administrator Flag Comment: provides a reason for the admin flag</div>
 			</li>
 		</ul>
 	</li>
 	<li>
-		All entities should be marked with one or more of the following disciplines:
+		All entities must be marked with one or more of the following disciplines:
 		<ul>
 			<li>
 				Music</li>
@@ -588,7 +592,7 @@
 		</ul>
 	</li>
 	<li>
-		All individual entities (of all types) should have a list of tags. (Associated user stories in Trello: <a href="https://trello.com/c/radf16o8/35-a-logged-in-user-should-be-able-to-tag-an-entity" target="_blank">a user should be able to tag an entity</a>; <a href="https://trello.com/c/2tYzuYwb/32-tags-should-be-searchable-in-the-main-search-bar">tags should be searchable</a>.)</li>
+		All individual entities (of all types) should have a list of tags.</li>
 	<li>
 		All entity types should be able to be delivered to the front end of the application separately from one another. For instance, the front end should be able to get a list of *only* non-profit entities, as well as be able to call a list that includes *both* for-profit and project entities.</li>
 	<li>
@@ -598,8 +602,6 @@
 				Entities of the following types may be added or claimed: nonprofit, for-profit, government, or individual artist.</li>
 			<li>
 				Project entities will never be edited or claimed by users.</li>
-			<li>
-				See <a href="https://trello.com/c/nzYpXle6/50-a-logged-in-user-should-be-able-to-add-an-entity-to-an-instance" target="_blank">Trello story</a> for details (including attached wireframes).</li>
 			<li>
 				Once a user is associated with any entity, that user may edit some data for the entity. For a complete list of user-editable fields, see column D in the&nbsp;<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">entities schema</a>.</li>
 		</ul>
@@ -697,14 +699,12 @@
 				<li>
 					the instance region (see counties for Detroit and Bay Area instances <a href="https://docs.google.com/document/d/17gHwV3NBAFN4Wxml-N0BFPKscNNwdW7kZ2Owc0vf2FI/edit?usp=sharing">here</a>)</li>
 				<li>
-					a script that pulls and classifies organizations according to some criteria. (Script documentation in progress; it&#39;s built in to BACAM already.) On import, data is first passed through a script that makes an initial attempt to classify organizations, then each organization in Match Scores 3-5 is goes through Amazon Mechanical Turk processing to classify disciplines and activity. Current non-profit data in both Detroit and San Francisco has undergone both processes, <strong>so Detroit and SF nonprofit data needs to be migrated from the old databases.</strong></li>
+					a script that pulls and classifies organizations according to some criteria. (Script documentation <a href="https://docs.google.com/document/d/1NTWGfCshJvlj19LSdWnY7ubdi3cj_zDdk-34_5bZ0Rg/edit" target="_blank">here</a>.) On import, data is first passed through a script that makes an initial attempt to classify organizations, then each organization in Match Scores 3-5 goes through Amazon Mechanical Turk processing to classify disciplines and activity.</li>
 			</ol>
 		</div>
 	</li>
 	<li>
-		The application should pull from the API once per year in June. All new organizations should be exported and sent to Alison Conard to be put through the Mechanical Turk process.</li>
-	<li>
-		&nbsp;</li>
+		The application should pull from the API once per year in June. All new organizations should be exported and sent to &#97;&#114;&#99;&#104;&#105;&#112;&#101;&#108;&#97;&#103;&#111;&#97;&#100;&#109;&#105;&#110;&#64;&#102;&#114;&#97;&#99;&#116;&#117;&#114;&#101;&#100;&#97;&#116;&#108;&#97;&#115;&#46;&#111;&#114;&#103; to be put through the Mechanical Turk process.</li>
 	<li>
 		All newly-imported organizations should be set to visibility: pending and marked for inclusion in the next Mechanical Turk batch.</li>
 	<li>
@@ -729,10 +729,10 @@
 	</li>
 	<li>
 		<div>
-			Starting next year (2013 data), we will begin annual migration of our current organization records to the history table. The NCCS order was only necessary so that we could get back-dated records for the organizations, as historical data is not available from Guidestar.</div>
+			Starting next year (2013 data), we will begin annual migration of our current organization records to the history table. The NCCS order was only necessary so that we could get back-dated records for the organizations, as historical data is not available from Guidestar. The only exception to this (as of April 2014) is the financial scenarios feature, which uses data from the Core files that&#39;s only available from NCCS. If that feature is to be updated, we will need to continue to purchase the NCCS core file annually.</div>
 	</li>
 	<li>
-		There are two spreadsheets: one with detailed records on a smaller number of non-profits, and another with less detailed records on all non-profits in our database.
+		There are two spreadsheets: one with detailed records on a smaller number of non-profits (Core), and another with less detailed records on all non-profits in our database (Business Master File).
 		<ul>
 			<li>
 				Each year is stored in a separate tab in the spreadsheets.</li>
@@ -798,7 +798,7 @@
 <h5>
 	<a name="infousa">InfoUSA (For-profit Entities Info)</a></h5>
 <div>
-	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPVGV1TDJBd1Y5dms/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit businesses</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPREUyTVctOUtvLWs/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit businesses</div>
 <div>
 	San Francisco businesses - data set not yet acquired&nbsp;(spreadsheet)</div>
 <ul>
@@ -838,14 +838,14 @@
 <p>
 	Gemini SBS&nbsp;built a rake task (called fiscal_sponsors.rake, in the pa_data repo)&nbsp;that downloads the data from the FA database to the Archie database. This should contain the necessary credentials to access the fiscal sponsorship database.</p>
 <p>
-	<a href="https://docs.google.com/document/d/1CkW_H05em95vMEx3CPYfhdb3cjhtMAWC6tg1Q_NXzEU/edit" target="_blank">Fiscal Sponsorship API Information</a>&nbsp;(needs to be updated by Xentio)</p>
+	<a href="https://docs.google.com/document/d/1CkW_H05em95vMEx3CPYfhdb3cjhtMAWC6tg1Q_NXzEU/edit" target="_blank">Fiscal Sponsorship API Information</a></p>
 <p>
 	<a href="http://api.fracturedatlas.org/fs/projects/archipelago.xsd" target="_blank">http://api.fracturedatlas.org/fs/projects/archipelago.xsd</a></p>
 <p>
+	<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdFJiWHhqNHA2aFA3a3F1NlpTN19EZHc&amp;usp=drive_web#gid=0" target="_blank">List of FA fiscal sponsorship fields</a></p>
+<p>
 	This data should be pulled once/week.</p>
 <ul>
-	<li>
-		All fiscally-sponsored projects are classified as &quot;fiscally-sponsored&quot;</li>
 	<li>
 		The Archipelago software accesses the Fractured Atlas fiscal sponsorship database and sync project records on a regular basis.</li>
 	<li>
@@ -857,7 +857,7 @@
 			</li>
 			<li>
 				<div>
-					All FA sponsored projects are &quot;fiscally-sponsored&quot; entities.</div>
+					All FA sponsored projects are entities of type &quot;project&quot; w/ sub-type: &quot;fiscally-sponsored&quot;.</div>
 			</li>
 			<li>
 				<div>
@@ -975,7 +975,7 @@
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPY1dmcW5SLW96QjQ/edit?usp=sharing" target="_blank">Link to spreadsheet</a>&nbsp;- Detroit local arts agencies</div>
 <div>
-	San Francisco local arts agencies - data set not yet acquired</div>
+	San Francisco local arts agencies - data set not yet acquired; most are in the BACAM database already</div>
 <div>
 	&nbsp;</div>
 <div>
@@ -984,7 +984,7 @@
 	State arts agency (California - for Bay Area instance) - California Arts Council (status unknown)</div>
 <ul>
 	<li>
-		All state and local arts agencies are entities and should be classified as &quot;government.&quot;</li>
+		All state and local arts agencies are entities and should be classified as &quot;government&quot; with sub-types state_government or local_government.</li>
 </ul>
 <h5>
 	<a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h5>
@@ -997,10 +997,14 @@
 		Subtype = federal_government</li>
 </ul>
 <h4 id="data_types_stronga_name"audience"audience,_participation_amp_demographics_a_strong"><strong><a name="audience">Audience, Participation &amp; Demographics</a></strong></h4>
+<p>
+	<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdEc0SVpPazZDZkRSZTNFaFBaRkRPNEE&amp;usp=drive_web#gid=0" target="_blank">Demographic schema</a></p>
+<p>
+	<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdDNid3J0WDVJYzZkaWFycWt5OFl1cGc&amp;usp=drive_web#gid=0" target="_blank">Participation surveys: questions and discipline mappings</a></p>
 <h5>
 	<a name="trg">TRG (List of Audience Members)</a></h5>
 <div>
-	Detroit Audience List - data set not yet collected; <strong>this data set might not be acquired in time for Detroit launch</strong></div>
+	Detroit Audience List - unavailable in Detroit</div>
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPYmxOV2U4TVNEOVE/edit?usp=sharing" target="_blank">Link to file</a>&nbsp;- Bay Area Audience List</div>
 <ul>
@@ -1011,9 +1015,7 @@
 	<li>
 		<strong>Important</strong>: this data source does *not* provide EINs for the organizations that each audience member is attached to; therefore, we will have to create an import script that attempts a name lookup and, if none is found, the organizations will need to be manually matched with organizations in our database. (Name lookup to match an import source w/ an entity in the database will be required in other places in the application as well, so it is probably worth building.)</li>
 	<li>
-		If the Detroit audience list is collected, the fields may be slightly different from the Bay Area list.</li>
-	<li>
-		Each HHID belongs to a single audience member. The front end should be able to display trends in audience crossover between non-profit organizations. (If audience member 11111 patronized organizations X &amp; Y and audience member 22222 patronized organizations X, Y and Z, then organizations X &amp; Y share an audience member in common.)</li>
+		Each HHID belongs to a single audience member.</li>
 </ul>
 <h5>
 	<a name="policymap">PolicyMap API (Demographic Info: 2000 and 2010)</a></h5>
@@ -1064,7 +1066,7 @@
 <h5>
 	<a name="ags">AGS (Demographic Projections: 2018)</a></h5>
 <div>
-	<a href="https://drive.google.com/folderview?id=0B4vBl2qdSnVPc2stdS1HeVAyLW8&amp;usp=sharing" target="_blank">Link to folder</a></div>
+	<a href="https://drive.google.com/folderview?id=0B4vBl2qdSnVPc2stdS1HeVAyLW8&amp;usp=sharing" target="_blank">Link to folder</a>&nbsp;(Detroit and Bay Area data)</div>
 <p>
 	AGS is our source for demographic projections for the year 2018.&nbsp;</p>
 <h5>
@@ -1082,13 +1084,15 @@
 		We should discuss how best to import; I believe it will require significant formatting.</li>
 	<li>
 		The smallest region this data is available for is the county level. The spreadsheets have tabs for each county; the front end will need to be able to call data for each county separately.</li>
+	<li>
+		This data set is not used in the front end of the Sustain Arts app as of April 2014.</li>
 </ul>
 <h5>
 	<a name="sppa">Survey of Public Participation in the Arts (SPPA - historical participation info)</a></h5>
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPMnYtRUducnMyVDQ/edit?usp=sharing" target="_blank">Link to spreadsheet</a> - 2002, 2008, 2012 National data in same format as Scarborough data (years are in tabs of spreadsheet)</div>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPSEdhc1hubkVTMjg/edit?usp=sharing" target="_blank">Link to spreadsheet</a> - data &amp; formulas for predicting participation based on input demographic profile (from 2012 SPPA); explanation of process &amp; formulas <a href="https://drive.google.com/file/d/0B4vBl2qdSnVPUlgtUDZ5OWhrMms/edit?usp=sharing" target="_blank">here</a></div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPaTVhSXVvS0t0dFE/edit?usp=sharing" target="_blank">Link to spreadsheet</a> - data &amp; formulas for predicting participation based on input demographic profile (from 2012 SPPA); explanation of process &amp; formulas <a href="https://drive.google.com/file/d/0B4vBl2qdSnVPUlgtUDZ5OWhrMms/edit?usp=sharing" target="_blank">here</a></div>
 <div>
 	not processed - 2002, 2008, 2012 Michigan data</div>
 <div>
@@ -1106,19 +1110,21 @@
 		</ul>
 	</li>
 	<li>
-		All national data in Scarborough format should be stored.</li>
+		The survey-format data (first link above) is not used in the front end of the Sustain Arts app as of April 2014.</li>
+	<li>
+		&nbsp;</li>
 	<li>
 		Each SPPA question should be assigned a discipline or disciplines based on <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdDNid3J0WDVJYzZkaWFycWt5OFl1cGc&amp;usp=drive_web#gid=0" target="_blank">this schema</a>.</li>
 </ul>
 <h5>
 	<a name="cdp-participation">Cultural Data Project (CDP - attendance info by artistic discipline)</a></h5>
 <div>
-	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit Organizations</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPdjltQndvdk94WEE/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit Organizations</div>
 <div>
 	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
 <ul>
 	<li>
-		See basic information in Cultural Data Project section in &quot;Entities&quot; above.</li>
+		See basic information in Cultural Data Project section in &quot;<a href="#cdp">Entities</a>&quot; above.</li>
 </ul>
 <h4 id="data_types_a_name"funding"strongfunding_strong_a"><a name="funding"><strong>Funding</strong></a></h4>
 <div>
@@ -1126,18 +1132,18 @@
 <h5>
 	<a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h5>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPdENEY1ZNS1h2RDA/edit?usp=sharing" target="_blank">Documentation</a> - currently integrated version of Detroit API</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPdENEY1ZNS1h2RDA/edit?usp=sharing" target="_blank">Documentation</a> - original version of Detroit API</div>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWGZkbGE3bXJYczQ/edit?usp=sharing" target="_blank">Changes documentation</a> - updated Detroit API (changes not integrated)</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWGZkbGE3bXJYczQ/edit?usp=sharing" target="_blank">Changes documentation</a> - updated Detroit API (changes integrated)</div>
 <ul>
 	<li>
 		This is our largest source for grants.</li>
 	<li>
 		Currently, the API only returns grants to and from organizations in our Detroit instance region; this will change soon and they&#39;ll create a similar API that serves Bay Area grants.</li>
 	<li>
-		We should pull from this source frequently - probably at least once a week.</li>
+		We should pull from this source once a week.</li>
 	<li>
-		The database will columns from this source that will not be duplicated for any other funding source. (See funding schema for details.)</li>
+		The database has columns from this source that will not be duplicated for any other funding source. (See funding schema for details.)</li>
 	<li>
 		All grantmakers and grantees from this source should be imported if they don&#39;t already exist in our system.</li>
 	<li>
@@ -1148,16 +1154,12 @@
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPVDZ3ZFFoTXVBREk/edit?usp=sharing" target="_blank">Link to CSV</a> - Grants from NEA to Detroit non-profit organizations</div>
 <div>
-	Grants from NEA to Bay Area non-profit organizations - waiting for cleaning</div>
+	<a href="https://drive.google.com/file/d/0BwFBkNFS89SjMzlUbUppV09DdjQ/edit?usp=sharing" target="_blank">Link to spreadsheet</a> - Grants from NEA to Bay Area non-profit organizations</div>
 <ul>
-	<li>
-		These grants are already imported for Detroit instance.</li>
 	<li>
 		All grants from this source should have the grantmaker_id set as the NEA (National Endowment for the Arts).</li>
 	<li>
-		Question: how are current grants matched w/ organizations in front end code by Stamen?&nbsp;(There is no EIN for grantees in this data set.)</li>
-	<li>
-		<a name="no-ein">We don&#39;t have EINs for the organizations in the NEA and NASAA spreadsheets</a>. We need to figure out if these organizations exist in our database, and if they do, connect their grant information from NEA and NASAA with their organization information from Guidestar. I suggest a name lookup. Here&#39;s one idea for how this could be done:</li>
+		<a name="no-ein">We don&#39;t have EINs for the organizations in the NEA and NASAA spreadsheets</a>. We use a name lookup to figure out if these organizations exist in our database, and if they do, connect their grant information from NEA and NASAA with their organization information from Guidestar.&nbsp;</li>
 </ul>
 <ol style="margin-left: 40px;">
 	<li>
@@ -1182,16 +1184,14 @@
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPNmFoRVpMT2tTVm8/edit?usp=sharing">Link to spreadsheet</a> - Grants from Michigan Council for Arts &amp; Cultural Affairs to Detroit non-profit orgs</div>
 <div>
-	Grants from California Arts Council to non-profit orgs - acquired but not cleaned</div>
+	<a href="https://docs.google.com/file/d/0BwFBkNFS89SjNjdNWW50dzRld1U/edit" target="_blank">Link to spreadsheet</a> - Grants from California Arts Council to non-profit orgs</div>
 <ul>
 	<li>
-		The Detroit data set is already imported; however, there was a mistake in the data cleaning and it must be re-imported. <strong>Do not migrate this data set from the old database.</strong></li>
+		All grants in the NASAA (National Association for State Arts Agencies) spreadsheet for each region will come from a single grantmaker. The NASAA imports will have a different grantmaker organization for each state, so somehow, we need to be able to set one organization for each instance as the &quot;state arts agency,&quot; and that&#39;s the organization that will be the grantmaker for all NASAA-imported grants.</li>
 	<li>
-		All grants in the NASAA (National Association for State Arts Agencies) spreadsheet for each region will come from a single grantmaker. In the Detroit spreadsheet, that&#39;s the Michigan Council for Arts &amp; Cultural Affairs. The NASAA imports will have a different grantmaker organization for each state, so somehow, we need to be able to set one organization for each instance as the &quot;state arts agency,&quot; and that&#39;s the organization that will be the grantmaker for all NASAA-imported grants.</li>
+		There is <a href="#no-ein">no EIN for grantees in this data set</a>.</li>
 	<li>
-		Question: how are current grants matched w/ organizations in front end code by Stamen? (There is <a href="#no-ein">no EIN for grantees in this data set</a>.)</li>
-	<li>
-		Grantees from this data set should be flagged for admin review (comment = &quot;Grantee from NASAA data source&quot;). After an admin has found an EIN for all orgs, the organizations not already in the database should be marked for inclusion in the next M Turk batch.</li>
+		Grantees from this data set should be processed by the merge script.</li>
 </ul>
 <h5>
 	<a name="ksprojects">Kickstarter (Kickstarter Projects Funding Data)</a></h5>
@@ -1216,10 +1216,10 @@
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWmlQYm1IemU4c1E/edit?usp=sharing" target="_blank">Link to CSV </a>- Detroit Instance Individual Donors</div>
 <div>
-	Bay Area Instance Individual Donors - acquired but not cleaned</div>
+	<a href="https://drive.google.com/file/d/0BwFBkNFS89SjRk9yR09oUGRCeVU/edit?usp=sharing" target="_blank">Link to spreadsheet</a> - Bay Area Instance Individual Donors</div>
 <ul>
 	<li>
-		These will be displayed on maps by city and amount.</li>
+		These are displayed on the chord diagram w/ funder = Vanguard.</li>
 	<li>
 		There is no information about who is giving these donations -- these grants are anonymous. This means we will have no grantmaker information for this data set.</li>
 </ul>
@@ -1231,8 +1231,6 @@
 <ul>
 	<li>
 		<a href="https://docs.google.com/document/d/1koTKlFMnxPqlYZrgba8uqjgDp7-dGDfWFO0mL7obAVw/edit" target="_blank">API Sandbox Info</a></li>
-	<li>
-		Bay Area Spaces data is integrated via this API into BACAM.</li>
 	<li>
 		The API Sandbox Info document also contains the fields to store.</li>
 	<li>
@@ -1258,70 +1256,127 @@
 <section id="user_types">
 	<div class="page-header"><h3>User Types</h3><hr class="notop"></div>
 <h4 id="user_types_super_admin">Super Admin</h4>
-<ul>	<li>		Super admin users should be able to edit all data system wide.&nbsp;</li>
-	<li>		Super admins will be Fractured Atlas employees and affiliated developers (e.g. Xentio).</li>
-	<li>		Super admins can create new admin users.</li>
+<ul>
+	<li>
+		Super admin users should be able to edit all data system wide.&nbsp;</li>
+	<li>
+		Super admins will be Fractured Atlas employees and affiliated developers (e.g. Xentio).</li>
+	<li>
+		Super admins can create new admin users.</li>
 </ul>
 <h4 id="user_types_instance_admin">Instance Admin</h4>
-<ul>	<li>		Instance admins should have the same permissions as super admins, but only for a single instance (e.g. Detroit or Bay Area).</li>
-	<li>		Instance admins will be partners in the particular implementation (e.g. Sustain Arts staff members).</li>
-	<li>		Instance admins can be created only by super admins.</li>
+<ul>
+	<li>
+		Instance admins should have the same permissions as super admins, but only for a single instance (e.g. Detroit or Bay Area).</li>
+	<li>
+		Instance admins will be partners in the particular implementation (e.g. Sustain Arts staff members).</li>
+	<li>
+		Instance admins can be created only by super admins.</li>
+	<li>
+		Instance admins cannot create admin or super admin users.</li>
 </ul>
 <h4 id="user_types_users">Users</h4>
-<ul>	<li>		User profiles will be created through a user sign-up process.</li>
-	<li>		Users may choose to give us only their basic information (Email, first name, last name, zip code, password).</li>
-	<li>		If a user completes the advanced user profile, we will also know what type of entity they work for and/or their role in the arts community.</li>
-	<li>		User activation will happen automatically -- we will verify their email and their account will be active.</li>
-	<li>		See schema for users <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdE4xeU1ZYlZNZDFoZm52VDNyQ05RY2c#gid=0" target="_blank">here.</a></li>
-	<li>		For a basic list of features surrounding user profiles and their permissions, see the <a href="https://trello.com/b/FPtTQgPM/sa-features-dev" target="_blank">SA Features (Dev) Trello board</a>&nbsp;(User Profiles/Permissions list).</li>
-	<li>		For a complete mockup of user profile (basic &amp; advanced) creation, see:&nbsp;<a href="https://trello-attachments.s3.amazonaws.com/525dada7fdf226372e000428/5269826c12b17c9f4e000487/876075df1ab31a06b4e8d3a3b94dd44f/user_profiles_wireframe_11262013.pdf" target="_blank">Wireframes for user profiles</a></li>
+<ul>
+	<li>
+		User profiles will be created through a user sign-up process.</li>
+	<li>
+		Users may choose to give us only their basic information (Email, first name, last name, zip code, password).</li>
+	<li>
+		If a user completes the advanced user profile, we will also know what type of entity they work for and/or their role in the arts community.</li>
+	<li>
+		User activation will happen automatically -- we will verify their email and their account will be active.</li>
+	<li>
+		See schema for users <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdE4xeU1ZYlZNZDFoZm52VDNyQ05RY2c#gid=0" target="_blank">here.</a></li>
+	<li>
+		For a basic list of features surrounding user profiles and their permissions, see the <a href="https://trello.com/b/FPtTQgPM/sa-features-dev" target="_blank">SA Features (Dev) Trello board</a>&nbsp;(User Profiles/Permissions list).</li>
+	<li>
+		For a complete mockup of user profile (basic &amp; advanced) creation, see:&nbsp;<a href="https://trello-attachments.s3.amazonaws.com/525dada7fdf226372e000428/5269826c12b17c9f4e000487/876075df1ab31a06b4e8d3a3b94dd44f/user_profiles_wireframe_11262013.pdf" target="_blank">Wireframes for user profiles</a></li>
 </ul>
 <h4 id="user_types_users_39_relationships_to_entities">Users&#39; Relationships to Entities</h4>
-<ul>	<li>		Users may be associated with entities in the following ways:</li>
-	<li>		For entity types nonprofit, for-profit, government:
-		<ul>			<li>				A user can claim only one entity.</li>
-			<li>				Multiple users can claim the same entity.</li>
+<ul>
+	<li>
+		Users may be associated with entities in the following ways:</li>
+	<li>
+		For entity types nonprofit, for-profit, government:
+		<ul>
+			<li>
+				A user can claim only one entity.</li>
+			<li>
+				Multiple users can claim the same entity.</li>
 		</ul>
 	</li>
-	<li>		For entity type individual artist:
-		<ul>			<li>				A user can claim one and only one individual artist profile that exists in our database.</li>
-			<li>				Multiple users can *not* claim the same individual artist profile. If a user tries to claim an individual artist profile that has already been claimed by another user, the front end should offer the user a way to contact support and dispute the claim.</li>
-			<li>				A user can claim *both* an individual artist profile and a business entity (nonprofit, for-profit, government, and project). (This is because users may be both an artist and work for an arts and culture entity.)</li>
-			<li>				Users can also add entities to the database.
-				<ul>					<li>						Like claiming entities, they may add a single business entity (nonprofit, for-profit, government, or project) and/or an individual artist profile.</li>
-					<li>						Once the user adds an entity, the rules for claiming that entity are the same as above.</li>
+	<li>
+		For entity type individual artist:
+		<ul>
+			<li>
+				A user can claim one and only one individual artist profile that exists in our database.</li>
+			<li>
+				Multiple users can *not* claim the same individual artist profile. If a user tries to claim an individual artist profile that has already been claimed by another user, the front end should offer the user a way to contact support and dispute the claim.</li>
+			<li>
+				A user can claim *both* an individual artist profile and a business entity (nonprofit, for-profit, government, and project). (This is because users may be both an artist and work for an arts and culture entity.)</li>
+			<li>
+				Users can also add entities to the database.
+				<ul>
+					<li>
+						Like claiming entities, they may add a single business entity (nonprofit, for-profit, government, or project) and/or an individual artist profile.</li>
+					<li>
+						Once the user adds an entity, the rules for claiming that entity are the same as above.</li>
 				</ul>
 			</li>
-			<li>				Users can never be associated with entities of type: project. (They cannot add or claim these entities.)</li>
+			<li>
+				Users can never be associated with entities of type: project. (They cannot add or claim these entities.)</li>
 		</ul>
 	</li>
-	<li>		Once a user is associated with any entity, that user may edit some data for the entity. For a complete list of user-editable fields, see column D in the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">entities schema</a>.</li>
+	<li>
+		Once a user is associated with any entity, that user may edit some data for the entity. For a complete list of user-editable fields, see column D in the <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">entities schema</a>.</li>
 </ul>
 <h4 id="user_types_user_permissions">User Permissions</h4>
-<ul>	<li>		Only a logged in user can tag an entity.</li>
+<ul>
+	<li>
+		Only a logged in user can tag an entity.</li>
 </ul>
 <h4 id="user_types_user_types_amp_presets">User Types &amp; Presets</h4>
-<ul>	<li>		A user has the option to create an advanced user profile.</li>
-	<li>		If a user has an advanced profile, they will tell us the following:</li>
-	<li>		Who they work for in the $entityregion arts community (they can choose one)
-		<ul>			<li>				<strong>nonprofit organization</strong></li>
-			<li>				arts-related for-profit business</li>
-			<li>				<strong>foundation</strong></li>
-			<li>				<strong>government</strong></li>
+<ul>
+	<li>
+		A user has the option to create an advanced user profile.</li>
+	<li>
+		If a user has an advanced profile, they will tell us the following:</li>
+	<li>
+		Who they work for in the $entityregion arts community (they can choose one)
+		<ul>
+			<li>
+				<strong>nonprofit organization</strong></li>
+			<li>
+				arts-related for-profit business</li>
+			<li>
+				<strong>foundation</strong></li>
+			<li>
+				<strong>government</strong></li>
 		</ul>
 	</li>
-	<li>		What is their role in the $entityregion arts community (they can choose multiple)
-		<ul>			<li>				<strong>artist</strong></li>
-			<li>				arts educator</li>
-			<li>				<strong>researcher/consultant/policy-maker</strong></li>
-			<li>				arts patron</li>
-			<li>				individual donor</li>
-			<li>				journalist/blogger</li>
+	<li>
+		What is their role in the $entityregion arts community (they can choose multiple)
+		<ul>
+			<li>
+				<strong>artist</strong></li>
+			<li>
+				arts educator</li>
+			<li>
+				<strong>researcher/consultant/policy-maker</strong></li>
+			<li>
+				arts patron</li>
+			<li>
+				individual donor</li>
+			<li>
+				journalist/blogger</li>
 		</ul>
 	</li>
-	<li>		If the user chooses one of the bold entities, that will dictate which preset questions we display.</li>
-	<li>		If the user does not choose a bold entity they work for, but DOES choose &quot;artist,&quot; or &quot;researcher/consultant/policy-maker,&quot; we will use the information to dictate which preset questions we display.</li>
-	<li>		If the user chooses a role or entity type that is not bold, they see the default preset questions.</li>
+	<li>
+		If the user chooses one of the bold entities, that will dictate which preset questions we display.</li>
+	<li>
+		If the user does not choose a bold entity they work for, but DOES choose &quot;artist,&quot; or &quot;researcher/consultant/policy-maker,&quot; we will use the information to dictate which preset questions we display.</li>
+	<li>
+		If the user chooses a role or entity type that is not bold, they see the default preset questions.</li>
 </ul>
 </section>
 <section id="features">
