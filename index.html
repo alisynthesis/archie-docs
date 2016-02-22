@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8">
 	
-	<title>Sustain Arts Specification - Feature Requirements and Data Sources</title>
+	<title>Sustain Arts Specification - Data Sources and Usage</title>
 	
 	<meta name="description" content="This document will detail requirements for all Sustain Arts features, data requirements, and data sources. It will contain all known documentation for data sources as well.">
 	<meta name="author" content="Alison Wilder">
@@ -101,7 +101,7 @@
 	<div id="documenter_content">
 	<section id="documenter_cover">
 	<h1>Sustain Arts Specification</h1>
-	<h2>Feature Requirements and Data Sources</h2>
+	<h2>Data Sources and Usage</h2>
 	<div id="documenter_buttons">
 		<a href="http://www.fracturedatlas.org/site/technology/archipelago" class="btn btn-primary btn-large">Fractured Atlas</a> <a href="http://sustainarts.org" class="btn btn-large">Sustain Arts</a> 
 	</div>
@@ -527,6 +527,10 @@
 	&nbsp;</p>
 <h4 id="data_types_stronga_name"entities"entities_a_strong"><strong><a name="entities">Entities</a></strong></h4>
 <ul>
+<li>
+  		<div>		  		<div>
+ +			<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web" target="_blank">Entities schema</a></div>
+ +	</li>
 	<li>
 		<div>
 			All entities should be geocoded and available for mapping. In the event that an address is a Post Office Box or cannot be displayed for other reasons, the geocoding should be set to City, State (e.g. Detroit, MI).</div>
@@ -537,7 +541,7 @@
 		<ul>
 			<li>
 				<div>
-					Visibility: Live (available to the front end), Pending (not available to the front end), and Inactive (not available to the front end)</div>
+					Visibility: Live (available to the front end), Pending (not available to the front end except when searching by entity id), and Inactive (not available to the front end)</div>
 			</li>
 			<li>
 				<div>
@@ -545,12 +549,12 @@
 			</li>
 			<li>
 				<div>
-					Administrator Flag Comment: should provide a reason for the admin flag</div>
+					Administrator Flag Comment: provides a reason for the admin flag</div>
 			</li>
 		</ul>
 	</li>
 	<li>
-		All entities should be marked with one or more of the following disciplines:
+		All entities must be marked with one or more of the following disciplines:
 		<ul>
 			<li>
 				Music</li>
@@ -603,7 +607,7 @@
 		</ul>
 	</li>
 	<li>
-		All individual entities (of all types) should have a list of tags. (Associated user stories in Trello: <a href="https://trello.com/c/radf16o8/35-a-logged-in-user-should-be-able-to-tag-an-entity" target="_blank">a user should be able to tag an entity</a>; <a href="https://trello.com/c/2tYzuYwb/32-tags-should-be-searchable-in-the-main-search-bar">tags should be searchable</a>.)</li>
+		All individual entities (of all types) should have a list of tags.</li>
 	<li>
 		All entity types should be able to be delivered to the front end of the application separately from one another. For instance, the front end should be able to get a list of *only* non-profit entities, as well as be able to call a list that includes *both* for-profit and project entities.</li>
 	<li>
@@ -613,8 +617,6 @@
 				Entities of the following types may be added or claimed: nonprofit, for-profit, government, or individual artist.</li>
 			<li>
 				Project entities will never be edited or claimed by users.</li>
-			<li>
-				See <a href="https://trello.com/c/nzYpXle6/50-a-logged-in-user-should-be-able-to-add-an-entity-to-an-instance" target="_blank">Trello story</a> for details (including attached wireframes).</li>
 			<li>
 				Once a user is associated with any entity, that user may edit some data for the entity. For a complete list of user-editable fields, see column D in the&nbsp;<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdGk2VzV6Q3M1VDNSRl9wQ2lZaXE4dVE&amp;usp=drive_web#gid=5" target="_blank">entities schema</a>.</li>
 		</ul>
@@ -712,12 +714,12 @@
 				<li>
 					the instance region (see counties for Detroit and Bay Area instances <a href="https://docs.google.com/document/d/17gHwV3NBAFN4Wxml-N0BFPKscNNwdW7kZ2Owc0vf2FI/edit?usp=sharing">here</a>)</li>
 				<li>
-					a script that pulls and classifies organizations according to some criteria. (Script documentation in progress; it&#39;s built in to BACAM already.) On import, data is first passed through a script that makes an initial attempt to classify organizations, then each organization in Match Scores 3-5 is goes through Amazon Mechanical Turk processing to classify disciplines and activity. Current non-profit data in both Detroit and San Francisco has undergone both processes, <strong>so this data needs to be migrated from the old databases.</strong></li>
+					a script that pulls and classifies organizations according to some criteria. (Script documentation <a href="https://docs.google.com/document/d/1NTWGfCshJvlj19LSdWnY7ubdi3cj_zDdk-34_5bZ0Rg/edit" target="_blank">here</a>.) On import, data is first passed through a script that makes an initial attempt to classify organizations, then each organization in Match Scores 3-5 goes through Amazon Mechanical Turk processing to classify disciplines and activity.</li>
 			</ol>
 		</div>
 	</li>
 	<li>
-		The application should pull from the API once per year. All new organizations should be exported and sent to Alison Conard to be put through the Mechanical Turk process.</li>
+		The application should pull from the API once per year. All new organizations should be exported and sent to Alison Wilder to be put through the Mechanical Turk process.</li>
 	<li>
 		All newly-imported organizations should be set to visibility: pending and marked for inclusion in the next Mechanical Turk batch.</li>
 	<li>
@@ -740,10 +742,10 @@
 	</li>
 	<li>
 		<div>
-			Starting next year (2013 data), we will begin annual migration of our current organization records to the history table. The NCCS order was only necessary so that we could get back-dated records for the organizations, as historical data is not available from Guidestar.</div>
+			Starting next year (2013 data), we will begin annual migration of our current organization records to the history table. The NCCS order was only necessary so that we could get back-dated records for the organizations, as historical data is not available from Guidestar. The only exception to this (as of April 2014) is the financial scenarios feature, which uses data from the Core files that&#39;s only available from NCCS. If that feature is to be updated, we will need to continue to purchase the NCCS core file annually.</div>
 	</li>
 	<li>
-		There are two spreadsheets: one with detailed records on a smaller number of non-profits, and another with less detailed records on all non-profits in our database.
+		There are two spreadsheets: one with detailed records on a smaller number of non-profits (Core), and another with less detailed records on all non-profits in our database (Business Master File).
 		<ul>
 			<li>
 				Each year is stored in a separate tab in the spreadsheets.</li>
@@ -761,9 +763,9 @@
 <h5>
 	<a name="cdp">Cultural Data Project (CDP - Extended Non-Profit Info)</a></h5>
 <div>
-	<a href="https://docs.google.com/file/d/0B4vBl2qdSnVPbU56bURjbmRQam8/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit Organizations</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPREUyTVctOUtvLWs/edit?usp=sharing" target="_blank">Link to CSV</a>&nbsp;- Detroit businesses</div>
 <div>
-	San Francisco Organizations - data set not yet acquired&nbsp;(spreadsheet)</div>
+	San Francisco businesses - data set not yet acquired&nbsp;(spreadsheet)</div>
 <ul>
 	<li>
 		<div>
@@ -847,10 +849,14 @@
 <p>
 	The API will be undergoing changes soon and will provide financial data (a &quot;full profile&quot;), in addition to the data it currently provides.</p>
 <p>
+<a href="https://docs.google.com/document/d/1CkW_H05em95vMEx3CPYfhdb3cjhtMAWC6tg1Q_NXzEU/edit" target="_blank">Fiscal Sponsorship API Information</a></p>
+<p>
+<a href="http://api.fracturedatlas.org/fs/projects/archipelago.xsd" target="_blank">http://api.fracturedatlas.org/fs/projects/archipelago.xsd</a></p>
+<p>
+<a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdFJiWHhqNHA2aFA3a3F1NlpTN19EZHc&amp;usp=drive_web#gid=0" target="_blank">List of FA fiscal sponsorship fields</a></p>
+<p>
 	This data should be pulled once/week.</p>
 <ul>
-	<li>
-		All fiscally-sponsored projects should be classified as &quot;project.&quot;</li>
 	<li>
 		The Archipelago software should be able to access the Fractured Atlas fiscal sponsorship database and sync project records on a regular basis.</li>
 	<li>
@@ -862,7 +868,7 @@
 			</li>
 			<li>
 				<div>
-					All FA sponsored projects are &quot;unincorporated&quot; entities.</div>
+					All FA sponsored projects are entities of type &quot;project&quot; w/ sub-type: &quot;fiscally-sponsored&quot;.</div>
 			</li>
 			<li>
 				<div>
@@ -894,7 +900,7 @@
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPY1dmcW5SLW96QjQ/edit?usp=sharing" target="_blank">Link to spreadsheet</a>&nbsp;- Detroit local arts agencies</div>
 <div>
-	San Francisco local arts agencies - data set not yet acquired</div>
+	San Francisco local arts agencies - data set not yet acquired; most are in the BACAM database already</div>
 <div>
 	&nbsp;</div>
 <div>
@@ -903,7 +909,7 @@
 	State arts agency (California - for Bay Area instance) - California Arts Council (status unknown)</div>
 <ul>
 	<li>
-		All state and local arts agencies are entities and should be classified as &quot;government.&quot;</li>
+		All state and local arts agencies are entities and should be classified as &quot;government&quot; with sub-types state_government or local_government.</li>
 </ul>
 <h5>
 	<a name="nea">National Endowment for the Arts (NEA - national govt. arts funder)</a></h5>
@@ -919,7 +925,7 @@
 <h5>
 	<a name="trg">TRG (List of Audience Members)</a></h5>
 <div>
-	Detroit Audience List - data set not yet collected; <strong>this data set might not be acquired in time for Detroit launch</strong></div>
+	Detroit Audience List - unavailable in Detroit</div>
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPYmxOV2U4TVNEOVE/edit?usp=sharing" target="_blank">Link to file</a>&nbsp;- Bay Area Audience List</div>
 <ul>
@@ -932,7 +938,7 @@
 	<li>
 		If the Detroit audience list is collected, the fields may be slightly different from the Bay Area list.</li>
 	<li>
-		Each HHID belongs to a single audience member. The front end should be able to display trends in audience crossover between non-profit organizations. (If audience member 11111 patronized organizations X &amp; Y and audience member 22222 patronized organizations X, Y and Z, then organizations X &amp; Y share an audience member in common.)</li>
+		Each HHID belongs to a single audience member.</li>
 </ul>
 <h5>
 	<a name="policymap">PolicyMap API (Demographic Info: 2000 and 2010)</a></h5>
@@ -941,7 +947,7 @@
 <p>
 	The PolicyMap API is our source for demographic information from the US Census from 2000 and 2010, as well as boundary data.</p>
 <p>
-	The PolicyMap AP is not well-documented. There is an API demo site; see the link above for information.</p>
+	The PolicyMap API is not well-documented. There is an API demo site; see the link above for information.</p>
 <p>
 	There is also a <a href="http://www.policymap.com/data-api-overview.html">technical overview</a> on their website; however, this has not been updated since changes have been made to the API, so I&#39;m not sure how much of the information is valid.</p>
 <p>
@@ -993,19 +999,15 @@
 		We should discuss how best to import; I believe it will require significant formatting.</li>
 	<li>
 		The smallest region this data is available for is the county level. The spreadsheets have tabs for each county; the front end will need to be able to call data for each county separately.</li>
+<li>
+This data set is not used in the front end of the Sustain Arts app as of April 2014.</li>
 </ul>
 <h5>
 	<a name="sppa">Survey of Public Participation in the Arts (SPPA - historical participation info)</a></h5>
 <div>
-	not processed - 2002 national data</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPMnYtRUducnMyVDQ/edit?usp=sharing" target="_blank">Link to spreadsheet</a> - 2002, 2008, 2012 National data in same format as Scarborough data (years are in tabs of spreadsheet)</div>
 <div>
-	not processed - 2008 national data</div>
-<div>
-	not processed - 2012 national data</div>
-<div>
-	not processed - 2002, 2008, 2012 Michigan data</div>
-<div>
-	not processed - 2002, 2008, 2012 Bay Area data</div>
+<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPaTVhSXVvS0t0dFE/edit?usp=sharing" target="_blank">Link to spreadsheet</a> - data &amp; formulas for predicting participation based on input demographic profile (from 2012 SPPA); explanation of process &amp; formulas <a href="https://drive.google.com/file/d/0B4vBl2qdSnVPUlgtUDZ5OWhrMms/edit?usp=sharing" target="_blank">here</a></div>
 <ul>
 	<li>
 		The SPPA data will be used for two purposes:
@@ -1018,6 +1020,9 @@
 	</li>
 	<li>
 		Each import file will be set up in exactly the same way for easy comparison.</li>
+<li>
+The survey-format data (first link above) is not used in the front end of the Sustain Arts app as of April 2014.
+</li>
 </ul>
 <h5>
 	<a name="cdp-participation">Cultural Data Project (CDP - attendance info by artistic discipline)</a></h5>
@@ -1035,18 +1040,18 @@
 <h5>
 	<a name="fc-api">Foundation Center API (private grants to non-profit organizations)</a></h5>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPdENEY1ZNS1h2RDA/edit?usp=sharing" target="_blank">Documentation</a> - currently integrated version of Detroit API</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPdENEY1ZNS1h2RDA/edit?usp=sharing" target="_blank">Documentation</a> - original version of Detroit API</div>
 <div>
-	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWGZkbGE3bXJYczQ/edit?usp=sharing" target="_blank">Changes documentation</a> - updated Detroit API (changes not integrated)</div>
+	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWGZkbGE3bXJYczQ/edit?usp=sharing" target="_blank">Changes documentation</a> - updated Detroit API (changes integrated)</div>
 <ul>
 	<li>
 		This is our largest source for grants.</li>
 	<li>
 		Currently, the API only returns grants to and from organizations in our Detroit instance region; this will change soon and they&#39;ll create a similar API that serves Bay Area grants.</li>
 	<li>
-		We should pull from this source frequently - probably at least once a week.</li>
+		The Foundation Center database we're pulling from is static - as of the Bay Area instance, they haven't updated our db until we have asked them to.</li>
 	<li>
-		The database will columns from this source that will not be duplicated for any other funding source. (See funding schema for details.)</li>
+		Our database has columns from this source that will not be duplicated for any other funding source. (See funding schema for details.)</li>
 	<li>
 		All grantmakers and grantees from this source should be imported if they don&#39;t already exist in our system.</li>
 	<li>
@@ -1057,16 +1062,12 @@
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPVDZ3ZFFoTXVBREk/edit?usp=sharing" target="_blank">Link to CSV</a> - Grants from NEA to Detroit non-profit organizations</div>
 <div>
-	Grants from NEA to Bay Area non-profit organizations - waiting for cleaning</div>
+	<a href="https://drive.google.com/file/d/0BwFBkNFS89SjMzlUbUppV09DdjQ/edit?usp=sharing" target="_blank">Link to spreadsheet</a> - Grants from NEA to Bay Area non-profit organizations</div>
 <ul>
-	<li>
-		These grants are already imported for Detroit instance.</li>
 	<li>
 		All grants from this source should have the grantmaker_id set as the NEA (National Endowment for the Arts).</li>
 	<li>
-		Question: how are current grants matched w/ organizations in front end code by Stamen?&nbsp;(There is no EIN for grantees in this data set.)</li>
-	<li>
-		<a name="no-ein">We don&#39;t have EINs for the organizations in the NEA and NASAA spreadsheets</a>. We need to figure out if these organizations exist in our database, and if they do, connect their grant information from NEA and NASAA with their organization information from Guidestar. I suggest a name lookup. Here&#39;s one idea for how this could be done:</li>
+		<a name="no-ein">We don&#39;t have EINs for the organizations in the NEA and NASAA spreadsheets</a>. We use a name lookup to figure out if these organizations exist in our database, and if they do, connect their grant information from NEA and NASAA with their organization information from Guidestar.&nbsp;</li>
 </ul>
 <ol style="margin-left: 40px;">
 	<li>
@@ -1091,14 +1092,14 @@
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPNmFoRVpMT2tTVm8/edit?usp=sharing">Link to spreadsheet</a> - Grants from Michigan Council for Arts &amp; Cultural Affairs to Detroit non-profit orgs</div>
 <div>
-	Grants from California Arts Council to non-profit orgs - acquired but not cleaned</div>
+	<a href="https://docs.google.com/file/d/0BwFBkNFS89SjNjdNWW50dzRld1U/edit" target="_blank">Link to spreadsheet</a> - Grants from California Arts Council to non-profit orgs</div>
 <ul>
 	<li>
-		The Detroit data set is already imported; however, there was a mistake in the data cleaning and it must be re-imported. <strong>Do not migrate this data set from the old database.</strong></li>
+		All grants in the NASAA (National Association for State Arts Agencies) spreadsheet for each region will come from a single grantmaker. The NASAA imports will have a different grantmaker organization for each state, so somehow, we need to be able to set one organization for each instance as the &quot;state arts agency,&quot; and that&#39;s the organization that will be the grantmaker for all NASAA-imported grants.</li>
 	<li>
-		All grants in the NASAA (National Association for State Arts Agencies) spreadsheet for each region will come from a single grantmaker. In the Detroit spreadsheet, that&#39;s the Michigan Council for Arts &amp; Cultural Affairs. The NASAA imports will have a different grantmaker organization for each state, so somehow, we need to be able to set one organization for each instance as the &quot;state arts agency,&quot; and that&#39;s the organization that will be the grantmaker for all NASAA-imported grants.</li>
-	<li>
-		Question: how are current grants matched w/ organizations in front end code by Stamen? (There is <a href="#no-ein">no EIN for grantees in this data set</a>.)</li>
+		There is <a href="#no-ein">no EIN for grantees in this data set</a>.</li>
+<li>
+Grantees from this data set should be processed by the merge script.</li>
 </ul>
 <h5>
 	<a name="ksprojects">Kickstarter (Kickstarter Projects)</a></h5>
@@ -1141,7 +1142,7 @@
 <div>
 	<a href="https://drive.google.com/file/d/0B4vBl2qdSnVPWmlQYm1IemU4c1E/edit?usp=sharing" target="_blank">Link to CSV </a>- Detroit Instance Individual Donors</div>
 <div>
-	Bay Area Instance Individual Donors - acquired but not cleaned</div>
+	<a href="https://drive.google.com/file/d/0BwFBkNFS89SjRk9yR09oUGRCeVU/edit?usp=sharing" target="_blank">Link to spreadsheet</a> - Bay Area Instance Individual Donors</div>
 <ul>
 	<li>
 		These will be displayed on maps by city and amount.</li>
@@ -1185,7 +1186,7 @@
 <h4 id="user_types_super_admin">Super Admin</h4>
 <ul>
 	<li>
-		Super admin users should be able to edit all data system wide.&nbsp;</li>
+		Super admin users should be able to edit all data system wide.&nbs</li>
 	<li>
 		Super admins will be Fractured Atlas employees and affiliated developers (e.g. Xentio).</li>
 	<li>
@@ -1199,6 +1200,8 @@
 		Instance admins will be partners in the particular implementation (e.g. Sustain Arts staff members).</li>
 	<li>
 		Instance admins can be created only by super admins.</li>
+<li>
+Instance admins cannot create admin or super admin users.</li>
 </ul>
 <h4 id="user_types_users">Users</h4>
 <ul>
@@ -1207,9 +1210,9 @@
 	<li>
 		Users may choose to give us only their basic information (Email, first name, last name, zip code, password).</li>
 	<li>
-		If a user completes the advanced user profile, we will also know what type of entity they work for and/or their role in the arts community.</li>
+		If a user completes the advanced user profile, we also know what type of entity they work for and/or their role in the arts community.</li>
 	<li>
-		User activation will happen automatically -- we will verify their email and their account will be active.</li>
+		User activation happens automatically -- we verify their email and their account will be active.</li>
 	<li>
 		See schema for users <a href="https://docs.google.com/spreadsheet/ccc?key=0AovBl2qdSnVPdE4xeU1ZYlZNZDFoZm52VDNyQ05RY2c#gid=0" target="_blank">here.</a></li>
 	<li>
@@ -1259,8 +1262,7 @@
 <ul>
 	<li>
 		Only a logged in user can tag an entity.</li>
-</ul>
-</section>
+</ul></section>
 <section id="features">
 	<div class="page-header"><h3>Features</h3><hr class="notop"></div>
 <div>
